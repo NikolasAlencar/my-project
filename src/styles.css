@@ -1,0 +1,19 @@
+body{
+    white-space: nowrap;
+    background-color: rgba(143, 143, 143, 0.274);
+    overflow-y: scroll;
+    overflow-x: scroll;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;               
+}
+ 
+body::-webkit-scrollbar-track {
+    background: rgba(143, 143, 143, 0.274);        
+}
+  
+body::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #000537 60%, #2d2e62 100%);    
+    border-radius: 10px;       
+}

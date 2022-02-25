@@ -1,0 +1,38 @@
+.principal{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    background: linear-gradient(90deg, #000537 60%, #2d2e62 100%);
+    color: white;
+    padding: 12px 23px 12px 23px;
+    font-weight: 500;
+    position: absolute;
+    left: 10;
+    width: 100%;
+}
+
+.iconeSair{
+    width: 25px;
+    height: 25px;
+}
+
+.iconeLista{
+    width: 25px;
+    height: 25px;
+}
+
+.item{
+    margin: 10px;
+    font-size: 20px;
+}
+
+.option-consultar{
+    display: flex;
+    align-items: center;
+}
+
+.option-sair{
+    display: flex;
+    align-items: center;
+}

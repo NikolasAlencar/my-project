@@ -1,0 +1,85 @@
+.title{
+    font-weight: 500;
+    font-size: 20px;
+    padding-top: 15px;
+    margin: 0px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.subtitle{
+    color:  rgba(0, 0, 0, 0.38); 
+    margin: 0px 15px;
+}
+
+hr{
+    border-color:rgba(94, 94, 94, 0.24);
+    box-sizing:border-box;
+    width:100%;   
+}
+
+.principal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.87);
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.144);
+}
+
+.a{
+    background-color: rgba(143, 143, 143, 0.274);
+    padding: 3px;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.primary{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 30px;
+}
+
+.input-usuario{
+    margin-top: 5px;
+    width: 100%;
+}
+
+.last{
+    margin-top: 20px;
+}
+
+.pesquisar{
+    width: 100%;
+    background: white;
+    color:  rgba(0, 0, 0, 0.38);
+    border: none;
+    margin-top: 50px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.button{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+img{
+    height: 20px;
+    width: 20px;
+}
+
+.img{
+    margin-bottom: 15px;
+    margin-right: 5px;
+}
+
+

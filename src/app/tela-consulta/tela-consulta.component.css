@@ -1,0 +1,75 @@
+.title{
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+.principal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    color: rgba(0, 0, 0, 0.87);
+    background-color: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 5px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.144);
+}
+
+.a{
+    background-color: rgba(143, 143, 143, 0.274);
+    padding: 3px;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.primary{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.secondary{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-item{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.last-item{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 25px;
+}
+
+.input-cpf{
+    margin-top: 25px;
+    width: 100%;
+}
+
+.item-label{
+    margin-top: 3px;
+    font-size: 14px;
+}
+
+.pesquisar{
+    width: 100%;
+    background: linear-gradient(90deg, #000537 60%, #2d2e62 100%);
+    margin-top: 25px;
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 10px;
+}

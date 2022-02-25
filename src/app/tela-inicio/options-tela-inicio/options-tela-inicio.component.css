@@ -1,0 +1,14 @@
+.principal{
+    display: flex;
+    flex-direction: column;
+    color: rgba(0, 0, 0, 0.87);
+    background-color: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 5px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.144);
+}
+
+.primary{
+    margin-top: 10px;
+}

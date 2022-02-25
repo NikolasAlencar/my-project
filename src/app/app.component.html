@@ -1,0 +1,7 @@
+<!--[ngClass]="!opcoesHeaderAbertas ? 'app-header-aberto' : 'app-header-fechado'" (click)="abrirOpcoes($event)"-->
+<!--<app-header-aberto *ngIf="opcoesHeaderAbertas"></app-header-aberto>-->
+<app-header (mudouOpcoesHeaderAbertas)="onMudouValor($event)"></app-header>
+<!--[ngClass]="!opcoesHeaderAbertas? 'secondary' : 'secondary-fechado'"-->
+<router-outlet></router-outlet>
+    
+  
