@@ -1,26 +1,8 @@
-.secondary{
-    margin-left: 290px;
-}
-
-.secondary-fechado{
-    margin-left: 35px;
-}
-
 app-header-aberto{
     display: flex;
     height: 100%;
     position: fixed;
     z-index: 1;
-}
-
-.app-header-aberto{
-    display: block;
-    transition-delay: 1s;
-}
-
-.app-header-fechado{
-    width: 1px;
-    transition-delay: 5s;
 }
 
 app-header{

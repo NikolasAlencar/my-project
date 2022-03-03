@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TelaInicioService } from './tela-inicio.service';
 
@@ -10,18 +10,22 @@ import { TelaInicioService } from './tela-inicio.service';
 })
 export class AppComponent {
 
-  constructor(private route: ActivatedRoute) { }
+  //constructor(private route: ActivatedRoute) { }
 
-  //OpçõesHeader
-  snapshot: any = this.route.snapshot.url.join('');
+  constructor(private telaInicioService: TelaInicioService, private route: ActivatedRoute) { 
+    this.telaInicioService.aberto$.subscribe(abrir => {
+      const boo = new Boolean(abrir)
+      this.opcoesHeaderAbertas = boo.valueOf()
+    });
+  }
 
-  opcoesHeaderAbertas: boolean = true;
+  opcoesHeaderAbertas: boolean = false;
 
   onMudouValor(evento: any){
     this.opcoesHeaderAbertas = evento;
   }
   
-  ngOnInit(): void {
+  ngOnInit(): void { 
   }
 
   title = 'my-project';

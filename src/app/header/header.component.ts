@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output} from '@angular/core';
-import { of } from 'rxjs';
+import { Subject } from 'rxjs';
+import { TelaInicioService } from '../tela-inicio.service';
 
 @Component({
   selector: 'app-header',
@@ -9,13 +10,12 @@ import { of } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private telaInicioService: TelaInicioService) { }
 
   iconeSair: string = "..//src/assets/img/delete-sign.png";
   iconeLista: string = "..//src/assets/img/list--v1.png";
 
-  opcoesHeaderAbertas: boolean = true;
-
+  opcoesHeaderAbertas: boolean = false;
   @Output() mudouOpcoesHeaderAbertas: EventEmitter<any> = new EventEmitter();
 
   abrirOpcoes(): void{
@@ -25,6 +25,7 @@ export class HeaderComponent implements OnInit {
       this.opcoesHeaderAbertas = false
     }
     this.mudouOpcoesHeaderAbertas.emit(this.opcoesHeaderAbertas)
+    this.telaInicioService.abrirHeader(this.opcoesHeaderAbertas)
   }
 
   ngOnInit(): void {

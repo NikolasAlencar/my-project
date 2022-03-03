@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
 import { TelaConsultaComponent } from './tela-consulta/tela-consulta.component';
 import { TelaInicioComponent } from './tela-inicio/tela-inicio.component';
 import { TelaLoginComponent } from './tela-login/tela-login.component';

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TelaInicioService } from '../tela-inicio.service';
 
 @Component({
   selector: 'app-tela-inicio',
@@ -7,13 +8,15 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TelaInicioComponent implements OnInit {
 
-  constructor() { }
+  constructor(private telaInicioService: TelaInicioService) { 
+    this.telaInicioService.aberto$.subscribe(abrir => {
+      const boo = new Boolean(abrir)
+      this.opcoesHeaderAbertas = boo.valueOf()
+      console.log(this.opcoesHeaderAbertas)
+    });
+  }
 
   opcoesHeaderAbertas: boolean = false;
-
-  onMudouValor(evento: any){
-    this.opcoesHeaderAbertas = evento;
-  }
 
   ngOnInit(): void {
 
