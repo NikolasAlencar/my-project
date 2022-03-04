@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TelaInicioService } from '../tela-inicio.service';
 
 @Component({
   selector: 'app-tela-consulta',
@@ -7,7 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TelaConsultaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private telaInicioService: TelaInicioService) { }
+
+  opcaoSelecionada = 'UserId';
+  valorDigitado: any;
+
+  click(opcaoSelecionada: any){
+    this.opcaoSelecionada = this.telaInicioService.opcaoSelecionada(opcaoSelecionada)
+  }
+
+  pesquisar = () => {
+    this.telaInicioService.consultarPorCpf(this.valorDigitado)
+  }
 
   ngOnInit(): void {
   }

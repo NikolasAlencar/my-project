@@ -17,6 +17,7 @@ import { EnviarParaComponent } from './tela-inicio/options-tela-inicio/options-d
 import { TelaConsultaComponent } from './tela-consulta/tela-consulta.component';
 import { HeaderAbertoComponent } from './header/header-aberto/header-aberto.component';
 import { TelaLoginComponent } from './tela-login/tela-login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { TelaLoginComponent } from './tela-login/tela-login.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   bootstrap: [AppComponent]
 })

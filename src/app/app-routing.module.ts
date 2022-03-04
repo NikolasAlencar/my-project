@@ -5,7 +5,7 @@ import { TelaInicioComponent } from './tela-inicio/tela-inicio.component';
 import { TelaLoginComponent } from './tela-login/tela-login.component';
 
 const routes: Routes = [
-  { path: 'login', component: TelaLoginComponent },
+  { path: '', component: TelaLoginComponent },
   { path: 'consulta', component: TelaConsultaComponent },
   { path: 'home', component: TelaInicioComponent }
 ];

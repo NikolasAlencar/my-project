@@ -1,5 +1,4 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Subject } from 'rxjs';
 import { TelaInicioService } from 'src/app/tela-inicio.service';
 
 @Component({
@@ -13,7 +12,6 @@ export class HeaderAbertoComponent implements OnInit {
     this.telaInicioService.aberto$.subscribe(abrir => {
       const boo = new Boolean(abrir)
       this.opcoesHeaderAbertas = boo.valueOf()
-      console.log(this.opcoesHeaderAbertas)
     });
   }
 

@@ -1,5 +1,4 @@
 import { Component, OnInit, EventEmitter, Output} from '@angular/core';
-import { Subject } from 'rxjs';
 import { TelaInicioService } from '../tela-inicio.service';
 
 @Component({

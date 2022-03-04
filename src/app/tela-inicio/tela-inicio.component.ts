@@ -12,7 +12,6 @@ export class TelaInicioComponent implements OnInit {
     this.telaInicioService.aberto$.subscribe(abrir => {
       const boo = new Boolean(abrir)
       this.opcoesHeaderAbertas = boo.valueOf()
-      console.log(this.opcoesHeaderAbertas)
     });
   }
 

@@ -10,9 +10,9 @@
     </div>
     <hr>
     <div class="primary">
-        <input class="form-control input-usuario" type="text" placeholder="Digite seu usuário" aria-label="default input example">
-        <input class="form-control input-usuario last" type="password" placeholder="Digite a sua senha" aria-label="default input example">
-        <div class="button">
+        <input class="form-control input-usuario" [(ngModel)]="usuario" type="text" placeholder="Digite seu usuário" aria-label="default input example">
+        <input class="form-control input-usuario last" [(ngModel)]="senha" type="password" placeholder="Digite a sua senha" aria-label="default input example">
+        <div class="button" (click)="entrar()">
             <div class="img">
                 <img src="../../assets/img/cadeado.png" alt="">
             </div>
