@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TelaInicioService } from 'src/app/services/tela-inicio.service';
+import { TelaInicioService } from '../tela-inicio.service';
 
 @Component({
   selector: 'app-tela-consulta',
@@ -22,9 +22,6 @@ export class TelaConsultaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(this.telaInicioService.autenticado === false){
-      alert('Você não está logado!')
-      this.telaInicioService.navegarParaLogin()     
-    }
   }
+
 }
