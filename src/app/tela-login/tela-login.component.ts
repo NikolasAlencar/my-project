@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TelaInicioService } from '../tela-inicio.service';
-import { NgModel } from '@angular/forms';
+import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 
 @Component({
   selector: 'app-tela-login',
@@ -16,12 +15,21 @@ export class TelaLoginComponent implements OnInit {
 
   public usuario: string= '';
   public senha: string = '';
+  public autenticado: boolean = false;
 
   entrar = () => {
-    this.telaInicioService.entrar(this.usuario, this.senha)
     
+    this.telaInicioService.usuario = this.usuario  
+    this.telaInicioService.senha = this.senha    
+    this.telaInicioService.entrar(this.usuario, this.senha)
+    this.autenticado = this.telaInicioService.autenticado;
+    console.log(
+      this.telaInicioService.usuario,
+      this.telaInicioService.senha,
+      this.telaInicioService.autenticado)
   }
 
   ngOnInit(): void { 
+    console.log(this.autenticado)
   }
 }
