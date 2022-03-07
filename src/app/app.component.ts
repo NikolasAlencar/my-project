@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TelaInicioService } from './tela-inicio.service';
+import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 
 @Component({
   selector: 'app-root',

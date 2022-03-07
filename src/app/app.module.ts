@@ -18,6 +18,7 @@ import { TelaConsultaComponent } from './tela-consulta/tela-consulta.component';
 import { HeaderAbertoComponent } from './header/header-aberto/header-aberto.component';
 import { TelaLoginComponent } from './tela-login/tela-login.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,39 @@
 {
     "clientes":[
-        {
-            "userId":0,
+            {
+            "login": {
+                "usuario": "nikolas",
+                "senha": "02022001l"
+            },
+            "userId": 1,
+            "nome":"Nikolas",
+            "sobrenome":"Alencar do Carmo",
+            "cpf": "193.766.350-20",
+            "agência": "0284",
+            "conta": "032881-1",
+            "data-de-nascimento": "02/02/2001",
+            "celular": "4002-8922",
+            "nome-da-mae": "Silvia Thompson da Silva",
+            "area":"SM",
+            "email": "nikolasalencarrs73@gmail.com",
+            "endereco": {
+                "cep": "04.910-331",
+                "logradouro": "AC Marcelino Barski",
+                "bairro": "JD Sabara",
+                "cidade": "Porto Alegre",
+                "numero": "226",
+                "complemento": "",
+                "estado": "RS"
+            },
+            "cadastro-criado-em": "27/08/2021 13:44:08",
+            "cadastro-iniciado-em": "27/08/2021 13:44:08"
+        },
+            {
+            "login": {
+                "usuario": "",
+                "senha": ""
+            },
+            "userId": 1,
             "nome":"Jubiscleudo",
             "sobrenome":"Thompson Pinto da Silva",
             "cpf": "193.766.350-20",
@@ -24,8 +56,12 @@
             "cadastro-criado-em": "27/08/2021 13:44:08",
             "cadastro-iniciado-em": "27/08/2021 13:44:08"
         },
-        {
-            "userId":1,
+        {   
+            "login": {
+                "usuario": "",
+                "senha": ""
+            },
+            "userId": 2,
             "nome":"Ricardo",
             "sobrenome":"Araujo Silva",
             "cpf": "293.763.330-20",
@@ -49,6 +85,10 @@
             "cadastro-iniciado-em": "27/08/2021 13:44:08"
         },
         {
+            "login": {
+                "usuario": "",
+                "senha": ""
+            },
             "userId":3,
             "nome":"Rodolfo",
             "sobrenome":"Thompson Pinto da Silva",
@@ -73,6 +113,10 @@
             "cadastro-iniciado-em": "27/08/2021 13:44:08"
         },
         {
+            "login": {
+                "usuario": "",
+                "senha": ""
+            },
             "userId":4,
             "nome":"Bilous",
             "sobrenome":"Thompson Pinto da Silva",
@@ -97,6 +141,10 @@
             "cadastro-iniciado-em": "27/08/2021 13:44:08"
         },
         {
+            "login": {
+                "usuario": "",
+                "senha": ""
+            },
             "userId":5,
             "nome":"Maria",
             "sobrenome":"Thompson Pinto da Silva",
@@ -121,6 +169,10 @@
             "cadastro-iniciado-em": "27/08/2021 13:44:08"
         },
         {
+            "login": {
+                "usuario": "",
+                "senha": ""
+            },
             "userId":6,
             "nome":"Jânio",
             "sobrenome":"Thompson Pinto da Silva",
@@ -145,6 +197,10 @@
             "cadastro-iniciado-em": "27/08/2021 13:44:08"
         },
         {
+            "login": {
+                "usuario": "",
+                "senha": ""
+            },
             "userId":7,
             "nome":"Etevaldo",
             "sobrenome":"Thompson Pinto da Silva",
@@ -169,6 +225,10 @@
             "cadastro-iniciado-em": "27/08/2021 13:44:08"
         },
         {
+            "login": {
+                "usuario": "",
+                "senha": ""
+            },
             "userId":8,
             "nome":"Joaquina",
             "sobrenome":"Thompson Pinto da Silva",
@@ -193,6 +253,10 @@
             "cadastro-iniciado-em": "27/08/2021 13:44:08"
         },
         {
+            "login": {
+                "usuario": "",
+                "senha": ""
+            },
             "userId":9,
             "nome":"Seya",
             "sobrenome":"Thompson Pinto da Silva",
@@ -217,6 +281,10 @@
             "cadastro-iniciado-em": "27/08/2021 13:44:08"
         },
         {
+            "login": {
+                "usuario": "",
+                "senha": ""
+            },
             "userId":10,
             "nome":"Leoncio",
             "sobrenome":"Thompson Pinto da Silva",
