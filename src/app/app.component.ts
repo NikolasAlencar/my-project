@@ -10,8 +10,6 @@ import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 })
 export class AppComponent {
 
-  //constructor(private route: ActivatedRoute) { }
-
   constructor(private telaInicioService: TelaInicioService, private route: ActivatedRoute) { 
     this.telaInicioService.aberto$.subscribe(abrir => {
       const boo = new Boolean(abrir)

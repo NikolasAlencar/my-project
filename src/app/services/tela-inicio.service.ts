@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { AutenticateService } from './autenticate.service';
-import { User } from 'src/assets/model/user';
+//import { User } from 'src/assets/model/user';
 
 @Injectable({
   providedIn: 'root'
