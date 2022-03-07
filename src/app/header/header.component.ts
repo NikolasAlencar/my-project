@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output} from '@angular/core';
-import { TelaInicioService } from 'src/app/services/tela-inicio.service';
+import { TelaInicioService } from '../tela-inicio.service';
 
 @Component({
   selector: 'app-header',

@@ -1,21 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { AutenticateService } from './autenticate.service';
 //import { User } from 'src/assets/model/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TelaInicioService {
-
-  constructor(private router: Router, private autenticateService: AutenticateService) { }
+  
+  constructor(private router: Router) { }
 
   private opcoesHeaderAbertas: boolean = true;
   private opcoesConsulta = ['Cpf', 'Agencia', 'Celular', 'UserId']
-  usuario = '';
-  senha = '';
-  autenticado = false;
 
   //Parte de abrir e fechar o header
   private opcoesAbertas = new Subject<string>();
@@ -27,15 +23,8 @@ export class TelaInicioService {
   }
   //Parte de abrir e fechar o header
 
-  /*
-  adicionaDados(dado: any){
-    this.user = { ...this.user, ...dado }
-  }
-  */
-
   entrar = (login: string, senha: string) => {
-    if (this.verificaLogin(login, senha) === true && this.autenticateService.autenticaLogin() === true){
-      this.autenticado = true
+    if (this.verificaLogin(login, senha) === true){
       this.router.navigate(['/consulta'])
     }else{
       alert('Deu errado!')
@@ -52,10 +41,6 @@ export class TelaInicioService {
     
   verificaLogin(login: string, senha: string): boolean{
     return login.length >= 7 && senha.length >= 7 ? true : false
-  }
-
-  navegarParaLogin(){
-    this.router.navigate([''])
   }
 
   navegarPara(local: any){

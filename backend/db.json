@@ -33,7 +33,7 @@
                 "usuario": "",
                 "senha": ""
             },
-            "userId": 1,
+            "userId": 2,
             "nome":"Jubiscleudo",
             "sobrenome":"Thompson Pinto da Silva",
             "cpf": "193.766.350-20",
@@ -56,12 +56,8 @@
             "cadastro-criado-em": "27/08/2021 13:44:08",
             "cadastro-iniciado-em": "27/08/2021 13:44:08"
         },
-        {   
-            "login": {
-                "usuario": "",
-                "senha": ""
-            },
-            "userId": 2,
+        {
+            "userId":3,
             "nome":"Ricardo",
             "sobrenome":"Araujo Silva",
             "cpf": "293.763.330-20",
@@ -85,11 +81,7 @@
             "cadastro-iniciado-em": "27/08/2021 13:44:08"
         },
         {
-            "login": {
-                "usuario": "",
-                "senha": ""
-            },
-            "userId":3,
+            "userId":4,
             "nome":"Rodolfo",
             "sobrenome":"Thompson Pinto da Silva",
             "cpf": "293.763.330-20",
@@ -113,11 +105,7 @@
             "cadastro-iniciado-em": "27/08/2021 13:44:08"
         },
         {
-            "login": {
-                "usuario": "",
-                "senha": ""
-            },
-            "userId":4,
+            "userId":5,
             "nome":"Bilous",
             "sobrenome":"Thompson Pinto da Silva",
             "cpf": "293.763.330-20",
@@ -141,11 +129,7 @@
             "cadastro-iniciado-em": "27/08/2021 13:44:08"
         },
         {
-            "login": {
-                "usuario": "",
-                "senha": ""
-            },
-            "userId":5,
+            "userId":6,
             "nome":"Maria",
             "sobrenome":"Thompson Pinto da Silva",
             "cpf": "293.763.330-20",
@@ -169,11 +153,7 @@
             "cadastro-iniciado-em": "27/08/2021 13:44:08"
         },
         {
-            "login": {
-                "usuario": "",
-                "senha": ""
-            },
-            "userId":6,
+            "userId":7,
             "nome":"Jânio",
             "sobrenome":"Thompson Pinto da Silva",
             "cpf": "293.763.330-20",
@@ -197,11 +177,7 @@
             "cadastro-iniciado-em": "27/08/2021 13:44:08"
         },
         {
-            "login": {
-                "usuario": "",
-                "senha": ""
-            },
-            "userId":7,
+            "userId":8,
             "nome":"Etevaldo",
             "sobrenome":"Thompson Pinto da Silva",
             "cpf": "293.763.330-20",
@@ -225,11 +201,7 @@
             "cadastro-iniciado-em": "27/08/2021 13:44:08"
         },
         {
-            "login": {
-                "usuario": "",
-                "senha": ""
-            },
-            "userId":8,
+            "userId":9,
             "nome":"Joaquina",
             "sobrenome":"Thompson Pinto da Silva",
             "cpf": "293.763.330-20",
@@ -253,11 +225,7 @@
             "cadastro-iniciado-em": "27/08/2021 13:44:08"
         },
         {
-            "login": {
-                "usuario": "",
-                "senha": ""
-            },
-            "userId":9,
+            "userId":10,
             "nome":"Seya",
             "sobrenome":"Thompson Pinto da Silva",
             "cpf": "293.763.330-20",
@@ -281,11 +249,7 @@
             "cadastro-iniciado-em": "27/08/2021 13:44:08"
         },
         {
-            "login": {
-                "usuario": "",
-                "senha": ""
-            },
-            "userId":10,
+            "userId":11,
             "nome":"Leoncio",
             "sobrenome":"Thompson Pinto da Silva",
             "cpf": "293.763.330-20",
