@@ -19,6 +19,7 @@ import { HeaderAbertoComponent } from './header/header-aberto/header-aberto.comp
 import { TelaLoginComponent } from './tela-login/tela-login.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SpinnerLoadComponent } from './components/spinner-load/spinner-load.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { HttpClientModule } from '@angular/common/http';
     EnviarParaComponent,
     TelaConsultaComponent,
     HeaderAbertoComponent,
-    TelaLoginComponent
+    TelaLoginComponent,
+    SpinnerLoadComponent
   ],
   imports: [
     BrowserModule,

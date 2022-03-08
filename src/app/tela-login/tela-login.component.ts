@@ -16,17 +16,20 @@ export class TelaLoginComponent implements OnInit {
   public usuario: string= '';
   public senha: string = '';
   public autenticado: boolean = false;
+  public spinnerLoad: boolean = false;
 
   entrar = () => {
-    
-    this.telaInicioService.usuario = this.usuario  
-    this.telaInicioService.senha = this.senha    
-    this.telaInicioService.entrar(this.usuario, this.senha)
-    this.autenticado = this.telaInicioService.autenticado;
-    console.log(
-      this.telaInicioService.usuario,
-      this.telaInicioService.senha,
-      this.telaInicioService.autenticado)
+    try{
+      this.spinnerLoad = true;
+      this.telaInicioService.usuario = this.usuario;  
+      this.telaInicioService.senha = this.senha;    
+      this.telaInicioService.entrar(this.usuario, this.senha);
+      this.autenticado = this.telaInicioService.autenticado;
+    }catch(erro){
+      console.log('Erro: ' + erro);
+    }finally{
+      this.spinnerLoad = false;
+    } 
   }
 
   ngOnInit(): void { 

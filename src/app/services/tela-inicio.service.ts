@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import { User } from 'src/assets/model/User';
 import { AutenticateService } from './autenticate.service';
-//import { User } from 'src/assets/model/user';
+import { FactoryService } from './factory.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TelaInicioService {
+  //
+  constructor(private router: Router, 
+              private autenticateService: AutenticateService, 
+              private factoryService: FactoryService) { }
 
-  constructor(private router: Router, private autenticateService: AutenticateService) { }
+  private user: any
 
   private opcoesHeaderAbertas: boolean = true;
   private opcoesConsulta = ['Cpf', 'Agencia', 'Celular', 'UserId']
@@ -33,13 +38,25 @@ export class TelaInicioService {
   }
   */
 
-  entrar = (login: string, senha: string) => {
-    if (this.verificaLogin(login, senha) === true && this.autenticateService.autenticaLogin() === true){
-      this.autenticado = true
-      this.router.navigate(['/consulta'])
-    }else{
-      alert('Deu errado!')
-    }
+  entrar = (usuario: string, senha: string) => {
+    // pega o cliente de acordo com o login
+    this.factoryService.obtemClienteByLogin(usuario)
+        .then(cliente => {
+          this.user = { ...cliente }
+          if  (this.autenticateService.verificaLogin(usuario, senha) && 
+              this.autenticateService.autenticaLogin(this.user, usuario, senha) === true){
+
+              // autentica o login
+              this.autenticado = true
+
+             // navega pra tela de consulta
+             setTimeout(() => {
+              this.router.navigate(['/consulta'])
+            }, 3000);
+          }else{
+              alert('Deu errado!')
+          }
+        })
   }
 
   consultarPorCpf = (cpf: any) => {
@@ -48,10 +65,6 @@ export class TelaInicioService {
     }else{
       alert('CPF Inválido!')
     }
-  }
-    
-  verificaLogin(login: string, senha: string): boolean{
-    return login.length >= 7 && senha.length >= 7 ? true : false
   }
 
   navegarParaLogin(){

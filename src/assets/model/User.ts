@@ -1,20 +1,12 @@
 export interface User{
-    autenticado: boolean
-    userId: string,
-    login: {
-        usuario: string,
-        senha: string,
-        autenticado: string,
-    }
-    nome: string,
-    sobrenome: string,
-    cpf: any,
     agência: string,
-    conta: string,
-    dataDeNascimento: string,
-    celular: string,
-    nomeDaMae: string,
     area: string,
+    cadastroCriadoEm: any,
+    cadastroIniciadoEm: any,
+    celular: string,
+    conta: string,
+    cpf: any,
+    dataDeNascimento: string,
     email: string,
     endereco: {
         cep: string,
@@ -25,6 +17,10 @@ export interface User{
         complemento: string,
         estado: string
     },
-    cadastroCriadoEm: any,
-    cadastroIniciadoEm: any
+    nome: string,
+    nomeDaMae: string,
+    senha: string,
+    sobrenome: string,
+    userId: any,
+    usuario: string,   
 }
