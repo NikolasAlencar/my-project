@@ -31,7 +31,8 @@
     </div>
     <div class="secondary">
         <input class="form-control input-cpf" type="text" placeholder="Digite o(a) seu {{opcaoSelecionada}}" [(ngModel)]="valorDigitado" aria-label="default input example">
-        <button class="btn btn-primary pesquisar" type="button" (click)="pesquisar()">PESQUISAR</button>
+        <spinner-load *ngIf="spinnerLoad"></spinner-load>
+        <button class="btn btn-primary pesquisar" type="button" (click)="pesquisar()" (click)="abrirSpinner()">PESQUISAR</button>
     </div>
 </div>
 </div>

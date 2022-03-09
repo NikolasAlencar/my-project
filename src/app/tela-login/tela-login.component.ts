@@ -36,7 +36,7 @@ export class TelaLoginComponent implements OnInit {
 
   // teste para abrir o spinner, as requisições estão muito rapidas
   abrirSpinner(){
-    return
+    //return
     this.spinnerLoad = true;
   }
 }

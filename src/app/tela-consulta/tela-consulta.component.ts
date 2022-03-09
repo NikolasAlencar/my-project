@@ -36,4 +36,9 @@ export class TelaConsultaComponent implements OnInit {
       this.telaInicioService.navegarParaLogin()     
     }
   }
+
+  abrirSpinner(){
+    //return
+    this.spinnerLoad = true;
+  }
 }

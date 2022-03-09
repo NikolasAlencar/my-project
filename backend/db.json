@@ -7,11 +7,11 @@
             "nome":"Nikolas",
             "sobrenome":"Alencar do Carmo",
             "cpf": "764.494.450-84",
-            "agência": "0284",
+            "agencia": "0284",
             "conta": "032881-1",
-            "data-de-nascimento": "02/02/2001",
+            "dataDeNascimento": "02/02/2001",
             "celular": "4002-8922",
-            "nome-da-mae": "Silvia Thompson da Silva",
+            "nomeDaMae": "Silvia Thompson da Silva",
             "area":"SM",
             "email": "nikolasalencarrs73@gmail.com",
             "endereco": {
@@ -23,8 +23,8 @@
                 "complemento": "",
                 "estado": "RS"
             },
-            "cadastro-criado-em": "27/08/2021 13:44:08",
-            "cadastro-iniciado-em": "27/08/2021 13:44:08"
+            "cadastroCriadoEm": "27/08/2021 13:44:08",
+            "cadastroIniciadoEm": "27/08/2021 13:44:08"
         },
             {
             "usuario": "jubiscleudo",
@@ -33,11 +33,11 @@
             "nome":"Jubiscleudo",
             "sobrenome":"Thompson Pinto da Silva",
             "cpf": "193.766.350-20",
-            "agência": "0284",
+            "agencia": "0284",
             "conta": "032881-1",
-            "data-de-nascimento": "11/10/1999",
+            "dataDeNascimento": "11/10/1999",
             "celular": "4002-8922",
-            "nome-da-mae": "Silvia Thompson da Silva",
+            "nomeDaMae": "Silvia Thompson da Silva",
             "area":"SM",
             "email": "jubis_thompson@live.com",
             "endereco": {
@@ -49,8 +49,8 @@
                 "complemento": "",
                 "estado": "RS"
             },
-            "cadastro-criado-em": "27/08/2021 13:44:08",
-            "cadastro-iniciado-em": "27/08/2021 13:44:08"
+            "cadastroCriadoEm": "27/08/2021 13:44:08",
+            "cadastroIniciadoEm": "27/08/2021 13:44:08"
         },
         {   
             "usuario": "ricardo",
@@ -59,11 +59,11 @@
             "nome":"Ricardo",
             "sobrenome":"Araujo Silva",
             "cpf": "460.342.480-94",
-            "agência": "0284",
+            "agencia": "0284",
             "conta": "062781-1",
-            "data-de-nascimento": "11/10/1999",
+            "dataDeNascimento": "11/10/1999",
             "celular": "4002-8922",
-            "nome-da-mae": "Silvia Thompson da Silva",
+            "nomeDaMae": "Silvia Thompson da Silva",
             "area":"SM",
             "email": "ricardo_thompson@live.com",
             "endereco": {
@@ -75,8 +75,8 @@
                 "complemento": "",
                 "estado": "RS"
             },
-            "cadastro-criado-em": "27/08/2021 13:44:08",
-            "cadastro-iniciado-em": "27/08/2021 13:44:08"
+            "cadastroCriadoEm": "27/08/2021 13:44:08",
+            "cadastroIniciadoEm": "27/08/2021 13:44:08"
         },
         {
             "usuario": "rodolfo",
@@ -85,11 +85,11 @@
             "nome":"Rodolfo",
             "sobrenome":"Thompson Pinto da Silva",
             "cpf": "446.192.410-67",
-            "agência": "0284",
+            "agencia": "0284",
             "conta": "062781-1",
-            "data-de-nascimento": "11/10/1999",
+            "dataDeNascimento": "11/10/1999",
             "celular": "4002-8922",
-            "nome-da-mae": "Silvia Thompson da Silva",
+            "nomeDaMae": "Silvia Thompson da Silva",
             "area":"SM",
             "email": "jubis_thompson@live.com",
             "endereco": {
@@ -101,8 +101,8 @@
                 "complemento": "",
                 "estado": "RS"
             },
-            "cadastro-criado-em": "27/08/2021 13:44:08",
-            "cadastro-iniciado-em": "27/08/2021 13:44:08"
+            "cadastroCriadoEm": "27/08/2021 13:44:08",
+            "cadastroIniciadoEm": "27/08/2021 13:44:08"
         },
         {
             "usuario": "bilous",
@@ -111,11 +111,11 @@
             "nome":"Bilous",
             "sobrenome":"Thompson Pinto da Silva",
             "cpf": "018.956.090-89",
-            "agência": "0284",
+            "agencia": "0284",
             "conta": "062781-1",
-            "data-de-nascimento": "11/10/1999",
+            "dataDeNascimento": "11/10/1999",
             "celular": "4002-8922",
-            "nome-da-mae": "Silvia Thompson da Silva",
+            "nomeDaMae": "Silvia Thompson da Silva",
             "area":"SM",
             "email": "jubis_thompson@live.com",
             "endereco": {
@@ -127,8 +127,8 @@
                 "complemento": "",
                 "estado": "RS"
             },
-            "cadastro-criado-em": "27/08/2021 13:44:08",
-            "cadastro-iniciado-em": "27/08/2021 13:44:08"
+            "cadastroCriadoEm": "27/08/2021 13:44:08",
+            "cadastroIniciadoEm": "27/08/2021 13:44:08"
         },
         {
             "usuario": "maria",
@@ -137,11 +137,11 @@
             "nome":"Maria",
             "sobrenome":"Thompson Pinto da Silva",
             "cpf": "024.773.480-27",
-            "agência": "0284",
+            "agencia": "0284",
             "conta": "062781-1",
-            "data-de-nascimento": "11/10/1999",
+            "dataDeNascimento": "11/10/1999",
             "celular": "4002-8922",
-            "nome-da-mae": "Silvia Thompson da Silva",
+            "nomeDaMae": "Silvia Thompson da Silva",
             "area":"SM",
             "email": "jubis_thompson@live.com",
             "endereco": {
@@ -153,8 +153,8 @@
                 "complemento": "",
                 "estado": "RS"
             },
-            "cadastro-criado-em": "27/08/2021 13:44:08",
-            "cadastro-iniciado-em": "27/08/2021 13:44:08"
+            "cadastroCriadoEm": "27/08/2021 13:44:08",
+            "cadastroIniciadoEm": "27/08/2021 13:44:08"
         },
         {
             "usuario": "janio",
@@ -163,11 +163,11 @@
             "nome":"Jânio",
             "sobrenome":"Thompson Pinto da Silva",
             "cpf": "617.313.020-37",
-            "agência": "0284",
+            "agencia": "0284",
             "conta": "062781-1",
-            "data-de-nascimento": "11/10/1999",
+            "dataDeNascimento": "11/10/1999",
             "celular": "4002-8922",
-            "nome-da-mae": "Silvia Thompson da Silva",
+            "nomeDaMae": "Silvia Thompson da Silva",
             "area":"SM",
             "email": "jubis_thompson@live.com",
             "endereco": {
@@ -179,8 +179,8 @@
                 "complemento": "",
                 "estado": "RS"
             },
-            "cadastro-criado-em": "27/08/2021 13:44:08",
-            "cadastro-iniciado-em": "27/08/2021 13:44:08"
+            "cadastroCriadoEm": "27/08/2021 13:44:08",
+            "cadastroIniciadoEm": "27/08/2021 13:44:08"
         },
         {
             "usuario": "etevaldo",
@@ -189,11 +189,11 @@
             "nome":"Etevaldo",
             "sobrenome":"Thompson Pinto da Silva",
             "cpf": "794.766.420-09",
-            "agência": "0284",
+            "agencia": "0284",
             "conta": "062781-1",
-            "data-de-nascimento": "11/10/1999",
+            "dataDeNascimento": "11/10/1999",
             "celular": "4002-8922",
-            "nome-da-mae": "Silvia Thompson da Silva",
+            "nomeDaMae": "Silvia Thompson da Silva",
             "area":"SM",
             "email": "jubis_thompson@live.com",
             "endereco": {
@@ -205,8 +205,8 @@
                 "complemento": "",
                 "estado": "RS"
             },
-            "cadastro-criado-em": "27/08/2021 13:44:08",
-            "cadastro-iniciado-em": "27/08/2021 13:44:08"
+            "cadastroCriadoEm": "27/08/2021 13:44:08",
+            "cadastroIniciadoEm": "27/08/2021 13:44:08"
         },
         {
             "usuario": "joaquina",
@@ -215,11 +215,11 @@
             "nome":"Joaquina",
             "sobrenome":"Thompson Pinto da Silva",
             "cpf": "470.941.500-59",
-            "agência": "0284",
+            "agencia": "0284",
             "conta": "062781-1",
-            "data-de-nascimento": "11/10/1999",
+            "dataDeNascimento": "11/10/1999",
             "celular": "4002-8922",
-            "nome-da-mae": "Silvia Thompson da Silva",
+            "nomeDaMae": "Silvia Thompson da Silva",
             "area":"SM",
             "email": "jubis_thompson@live.com",
             "endereco": {
@@ -231,8 +231,8 @@
                 "complemento": "",
                 "estado": "RS"
             },
-            "cadastro-criado-em": "27/08/2021 13:44:08",
-            "cadastro-iniciado-em": "27/08/2021 13:44:08"
+            "cadastroCriadoEm": "27/08/2021 13:44:08",
+            "cadastroIniciadoEm": "27/08/2021 13:44:08"
         },
         {
             "usuario": "seyathompson",
@@ -241,11 +241,11 @@
             "nome":"Seya",
             "sobrenome":"Thompson Pinto da Silva",
             "cpf": "296.630.910-53",
-            "agência": "0284",
+            "agencia": "0284",
             "conta": "062781-1",
-            "data-de-nascimento": "11/10/1999",
+            "dataDeNascimento": "11/10/1999",
             "celular": "4002-8922",
-            "nome-da-mae": "Silvia Thompson da Silva",
+            "nomeDaMae": "Silvia Thompson da Silva",
             "area":"SM",
             "email": "jubis_thompson@live.com",
             "endereco": {
@@ -257,8 +257,8 @@
                 "complemento": "",
                 "estado": "RS"
             },
-            "cadastro-criado-em": "27/08/2021 13:44:08",
-            "cadastro-iniciado-em": "27/08/2021 13:44:08"
+            "cadastroCriadoEm": "27/08/2021 13:44:08",
+            "cadastroIniciadoEm": "27/08/2021 13:44:08"
         },
         {
             "usuario": "leoncio",
@@ -267,11 +267,11 @@
             "nome":"Leoncio",
             "sobrenome":"Thompson Pinto da Silva",
             "cpf": "702.246.840-00",
-            "agência": "0284",
+            "agencia": "0284",
             "conta": "062781-1",
-            "data-de-nascimento": "11/10/1999",
+            "dataDeNascimento": "11/10/1999",
             "celular": "4002-8922",
-            "nome-da-mae": "Silvia Thompson da Silva",
+            "nomeDaMae": "Silvia Thompson da Silva",
             "area":"SM",
             "email": "jubis_thompson@live.com",
             "endereco": {
@@ -283,8 +283,8 @@
                 "complemento": "",
                 "estado": "RS"
             },
-            "cadastro-criado-em": "27/08/2021 13:44:08",
-            "cadastro-iniciado-em": "27/08/2021 13:44:08"
+            "cadastroCriadoEm": "27/08/2021 13:44:08",
+            "cadastroIniciadoEm": "27/08/2021 13:44:08"
         }
     ]
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 
 @Component({
   selector: 'app-conta-digital',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContaDigitalComponent implements OnInit {
 
-  constructor() { }
+  constructor(public telaInicioService: TelaInicioService) { }
 
   ngOnInit(): void {
   }

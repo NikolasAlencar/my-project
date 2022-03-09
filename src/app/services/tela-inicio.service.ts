@@ -15,10 +15,11 @@ export class TelaInicioService {
               private factoryService: FactoryService) { }
 
   private user: any
-  private clienteConsultado: any;
+  public clienteConsultado: any;
 
   private opcoesHeaderAbertas: boolean = true;
   private opcoesConsulta = ['Cpf', 'Agencia', 'Celular', 'UserId']
+  
   usuario = '';
   senha = '';
   cpf = '';

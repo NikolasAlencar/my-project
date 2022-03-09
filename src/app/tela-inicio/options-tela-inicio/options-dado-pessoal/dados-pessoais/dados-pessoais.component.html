@@ -2,65 +2,65 @@
 <div class="primary">
     <div>
         <div class="title-item">ID</div>
-        <div class="result-item">53149</div>
+        <div class="result-item">{{ telaInicioService.clienteConsultado[0].userId }}</div>
     </div>
     <div class="nome-completo result-item-black">
         <div class="title-item">Nome completo</div>
-        <div class="result-item">Jubiscleudo Thompson Pinto da Silva</div>
+        <div class="result-item">{{ telaInicioService.clienteConsultado[0].nome + ' ' + telaInicioService.clienteConsultado[0].sobrenome}}</div>
     </div>
 </div>
 <div class="primary result-item-black">
     <div>
         <div class="title-item">CPF</div>
-        <div class="result-item">293.763.330-20</div>
+        <div class="result-item">{{ telaInicioService.clienteConsultado[0].cpf }}</div>
     </div>
     <div>
         <div class="title-item">Data de nascimento</div>
-        <div class="result-item">11/10/1999</div>
+        <div class="result-item">{{ telaInicioService.clienteConsultado[0].dataDeNascimento }}</div>
     </div>
     <div>
         <div class="title-item">Nome da mãe</div>
-        <div class="result-item">Silvia Thompson da Silva</div>
+        <div class="result-item">{{ telaInicioService.clienteConsultado[0].nomeDaMae }}</div>
     </div>
 </div>
 <div class="primary">
     <div class="email result-item-black">
         <div class="title-item">Email</div>
-        <div class="result-item">jubis_thompson@live.com</div>
+        <div class="result-item">{{ telaInicioService.clienteConsultado[0].email }}</div>
     </div>
 </div>
 <div class="subtitle">Endereço</div>
 <div class="primary">
     <div class="email result-item-black">
         <div class="title-item">CEP</div>
-        <div class="result-item">04.910-331</div>
+        <div class="result-item">{{ telaInicioService.clienteConsultado[0].endereco.cep }}</div>
     </div>
 </div>
 <div class="primary result-item-black">
     <div>
         <div class="title-item">Logradouro</div>
-        <div class="result-item">AC Marcelino Barski</div>
+        <div class="result-item">{{ telaInicioService.clienteConsultado[0].endereco.logradouro }}</div>
     </div>
     <div>
         <div class="title-item">Número</div>
-        <div class="result-item">226</div>
+        <div class="result-item">{{ telaInicioService.clienteConsultado[0].endereco.numero }}</div>
     </div>
     <div>
         <div class="title-item">Complemento</div>
-        <div class="result-item">C</div>
+        <div class="result-item">{{ telaInicioService.clienteConsultado[0].endereco.complemento }}</div>
     </div>
 </div>
 <div class="primary result-item-black">
     <div>
         <div class="title-item">Bairro</div>
-        <div class="result-item">JD Sabara</div>
+        <div class="result-item">{{ telaInicioService.clienteConsultado[0].endereco.bairro }}</div>
     </div>
     <div>
         <div class="title-item">Cidade</div>
-        <div class="result-item">Porto Alegre</div>
+        <div class="result-item">{{ telaInicioService.clienteConsultado[0].endereco.cidade }}</div>
     </div>
     <div>
         <div class="title-item">Estado</div>
-        <div class="result-item">RS</div>
+        <div class="result-item">{{ telaInicioService.clienteConsultado[0].endereco.estado }}</div>
     </div>
 </div>
