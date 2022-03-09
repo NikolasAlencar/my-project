@@ -52,7 +52,7 @@ export class TelaInicioService {
              // navega pra tela de consulta
              setTimeout(() => {
               this.router.navigate(['/consulta'])
-            }, 3000);
+            }, 5000);
           }else{
               alert('Deu errado!')
           }

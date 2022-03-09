@@ -19,12 +19,12 @@ export class TelaLoginComponent implements OnInit {
   public spinnerLoad: boolean = false;
 
   entrar = () => {
+    this.spinnerLoad = true
     try{
-      this.spinnerLoad = true;
       this.telaInicioService.usuario = this.usuario;  
       this.telaInicioService.senha = this.senha;    
       this.telaInicioService.entrar(this.usuario, this.senha);
-      this.autenticado = this.telaInicioService.autenticado;
+      this.autenticado = this.telaInicioService.autenticado;  
     }catch(erro){
       console.log('Erro: ' + erro);
     }finally{
@@ -33,6 +33,10 @@ export class TelaLoginComponent implements OnInit {
   }
 
   ngOnInit(): void { 
-    console.log(this.autenticado)
+  }
+
+  // teste para abrir o spinner, as requisições estão muito rapidas
+  abrirSpinner(){
+    this.spinnerLoad = true;
   }
 }
