@@ -23,8 +23,7 @@ export class TelaLoginComponent implements OnInit {
     try{
       this.telaInicioService.usuario = this.usuario;  
       this.telaInicioService.senha = this.senha;    
-      this.telaInicioService.entrar(this.usuario, this.senha);
-      this.autenticado = this.telaInicioService.autenticado;  
+      this.telaInicioService.entrar(this.usuario, this.senha); 
     }catch(erro){
       console.log('Erro: ' + erro);
     }finally{
@@ -37,6 +36,7 @@ export class TelaLoginComponent implements OnInit {
 
   // teste para abrir o spinner, as requisições estão muito rapidas
   abrirSpinner(){
+    return
     this.spinnerLoad = true;
   }
 }

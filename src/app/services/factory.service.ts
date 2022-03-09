@@ -18,7 +18,7 @@ export class FactoryService {
   }
 
   async obtemClienteByCpf(cpf: any){
-    const retorno$ = this.http.get(`${this.url_api}/clientes?usuario=${cpf}`)
+    const retorno$ = this.http.get(`${this.url_api}/clientes?cpf=${cpf}`)
     const resultado = await lastValueFrom(retorno$)
     return resultado
   }

@@ -7,18 +7,27 @@ import { TelaInicioService } from 'src/app/services/tela-inicio.service';
   styleUrls: ['./tela-consulta.component.css']
 })
 export class TelaConsultaComponent implements OnInit {
-
+  
   constructor(private telaInicioService: TelaInicioService) { }
 
   opcaoSelecionada = 'UserId';
   valorDigitado: any;
+  public spinnerLoad: boolean = false;
 
   click(opcaoSelecionada: any){
     this.opcaoSelecionada = this.telaInicioService.opcaoSelecionada(opcaoSelecionada)
   }
 
   pesquisar = () => {
-    this.telaInicioService.consultarPorCpf(this.valorDigitado)
+    this.spinnerLoad = true;
+    try{
+      this.telaInicioService.cpf = this.valorDigitado;
+      this.telaInicioService.consultarPorCpf(this.valorDigitado)
+    }catch(erro){
+      console.log('Erro: ' + erro)
+    }finally{
+      this.spinnerLoad = false;
+    }  
   }
 
   ngOnInit(): void {
