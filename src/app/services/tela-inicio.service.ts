@@ -57,6 +57,7 @@ export class TelaInicioService {
               alert('Deu errado!')
           }
         })
+        .catch(erro => console.log(erro))
   }
 
   consultarPorCpf = (cpf: any) => {
