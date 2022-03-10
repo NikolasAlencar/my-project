@@ -12,14 +12,12 @@ export class FactoryService {
   url_api = 'http://localhost:3000';
 
   async obtemClienteByLogin(login: any){
-    const retorno$ = this.http.get(`${this.url_api}/clientes?usuario=${login}`)
-    const resultado = await lastValueFrom(retorno$)
-    return resultado
+    const retorno$ = this.http.get(`${this.url_api}/users?usuario=${login}`)
+    return await lastValueFrom(retorno$)
   }
 
   async obtemClienteByCpf(cpf: any){
     const retorno$ = this.http.get(`${this.url_api}/clientes?cpf=${cpf}`)
-    const resultado = await lastValueFrom(retorno$)
-    return resultado
+    return await lastValueFrom(retorno$)
   }
 }

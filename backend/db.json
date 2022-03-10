@@ -1,8 +1,52 @@
 {
+    "users":[
+        {
+            "usuario": "nikolas",
+            "senha": "12345678"
+        },
+        {
+            "usuario": "jubiscleudo",
+            "senha": "12345678"
+        },
+        {
+            "usuario": "rodolfo",
+            "senha": "12345678"
+        },
+        {
+            "usuario": "bilousthompson",
+            "senha": "12345678"
+        },
+        {
+            "usuario": "mariathompson",
+            "senha": "12345678"
+        },
+        {
+            "usuario": "janiothompson",
+            "senha": "12345678"
+        },
+        {
+            "usuario": "etevaldo",
+            "senha": "12345678"
+        },
+        {
+            "usuario": "joaquina",
+            "senha": "12345678"
+        },
+        {
+            "usuario": "seyathompson",
+            "senha": "12345678"
+        },
+        {
+            "usuario": "leoncio",
+            "senha": "12345678"
+        },
+        {
+            "usuario": "ricardo",
+            "senha": "12345678"
+        }
+    ],
     "clientes":[
             {
-            "usuario": "nikolas",
-            "senha": "12345678",
             "userId": 1,
             "nome":"Nikolas",
             "sobrenome":"Alencar do Carmo",
@@ -27,8 +71,6 @@
             "cadastroIniciadoEm": "27/08/2021 13:44:08"
         },
             {
-            "usuario": "jubiscleudo",
-            "senha": "12345678",
             "userId": 2,
             "nome":"Jubiscleudo",
             "sobrenome":"Thompson Pinto da Silva",
@@ -53,8 +95,6 @@
             "cadastroIniciadoEm": "27/08/2021 13:44:08"
         },
         {   
-            "usuario": "ricardo",
-            "senha": "12345678",
             "userId": 3,
             "nome":"Ricardo",
             "sobrenome":"Araujo Silva",
@@ -79,8 +119,6 @@
             "cadastroIniciadoEm": "27/08/2021 13:44:08"
         },
         {
-            "usuario": "rodolfo",
-            "senha": "12345678",
             "userId": 4,
             "nome":"Rodolfo",
             "sobrenome":"Thompson Pinto da Silva",
@@ -105,8 +143,6 @@
             "cadastroIniciadoEm": "27/08/2021 13:44:08"
         },
         {
-            "usuario": "bilous",
-            "senha": "12345678",
             "userId": 5,
             "nome":"Bilous",
             "sobrenome":"Thompson Pinto da Silva",
@@ -131,8 +167,6 @@
             "cadastroIniciadoEm": "27/08/2021 13:44:08"
         },
         {
-            "usuario": "maria",
-            "senha": "12345678",
             "userId": 6,
             "nome":"Maria",
             "sobrenome":"Thompson Pinto da Silva",
@@ -157,8 +191,6 @@
             "cadastroIniciadoEm": "27/08/2021 13:44:08"
         },
         {
-            "usuario": "janio",
-            "senha": "12345678",
             "userId": 7,
             "nome":"Jânio",
             "sobrenome":"Thompson Pinto da Silva",
@@ -183,8 +215,7 @@
             "cadastroIniciadoEm": "27/08/2021 13:44:08"
         },
         {
-            "usuario": "etevaldo",
-            "senha": "12345678",
+            
             "userId": 8,
             "nome":"Etevaldo",
             "sobrenome":"Thompson Pinto da Silva",
@@ -209,8 +240,6 @@
             "cadastroIniciadoEm": "27/08/2021 13:44:08"
         },
         {
-            "usuario": "joaquina",
-            "senha": "12345678",
             "userId": 9,
             "nome":"Joaquina",
             "sobrenome":"Thompson Pinto da Silva",
@@ -235,8 +264,6 @@
             "cadastroIniciadoEm": "27/08/2021 13:44:08"
         },
         {
-            "usuario": "seyathompson",
-            "senha": "12345678",
             "userId": 10,
             "nome":"Seya",
             "sobrenome":"Thompson Pinto da Silva",
@@ -261,8 +288,6 @@
             "cadastroIniciadoEm": "27/08/2021 13:44:08"
         },
         {
-            "usuario": "leoncio",
-            "senha": "12345678",
             "userId": 11,
             "nome":"Leoncio",
             "sobrenome":"Thompson Pinto da Silva",
