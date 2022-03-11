@@ -45,6 +45,8 @@ export class TelaInicioService {
     this.factoryService.obtemClienteByLogin(usuario)
         .then(cliente => {
           this.user = { ...cliente }
+        })
+        .then(() => {
           if  (this.autenticateService.verificaLogin(usuario, senha) && 
               this.autenticateService.autenticaLogin(this.user, usuario, senha) === true){
 
@@ -54,7 +56,7 @@ export class TelaInicioService {
              // navega pra tela de consulta
              setTimeout(() => {
               this.router.navigate(['/consulta'])
-            }, 5000);
+            }, 3000);
           }else{
               alert('Deu errado!')
           }
@@ -73,7 +75,7 @@ export class TelaInicioService {
                // navega pra tela home
                setTimeout(() => {
                 this.router.navigate(['/home'])
-              }, 5000);
+              }, 3000);
             }else{
               alert('CPF Inválido!')
             }
@@ -93,7 +95,7 @@ export class TelaInicioService {
                // navega pra tela home
                setTimeout(() => {
                 this.router.navigate(['/home'])
-              }, 5000);
+              }, 3000);
             }else{
               alert('CPF Inválido!')
             }
@@ -112,7 +114,7 @@ export class TelaInicioService {
                // navega pra tela home
                setTimeout(() => {
                 this.router.navigate(['/home'])
-              }, 5000);
+              }, 3000);
             }else{
               alert('Celular Inválido!')
             }
@@ -131,7 +133,7 @@ export class TelaInicioService {
                // navega pra tela home
                setTimeout(() => {
                 this.router.navigate(['/home'])
-              }, 5000);
+              }, 3000);
             }else{
               alert('CPF Inválido!')
             }
