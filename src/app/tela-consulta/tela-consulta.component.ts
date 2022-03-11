@@ -21,8 +21,7 @@ export class TelaConsultaComponent implements OnInit {
   pesquisar = () => {
     this.spinnerLoad = true;
     try{
-      this.telaInicioService.cpf = this.valorDigitado;
-      this.telaInicioService.consultarPorCpf(this.valorDigitado)
+      this.telaInicioService.consultar(this.opcaoSelecionada, this.valorDigitado)
     }catch(erro){
       console.log('Erro: ' + erro)
     }finally{

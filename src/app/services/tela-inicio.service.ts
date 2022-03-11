@@ -17,12 +17,11 @@ export class TelaInicioService {
   private user: any
   public clienteConsultado: any;
 
-  private opcoesHeaderAbertas: boolean = true;
   private opcoesConsulta = ['Cpf', 'Agencia', 'Celular', 'UserId']
   
+  //Consigo usar a model?
   usuario = '';
   senha = '';
-  cpf = '';
   autenticado = false;
 
   //Parte de abrir e fechar o header
@@ -82,6 +81,64 @@ export class TelaInicioService {
           .catch(erro => console.log(erro))  
   }
 
+  //Falta implementar
+  consultarPorAgenciaEConta = (agenciaEConta: any) => {
+      // pega o cliente de acordo com o cpf
+      this.factoryService.obtemClienteByAgenciaEConta(agenciaEConta)
+          .then(cliente => {
+            this.clienteConsultado = { ...cliente }
+            if (this.autenticateService.validarAgenciaEConta(agenciaEConta) && 
+                this.autenticateService.autenticaAgenciaEConta(this.clienteConsultado, agenciaEConta) === true){
+
+               // navega pra tela home
+               setTimeout(() => {
+                this.router.navigate(['/home'])
+              }, 5000);
+            }else{
+              alert('CPF Inválido!')
+            }
+          })
+          .catch(erro => console.log(erro))  
+  }
+
+  consultarPorCelular = (celular: any) => {
+      // pega o cliente de acordo com o cpf
+      this.factoryService.obtemClienteByCelular(celular)
+          .then(cliente => {
+            this.clienteConsultado = { ...cliente }
+            if (this.autenticateService.validarCelular(celular) && 
+                this.autenticateService.autenticaCelular(this.clienteConsultado, celular) === true){
+
+               // navega pra tela home
+               setTimeout(() => {
+                this.router.navigate(['/home'])
+              }, 5000);
+            }else{
+              alert('Celular Inválido!')
+            }
+          })
+          .catch(erro => console.log(erro))  
+  }
+
+  consultarPorUserId = (userId: any) => {
+      // pega o cliente de acordo com o cpf
+      this.factoryService.obtemClienteByUserId(userId)
+          .then(cliente => {
+            this.clienteConsultado = { ...cliente }
+            if (this.autenticateService.validarUserId(userId) && 
+                this.autenticateService.autenticaUserId(this.clienteConsultado, userId) === true){
+
+               // navega pra tela home
+               setTimeout(() => {
+                this.router.navigate(['/home'])
+              }, 5000);
+            }else{
+              alert('CPF Inválido!')
+            }
+          })
+          .catch(erro => console.log(erro))  
+  }
+
   navegarParaLogin(){
     this.router.navigate([''])
   }
@@ -92,5 +149,19 @@ export class TelaInicioService {
 
   opcaoSelecionada(number: number){
     return this.opcoesConsulta[number-1]
+  }
+
+  //Posso melhorar essa parte?
+  consultar(opcaoSelecionada: any, valorDigitado: any){
+    switch(opcaoSelecionada){
+      case 'Cpf':
+        return this.consultarPorCpf(valorDigitado)
+      case 'Agencia':
+        return this.consultarPorAgenciaEConta(valorDigitado)
+      case 'Celular':
+        return this.consultarPorCelular(valorDigitado)
+      case 'UserId':
+        return this.consultarPorUserId(valorDigitado)
+    }
   }
 }
