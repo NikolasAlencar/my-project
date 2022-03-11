@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 
 @Component({
   selector: 'app-consulta-clientes',
@@ -7,9 +8,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsultaClientesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private telaInicioService: TelaInicioService) { }
 
-  ngOnInit(): void {
+  opcaoSelecionada = 'UserId';
+  valorDigitado: any;
+  public spinnerLoad: boolean = false;
+
+  click(opcaoSelecionada: any){
+    this.opcaoSelecionada = this.telaInicioService.opcaoSelecionada(opcaoSelecionada)
   }
 
+  pesquisar = () => {
+    this.spinnerLoad = true;
+    try{
+      this.telaInicioService.consultar(this.opcaoSelecionada, this.valorDigitado)
+    }catch(erro){
+      console.log('Erro: ' + erro)
+    }finally{
+      this.spinnerLoad = false;
+    }  
+  }
+
+  ngOnInit(): void {
+  
+  }
+
+  abrirSpinner(){
+    //return
+    this.spinnerLoad = true;
+  }
 }
