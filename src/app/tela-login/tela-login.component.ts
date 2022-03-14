@@ -16,6 +16,8 @@ export class TelaLoginComponent implements OnInit {
     });
   }
 
+  urlAtual = this.route.snapshot.url.join('');
+
   public usuario: string= '';
   public senha: string = '';
   public autenticado: boolean = false;
@@ -37,6 +39,7 @@ export class TelaLoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.telaInicioService.verificaHasHeader(this.hasHeader = false)
+    this.telaInicioService.adicionaHistoria(this.urlAtual)
   }
 
   // teste para abrir o spinner, as requisições estão muito rapidas

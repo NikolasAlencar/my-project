@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 
 @Component({
@@ -10,7 +9,7 @@ import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 })
 export class AppComponent {
 
-  constructor(private telaInicioService: TelaInicioService, private route: ActivatedRoute) { 
+  constructor(private telaInicioService: TelaInicioService) { 
     this.telaInicioService.aberto$.subscribe(abrir => {
       const boo = new Boolean(abrir)
       this.opcoesHeaderAbertas = boo.valueOf()

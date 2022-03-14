@@ -9,7 +9,7 @@ import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 })
 export class TelaConsultaComponent implements OnInit {
   
-  constructor(private telaInicioService: TelaInicioService) { 
+  constructor(private telaInicioService: TelaInicioService, private route: ActivatedRoute) { 
     this.telaInicioService.hasHeader$.subscribe(hasHeader => {
       const boo = new Boolean(hasHeader)
       this.hasHeader = boo.valueOf()
@@ -20,6 +20,8 @@ export class TelaConsultaComponent implements OnInit {
   public valorDigitado: any;
   public spinnerLoad: boolean = false;
   public hasHeader: boolean = false;
+
+  urlAtual = this.route.snapshot.url.join('');
 
   click(opcaoSelecionada: any){
     this.opcaoSelecionada = this.telaInicioService.opcaoSelecionada(opcaoSelecionada)
@@ -42,6 +44,7 @@ export class TelaConsultaComponent implements OnInit {
       this.telaInicioService.navegarParaLogin()     
     }
     this.telaInicioService.verificaHasHeader(this.hasHeader = true)
+    this.telaInicioService.adicionaHistoria(this.urlAtual)
   }
 
   abrirSpinner(){

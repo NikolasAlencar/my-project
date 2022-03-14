@@ -17,10 +17,9 @@ export class TelaInicioService {
 
   private user: any
   public clienteConsultado: any;
-
   public url = '';
-
   private opcoesConsulta = ['Cpf', 'Agencia', 'Celular', 'UserId']
+  public historia = [''];
   
   //Consigo usar a model?
   usuario = '';
@@ -155,12 +154,26 @@ export class TelaInicioService {
           .catch(erro => console.log(erro))  
   }
 
+  adicionaHistoria(historia: any){
+    if (historia !== this.historia[this.historia.length - 1]){
+      this.historia.push(historia)
+    }
+  }
+
   navegarParaLogin(){
     this.router.navigate([''])
   }
 
   navegarPara(local: any){
     this.router.navigate(['/' + local])
+  }
+
+  voltar(){
+    if(this.historia[this.historia.length - 1] === 'consulta'){
+      this.autenticado = false;
+    }
+    this.navegarPara(this.historia[this.historia.length - 2])
+    this.historia.pop()
   }
 
   opcaoSelecionada(number: number){

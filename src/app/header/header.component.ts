@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   iconeLista: string = "..//src/assets/img/list--v1.png";
 
   opcoesHeaderAbertas: boolean = false;
-  
+
   @Output() mudouOpcoesHeaderAbertas: EventEmitter<any> = new EventEmitter();
 
   abrirOpcoes(): void{
@@ -27,6 +27,10 @@ export class HeaderComponent implements OnInit {
     }
     this.mudouOpcoesHeaderAbertas.emit(this.opcoesHeaderAbertas)
     this.telaInicioService.abrirHeader(this.opcoesHeaderAbertas)
+  }
+
+  voltar = () => {
+    this.telaInicioService.voltar()
   }
 
   ngOnInit(): void {
