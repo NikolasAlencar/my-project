@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 
 @Component({
@@ -8,11 +9,17 @@ import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 })
 export class TelaConsultaComponent implements OnInit {
   
-  constructor(private telaInicioService: TelaInicioService) { }
+  constructor(private telaInicioService: TelaInicioService) { 
+    this.telaInicioService.hasHeader$.subscribe(hasHeader => {
+      const boo = new Boolean(hasHeader)
+      this.hasHeader = boo.valueOf()
+    });
+  }
 
-  opcaoSelecionada = 'UserId';
-  valorDigitado: any;
+  public opcaoSelecionada = 'UserId';
+  public valorDigitado: any;
   public spinnerLoad: boolean = false;
+  public hasHeader: boolean = false;
 
   click(opcaoSelecionada: any){
     this.opcaoSelecionada = this.telaInicioService.opcaoSelecionada(opcaoSelecionada)
@@ -34,6 +41,7 @@ export class TelaConsultaComponent implements OnInit {
       alert('Você não está logado!')
       this.telaInicioService.navegarParaLogin()     
     }
+    this.telaInicioService.verificaHasHeader(this.hasHeader = true)
   }
 
   abrirSpinner(){

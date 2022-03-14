@@ -9,18 +9,22 @@ import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 })
 export class TelaLoginComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private telaInicioService: TelaInicioService) { }
-
-  snapshot: any = this.route.snapshot.url.join('');
+  constructor(private telaInicioService: TelaInicioService, private route: ActivatedRoute) { 
+    this.telaInicioService.hasHeader$.subscribe(hasHeader => {
+      const boo = new Boolean(hasHeader)
+      this.hasHeader = boo.valueOf()
+    });
+  }
 
   public usuario: string= '';
   public senha: string = '';
   public autenticado: boolean = false;
   public spinnerLoad: boolean = false;
+  public hasHeader: boolean = false;
 
   entrar = () => {
     this.spinnerLoad = true
-    try{
+    try{ 
       this.telaInicioService.usuario = this.usuario;  
       this.telaInicioService.senha = this.senha;    
       this.telaInicioService.entrar(this.usuario, this.senha); 
@@ -31,7 +35,8 @@ export class TelaLoginComponent implements OnInit {
     } 
   }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
+    this.telaInicioService.verificaHasHeader(this.hasHeader = false)
   }
 
   // teste para abrir o spinner, as requisições estão muito rapidas

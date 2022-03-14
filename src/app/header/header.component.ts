@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 
 @Component({
@@ -15,6 +16,7 @@ export class HeaderComponent implements OnInit {
   iconeLista: string = "..//src/assets/img/list--v1.png";
 
   opcoesHeaderAbertas: boolean = false;
+  
   @Output() mudouOpcoesHeaderAbertas: EventEmitter<any> = new EventEmitter();
 
   abrirOpcoes(): void{

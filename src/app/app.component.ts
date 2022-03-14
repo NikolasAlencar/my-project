@@ -15,15 +15,21 @@ export class AppComponent {
       const boo = new Boolean(abrir)
       this.opcoesHeaderAbertas = boo.valueOf()
     });
+
+    this.telaInicioService.hasHeader$.subscribe(hasHeader => {
+      const boo = new Boolean(hasHeader)
+      this.hasHeader = boo.valueOf()
+    });
   }
 
-  opcoesHeaderAbertas: boolean = false;
+  public opcoesHeaderAbertas: boolean = false;
+  public hasHeader: boolean = false;
 
   onMudouValor(evento: any){
     this.opcoesHeaderAbertas = evento;
   }
   
-  ngOnInit(): void { 
+  ngOnInit(): void {
   }
 
   title = 'my-project';

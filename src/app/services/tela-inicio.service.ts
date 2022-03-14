@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { User } from 'src/assets/model/User';
 import { AutenticateService } from './autenticate.service';
@@ -12,10 +12,13 @@ export class TelaInicioService {
   //
   constructor(private router: Router, 
               private autenticateService: AutenticateService, 
-              private factoryService: FactoryService) { }
+              private factoryService: FactoryService,
+              private route: ActivatedRoute) { }
 
   private user: any
   public clienteConsultado: any;
+
+  public url = '';
 
   private opcoesConsulta = ['Cpf', 'Agencia', 'Celular', 'UserId']
   
@@ -33,6 +36,16 @@ export class TelaInicioService {
     this.opcoesAbertas.next(abrir);
   }
   //Parte de abrir e fechar o header
+
+  //Parte de ter ou não o header
+  private hasHeader = new Subject<string>();
+  // Observable string streams
+  hasHeader$ = this.hasHeader.asObservable();
+  // Service message commands
+  verificaHasHeader(hasHeader: any) {
+    this.hasHeader.next(hasHeader);
+  }
+  //Parte de ter ou não o header
 
   /*
   adicionaDados(dado: any){

@@ -48,10 +48,8 @@ export class AutenticateService {
 
   verificaLogin(login: string, senha: string): boolean{
     return login.length >= 7 && senha.length >= 7 ? true : false
-  } 
-
-  //Coloco validações nas funções abaixo?
-
+  }
+  
   validarAgenciaEConta(agenciaEConta: any) {
     if(agenciaEConta.length === 13){
       return true;
@@ -59,6 +57,8 @@ export class AutenticateService {
       return false;
     }
   }
+
+  //Coloco validações na função abaixo?
   validarUserId(userId: any) {
     return true
   }
