@@ -1,5 +1,4 @@
 import { Component, OnInit, EventEmitter, Output} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 
 @Component({

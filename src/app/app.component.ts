@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 
 @Component({
