@@ -27,8 +27,12 @@ export class AutenticateService {
 
   //Coloco autenticações nas funções abaixo?
 
-  autenticaAgenciaEConta(user: any, agenciaEConta: any){
-    return true
+  autenticaAgenciaEConta(user: any, agencia: any, conta: any){
+    if(user[0].agencia === agencia && user[0].conta === conta){
+      return true;
+    }else{
+      return false;
+    }
   }
 
   autenticaCelular(user: any, celular: any){
@@ -49,7 +53,11 @@ export class AutenticateService {
   //Coloco validações nas funções abaixo?
 
   validarAgenciaEConta(agenciaEConta: any) {
-    return true
+    if(agenciaEConta.length === 13){
+      return true;
+    }else{
+      return false;
+    }
   }
   validarUserId(userId: any) {
     return true

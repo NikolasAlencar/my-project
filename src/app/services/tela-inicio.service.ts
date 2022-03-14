@@ -83,21 +83,22 @@ export class TelaInicioService {
           .catch(erro => console.log(erro))  
   }
 
-  //Falta implementar
   consultarPorAgenciaEConta = (agenciaEConta: any) => {
+    const agencia = agenciaEConta.split('/')[0]
+    const conta = agenciaEConta.split('/')[1]
       // pega o cliente de acordo com o cpf
-      this.factoryService.obtemClienteByAgenciaEConta(agenciaEConta)
+      this.factoryService.obtemClienteByAgenciaEConta(conta)
           .then(cliente => {
             this.clienteConsultado = { ...cliente }
             if (this.autenticateService.validarAgenciaEConta(agenciaEConta) && 
-                this.autenticateService.autenticaAgenciaEConta(this.clienteConsultado, agenciaEConta) === true){
+                this.autenticateService.autenticaAgenciaEConta(this.clienteConsultado, agencia, conta) === true){
 
                // navega pra tela home
                setTimeout(() => {
                 this.router.navigate(['/home'])
               }, 3000);
             }else{
-              alert('CPF Inválido!')
+              alert('Agencia ou Conta Inválida!')
             }
           })
           .catch(erro => console.log(erro))  
@@ -135,7 +136,7 @@ export class TelaInicioService {
                 this.router.navigate(['/home'])
               }, 3000);
             }else{
-              alert('CPF Inválido!')
+              alert('UserId Inválido!')
             }
           })
           .catch(erro => console.log(erro))  

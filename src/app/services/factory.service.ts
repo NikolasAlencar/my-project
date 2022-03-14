@@ -24,8 +24,8 @@ export class FactoryService {
   }
 
   //Falta implementar
-  async obtemClienteByAgenciaEConta(agenciaEConta: any){
-    const retorno$ = this.http.get(`${this.url_api}/clientes?agenciaEConta=${agenciaEConta}`)
+  async obtemClienteByAgenciaEConta(conta: any){
+    const retorno$ = this.http.get(`${this.url_api}/clientes?conta=${conta}`)
     return await lastValueFrom(retorno$)
   }
 
