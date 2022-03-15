@@ -65,9 +65,9 @@ export class TelaInicioService {
               // autentica o login
               this.autenticado = true
 
-             // navega pra tela de consulta
-             setTimeout(() => {
-              this.router.navigate(['/consulta'])
+            // navega pra tela de consulta
+            setTimeout(() => {
+            this.router.navigate(['/consulta'])
             }, 3000);
           }else{
               alert('Deu errado!')
@@ -84,9 +84,9 @@ export class TelaInicioService {
             if (this.autenticateService.validarCPF(cpf) && 
                 this.autenticateService.autenticaCpf(this.clienteConsultado, cpf) === true){
 
-               // navega pra tela home
-               setTimeout(() => {
-                this.router.navigate(['/home'])
+              // navega pra tela home
+              setTimeout(() => {
+              this.router.navigate(['/home'])
               }, 3000);
             }else{
               alert('CPF Inválido!')
@@ -105,9 +105,9 @@ export class TelaInicioService {
             if (this.autenticateService.validarAgenciaEConta(agenciaEConta) && 
                 this.autenticateService.autenticaAgenciaEConta(this.clienteConsultado, agencia, conta) === true){
 
-               // navega pra tela home
-               setTimeout(() => {
-                this.router.navigate(['/home'])
+              // navega pra tela home
+              setTimeout(() => {
+              this.router.navigate(['/home'])
               }, 3000);
             }else{
               alert('Agencia ou Conta Inválida!')
@@ -124,9 +124,9 @@ export class TelaInicioService {
             if (this.autenticateService.validarCelular(celular) && 
                 this.autenticateService.autenticaCelular(this.clienteConsultado, celular) === true){
 
-               // navega pra tela home
-               setTimeout(() => {
-                this.router.navigate(['/home'])
+              // navega pra tela home
+              setTimeout(() => {
+              this.router.navigate(['/home'])
               }, 3000);
             }else{
               alert('Celular Inválido!')
@@ -143,9 +143,9 @@ export class TelaInicioService {
             if (this.autenticateService.validarUserId(userId) && 
                 this.autenticateService.autenticaUserId(this.clienteConsultado, userId) === true){
 
-               // navega pra tela home
-               setTimeout(() => {
-                this.router.navigate(['/home'])
+              // navega pra tela home
+              setTimeout(() => {
+              this.router.navigate(['/home'])
               }, 3000);
             }else{
               alert('UserId Inválido!')

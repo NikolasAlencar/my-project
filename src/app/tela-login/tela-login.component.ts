@@ -40,11 +40,12 @@ export class TelaLoginComponent implements OnInit {
   ngOnInit(): void {
     this.telaInicioService.verificaHasHeader(this.hasHeader = false)
     this.telaInicioService.adicionaHistoria(this.urlAtual)
+    this.telaInicioService.autenticado = false
   }
 
   // teste para abrir o spinner, as requisições estão muito rapidas
   abrirSpinner(){
     //return
-    this.spinnerLoad = true;
+    //this.spinnerLoad = true;
   }
 }

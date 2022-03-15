@@ -12,7 +12,6 @@ export class FactoryService {
   url_api = 'http://localhost:3000';
 
   //Posso reduzir todas essas chamadas a uma só.
-
   async obtemClienteByLogin(login: any){
     const retorno$ = this.http.get(`${this.url_api}/users?usuario=${login}`)
     return await lastValueFrom(retorno$)
@@ -23,7 +22,6 @@ export class FactoryService {
     return await lastValueFrom(retorno$)
   }
 
-  //Falta implementar
   async obtemClienteByAgenciaEConta(conta: any){
     const retorno$ = this.http.get(`${this.url_api}/clientes?conta=${conta}`)
     return await lastValueFrom(retorno$)
