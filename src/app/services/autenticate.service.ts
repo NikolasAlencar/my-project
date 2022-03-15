@@ -40,8 +40,9 @@ export class AutenticateService {
       return false;
     }
   }
+
   autenticaUserId(user: any, userId: any){
-    if(user[0].userId === userId){
+    if(user[0].userId.toString() === userId){
       return true;
     }else{
       return false;
