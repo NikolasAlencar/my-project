@@ -29,8 +29,8 @@ export class TelaLoginComponent implements OnInit {
   entrar = () => {
     this.spinnerLoad = true
     try{ 
-      this.telaInicioService.usuario = this.usuario;  
-      this.telaInicioService.senha = this.senha;    
+      this.telaInicioService.user.usuario = this.usuario;  
+      this.telaInicioService.user.senha = this.senha;    
       this.telaInicioService.entrar(this.usuario, this.senha); 
     }catch(erro){
       console.log('Erro: ' + erro);

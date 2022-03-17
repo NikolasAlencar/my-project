@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { lastValueFrom } from 'rxjs';
+import { lastValueFrom, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +34,11 @@ export class FactoryService {
 
   async obtemClienteByUserId(userId: any){
     const retorno$ = this.http.get(`${this.url_api}/clientes?userId=${userId}`)
+    return await lastValueFrom(retorno$)
+  }
+
+  async createUser(user: any){
+    const retorno$ = this.http.post(`${this.url_api}/users`, user)
     return await lastValueFrom(retorno$)
   }
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ResetSenhaComponent } from '../tela-inicio/options-tela-inicio/options-dado-pessoal/reset-senha/reset-senha.component';
 
 @Injectable({
   providedIn: 'root'
@@ -53,10 +54,12 @@ export class AutenticateService {
     return autenticacao
   }
 
-  verificaLogin(login: string, senha: string): boolean{
-    return login.length >= 7 && senha.length >= 7 ? true : false
+  validarLogin(usuario: any, senha: any){
+    let regex = /^(?=.*[@!#$%^&*()/\\])[@!#$%^&*()/\\a-zA-Z0-9]{7,20}$/;
+    console.log(regex.test(usuario), senha.length >= 7)
+    return !regex.test(usuario) && senha.length >= 7 ? true : false
   }
-  
+
   validarAgenciaEConta(agenciaEConta: any) {
     if(agenciaEConta.length === 13){
       return true;

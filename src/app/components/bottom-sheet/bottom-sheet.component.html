@@ -6,13 +6,14 @@
         <div class="primary">
             <div class="img">
                 <img src="../../assets/icons/adicionar-usuario.png" alt="">
-                <input class="form-control input-usuario" [(ngModel)]="usuario" type="text" placeholder="Usuário">
+                <input class="form-control input-usuario" [(ngModel)]="newUser.usuario" type="text" placeholder="Usuário">
             </div>
             <div class="img last">
                 <img src="../../assets/img/cadeado.png" alt="">
-                <input class="form-control input-usuario" [(ngModel)]="senha" type="password" placeholder="Senha">
+                <input class="form-control input-usuario" [(ngModel)]="newUser.senha" type="password" placeholder="Senha">
             </div>
             <div class="secondary">
+                <input class="form-control input-cod" *ngIf="exibeInputCod" [(ngModel)]="cod" placeholder="Insira o código">
                 <spinner-load *ngIf="spinnerLoad"></spinner-load>
                 <button class="btn btn-primary registrar" type="button" (click)="registrar()">REGISTRAR</button>
             </div>

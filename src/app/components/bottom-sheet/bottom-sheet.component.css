@@ -6,7 +6,7 @@
     background-color: white !important;
     border-radius: 4px;
     width: 100%;
-    margin: 10px 250px;
+    margin: 76px 190px;
 }
 
 .primary{
@@ -46,6 +46,7 @@
     align-items: center;
     justify-content: center;
     border: none;
+    overflow: hidden;
 }
 
 .input-usuario{
@@ -53,8 +54,13 @@
     width: 100%;
 }
 
+.input-cod{
+    margin-top: 5px;
+    width: 64%;
+}
+
 .last{
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 img{

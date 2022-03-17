@@ -15,15 +15,23 @@ export class TelaInicioService {
               private factoryService: FactoryService,
               private route: ActivatedRoute) { }
 
-  private user: any
+  //Consigo usar a model?
+  public user: any = {
+    usuario: '',
+    senha: ''
+  };
+
+  public newUser: User = {
+    usuario: '',
+    senha: ''
+  };
+
   public clienteConsultado: any;
   public url = '';
   private opcoesConsulta = ['Cpf', 'Agencia', 'Celular', 'UserId']
   public historia = [''];
   
-  //Consigo usar a model?
-  usuario = '';
-  senha = '';
+  //autenticação
   autenticado = false;
 
   //Parte de abrir e fechar o header
@@ -57,9 +65,10 @@ export class TelaInicioService {
     this.factoryService.obtemClienteByLogin(usuario)
         .then(cliente => {
           this.user = { ...cliente }
+          console.log(this.user)
         })
         .then(() => {
-          if  (this.autenticateService.verificaLogin(usuario, senha) && 
+          if  (this.autenticateService.validarLogin(usuario, senha) && 
               this.autenticateService.autenticaLogin(this.user, usuario, senha) === true){
 
               // autentica o login
@@ -154,6 +163,20 @@ export class TelaInicioService {
           .catch(erro => console.log(erro))  
   }
 
+  createUser = (user: any) => {
+    console.log(user)
+    if(this.autenticateService.validarLogin(user.usuario, user.senha)){
+      this.factoryService.createUser(user)
+    .then(() => {
+      console.log(`Usuario ${user} incluido com sucesso!`)
+    })
+    .catch(e => console.log(e))
+    }else{
+      //
+      console.log('Usuario ou senha não são validos!')
+    }
+  }
+
   adicionaHistoria(historia: any){
     if (historia !== this.historia[this.historia.length - 1]){
       this.historia.push(historia)
@@ -178,6 +201,11 @@ export class TelaInicioService {
 
   opcaoSelecionada(number: number){
     return this.opcoesConsulta[number-1]
+  }
+
+  randomNum = (min: number, max: number) => {
+    const number = Math.random() * (max - min) + min;
+    return Math.trunc(number)
   }
 
   //Posso melhorar essa parte?
