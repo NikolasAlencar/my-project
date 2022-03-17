@@ -28,7 +28,7 @@ export class TelaInicioService {
 
   public clienteConsultado: any;
   public url = '';
-  private opcoesConsulta = ['Cpf', 'Agencia', 'Celular', 'UserId']
+  private opcoesConsulta = ['Cpf', 'Agencia', 'Celular', 'id']
   public historia = [''];
   
   //autenticação
@@ -65,7 +65,6 @@ export class TelaInicioService {
     this.factoryService.obtemClienteByLogin(usuario)
         .then(cliente => {
           this.user = { ...cliente }
-          console.log(this.user)
         })
         .then(() => {
           if  (this.autenticateService.validarLogin(usuario, senha) && 
@@ -144,20 +143,20 @@ export class TelaInicioService {
           .catch(erro => console.log(erro))  
   }
 
-  consultarPorUserId = (userId: any) => {
+  consultarPorid = (id: any) => {
       // pega o cliente de acordo com o cpf
-      this.factoryService.obtemClienteByUserId(userId)
+      this.factoryService.obtemClienteByid(id)
           .then(cliente => {
             this.clienteConsultado = { ...cliente }
-            if (this.autenticateService.validarUserId(userId) && 
-                this.autenticateService.autenticaUserId(this.clienteConsultado, userId) === true){
+            if (this.autenticateService.validarid(id) && 
+                this.autenticateService.autenticaid(this.clienteConsultado, id) === true){
 
               // navega pra tela home
               setTimeout(() => {
               this.router.navigate(['/home'])
               }, 3000);
             }else{
-              alert('UserId Inválido!')
+              alert('id Inválido!')
             }
           })
           .catch(erro => console.log(erro))  
@@ -168,12 +167,11 @@ export class TelaInicioService {
     if(this.autenticateService.validarLogin(user.usuario, user.senha)){
       this.factoryService.createUser(user)
     .then(() => {
-      console.log(`Usuario ${user} incluido com sucesso!`)
+      alert('Usuario criado com sucesso!')
     })
     .catch(e => console.log(e))
     }else{
-      //
-      console.log('Usuario ou senha não são validos!')
+      alert('Usuario ou senha não são validos!')
     }
   }
 
@@ -217,8 +215,8 @@ export class TelaInicioService {
         return this.consultarPorAgenciaEConta(valorDigitado)
       case 'Celular':
         return this.consultarPorCelular(valorDigitado)
-      case 'UserId':
-        return this.consultarPorUserId(valorDigitado)
+      case 'id':
+        return this.consultarPorid(valorDigitado)
     }
   }
 }

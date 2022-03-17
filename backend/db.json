@@ -59,6 +59,11 @@
       "usuario": "batatao",
       "senha": "123456789",
       "id": 12
+    },
+    {
+      "usuario": "zegalinha",
+      "senha": "123456789",
+      "id": 13
     }
   ],
   "clientes": [

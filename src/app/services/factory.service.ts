@@ -32,8 +32,8 @@ export class FactoryService {
     return await lastValueFrom(retorno$)
   }
 
-  async obtemClienteByUserId(userId: any){
-    const retorno$ = this.http.get(`${this.url_api}/clientes?userId=${userId}`)
+  async obtemClienteByid(id: any){
+    const retorno$ = this.http.get(`${this.url_api}/clientes?id=${id}`)
     return await lastValueFrom(retorno$)
   }
 

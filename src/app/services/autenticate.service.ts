@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ResetSenhaComponent } from '../tela-inicio/options-tela-inicio/options-dado-pessoal/reset-senha/reset-senha.component';
 
 @Injectable({
   providedIn: 'root'
@@ -9,45 +8,25 @@ export class AutenticateService {
   constructor() { }
 
   autenticaLogin(user: any, usuario: any, senha: any){
-    if(user[0].usuario === usuario && user[0].senha === senha){
-      return true;
-    }else{
-      alert('O usuário ou senha estão incorretos!')
-      return false;
-    }
+    return user[0].usuario === usuario && user[0].senha === senha ? 
+    true : 
+    alert('O usuário ou senha estão incorretos!')
   }
 
   autenticaCpf(user: any, cpf: any){
-    if(user[0].cpf === cpf){
-      return true;
-    }else{
-      alert('O cpf está incorreto!')
-      return false;
-    }
+    return user[0].cpf === cpf ? true : alert('O cpf está incorreto!')
   }
 
   autenticaAgenciaEConta(user: any, agencia: any, conta: any){
-    if(user[0].agencia === agencia && user[0].conta === conta){
-      return true;
-    }else{
-      return false;
-    }
+    return user[0].agencia === agencia && user[0].conta === conta ? true : false
   }
 
   autenticaCelular(user: any, celular: any){
-    if(user[0].celular === celular){
-      return true;
-    }else{
-      return false;
-    }
+    return user[0].celular === celular ? true : false
   }
 
-  autenticaUserId(user: any, userId: any){
-    if(user[0].userId.toString() === userId){
-      return true;
-    }else{
-      return false;
-    }
+  autenticaid(user: any, id: any){
+    return user[0].id.toString() === id ? true : false
   }
 
   isAutenticado(autenticacao: any){
@@ -56,24 +35,15 @@ export class AutenticateService {
 
   validarLogin(usuario: any, senha: any){
     let regex = /^(?=.*[@!#$%^&*()/\\])[@!#$%^&*()/\\a-zA-Z0-9]{7,20}$/;
-    console.log(regex.test(usuario), senha.length >= 7)
     return !regex.test(usuario) && senha.length >= 7 ? true : false
   }
 
   validarAgenciaEConta(agenciaEConta: any) {
-    if(agenciaEConta.length === 13){
-      return true;
-    }else{
-      return false;
-    }
+    return agenciaEConta.length === 13 ? true : false
   }
 
-  validarUserId(userId: any) {
-    if (userId === '0' || userId === 0){
-      return false
-    }else{
-      return true
-    }
+  validarid(id: any) {
+    return id === '0' || id === 0 ? false : true
   }
 
   validarCPF(cpf: any) {	

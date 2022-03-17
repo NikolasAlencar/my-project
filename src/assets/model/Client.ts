@@ -21,6 +21,6 @@ export interface Client{
     nomeDaMae: string,
     senha: string,
     sobrenome: string,
-    userId: any,
+    id: any,
     usuario: string,   
 }

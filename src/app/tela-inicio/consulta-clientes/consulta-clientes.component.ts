@@ -10,7 +10,7 @@ export class ConsultaClientesComponent implements OnInit {
 
   constructor(private telaInicioService: TelaInicioService) { }
 
-  opcaoSelecionada = 'UserId';
+  opcaoSelecionada = 'id';
   valorDigitado: any;
   public spinnerLoad: boolean = false;
 
@@ -27,7 +27,7 @@ export class ConsultaClientesComponent implements OnInit {
     }finally{
       setTimeout(() => {
         this.spinnerLoad = false;
-        }, 3000);
+        }, 1000);
     }  
   }
 
