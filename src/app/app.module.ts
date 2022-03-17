@@ -20,6 +20,9 @@ import { TelaLoginComponent } from './tela-login/tela-login.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SpinnerLoadComponent } from './components/spinner-load/spinner-load.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { BottomSheetComponent } from './components/bottom-sheet/bottom-sheet.component';
 
 @NgModule({
   declarations: [
@@ -38,13 +41,16 @@ import { SpinnerLoadComponent } from './components/spinner-load/spinner-load.com
     TelaConsultaComponent,
     HeaderAbertoComponent,
     TelaLoginComponent,
-    SpinnerLoadComponent
+    SpinnerLoadComponent,
+    BottomSheetComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatBottomSheetModule
   ],
   bootstrap: [AppComponent]
 })

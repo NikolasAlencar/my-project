@@ -17,3 +17,6 @@ body::-webkit-scrollbar-thumb {
     background: linear-gradient(90deg, #000537 60%, #2d2e62 100%);    
     border-radius: 10px;       
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -25,16 +25,13 @@ export class ConsultaClientesComponent implements OnInit {
     }catch(erro){
       console.log('Erro: ' + erro)
     }finally{
-      this.spinnerLoad = false;
+      setTimeout(() => {
+        this.spinnerLoad = false;
+        }, 3000);
     }  
   }
 
   ngOnInit(): void {
   
-  }
-
-  abrirSpinner(){
-    //return
-    this.spinnerLoad = true;
   }
 }

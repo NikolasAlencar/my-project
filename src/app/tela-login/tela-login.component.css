@@ -66,6 +66,15 @@ hr{
     margin-bottom: 15px;
 }
 
+.registrar{
+    width: 100%;
+    background: white;
+    color:  rgba(0, 0, 0, 0.38);
+    border: none;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
 .button{
     display: flex;
     flex-direction: row;

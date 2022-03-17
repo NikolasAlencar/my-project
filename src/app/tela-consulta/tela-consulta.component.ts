@@ -34,7 +34,9 @@ export class TelaConsultaComponent implements OnInit {
     }catch(erro){
       console.log('Erro: ' + erro)
     }finally{
-      this.spinnerLoad = false;
+      setTimeout(() => {
+        this.spinnerLoad = false;
+        }, 3000);
     }  
   }
 
@@ -45,10 +47,5 @@ export class TelaConsultaComponent implements OnInit {
     }
     this.telaInicioService.verificaHasHeader(this.hasHeader = true)
     this.telaInicioService.adicionaHistoria(this.urlAtual)
-  }
-
-  abrirSpinner(){
-    //return
-    this.spinnerLoad = true;
   }
 }
