@@ -16,7 +16,7 @@ export class TelaConsultaComponent implements OnInit {
     });
   }
 
-  public opcaoSelecionada = 'id';
+  public opcaoSelecionada = 'UserId';
   public valorDigitado: any;
   public spinnerLoad: boolean = false;
   public hasHeader: boolean = false;

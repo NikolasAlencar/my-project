@@ -12,10 +12,8 @@ export class TelaInicioService {
   //
   constructor(private router: Router, 
               private autenticateService: AutenticateService, 
-              private factoryService: FactoryService,
-              private route: ActivatedRoute) { }
+              private factoryService: FactoryService) { }
 
-  //Consigo usar a model?
   public user: any = {
     usuario: '',
     senha: ''
@@ -28,7 +26,7 @@ export class TelaInicioService {
 
   public clienteConsultado: any;
   public url = '';
-  private opcoesConsulta = ['Cpf', 'Agencia', 'Celular', 'id']
+  private opcoesConsulta = ['Cpf', 'Agencia', 'Celular', 'UserId']
   public historia = [''];
   
   //autenticação
@@ -65,6 +63,10 @@ export class TelaInicioService {
     this.factoryService.obtemClienteByLogin(usuario)
         .then(cliente => {
           this.user = { ...cliente }
+          if(this.user[0] === undefined){
+            alert('Usuário incorreto ou não existe')
+            return
+          }
         })
         .then(() => {
           if  (this.autenticateService.validarLogin(usuario, senha) && 
@@ -89,6 +91,10 @@ export class TelaInicioService {
       this.factoryService.obtemClienteByCpf(cpf)
           .then(cliente => {
             this.clienteConsultado = { ...cliente }
+            if(this.clienteConsultado[0] === undefined){
+              alert('Cpf incorreto ou não existe')
+              return
+            }
             if (this.autenticateService.validarCPF(cpf) && 
                 this.autenticateService.autenticaCpf(this.clienteConsultado, cpf) === true){
 
@@ -110,6 +116,10 @@ export class TelaInicioService {
       this.factoryService.obtemClienteByAgenciaEConta(conta)
           .then(cliente => {
             this.clienteConsultado = { ...cliente }
+            if(this.clienteConsultado[0] === undefined){
+              alert('Agência ou Conta incorretas ou não existem')
+              return
+            }
             if (this.autenticateService.validarAgenciaEConta(agenciaEConta) && 
                 this.autenticateService.autenticaAgenciaEConta(this.clienteConsultado, agencia, conta) === true){
 
@@ -129,6 +139,10 @@ export class TelaInicioService {
       this.factoryService.obtemClienteByCelular(celular)
           .then(cliente => {
             this.clienteConsultado = { ...cliente }
+            if(this.clienteConsultado[0] === undefined){
+              alert('Número de Celular incorreto ou não existe')
+              return
+            }
             if (this.autenticateService.validarCelular(celular) && 
                 this.autenticateService.autenticaCelular(this.clienteConsultado, celular) === true){
 
@@ -148,6 +162,10 @@ export class TelaInicioService {
       this.factoryService.obtemClienteByid(id)
           .then(cliente => {
             this.clienteConsultado = { ...cliente }
+            if(this.clienteConsultado[0] === undefined){
+              alert('Id incorreto ou não existe')
+              return
+            }
             if (this.autenticateService.validarid(id) && 
                 this.autenticateService.autenticaid(this.clienteConsultado, id) === true){
 
@@ -156,23 +174,32 @@ export class TelaInicioService {
               this.router.navigate(['/home'])
               }, 3000);
             }else{
-              alert('id Inválido!')
+              alert('UserId Inválido!')
             }
           })
           .catch(erro => console.log(erro))  
   }
 
   createUser = (user: any) => {
-    console.log(user)
-    if(this.autenticateService.validarLogin(user.usuario, user.senha)){
-      this.factoryService.createUser(user)
-    .then(() => {
-      alert('Usuario criado com sucesso!')
-    })
-    .catch(e => console.log(e))
-    }else{
-      alert('Usuario ou senha não são validos!')
-    }
+    this.factoryService.obtemClienteByLogin(user.usuario)
+      .then(cliente => {
+        this.user = { ...cliente }
+        if(this.user[0] !== undefined){
+          this.newUser.usuario = ''
+          alert('Usuário já existe')
+          return
+        }else{
+          if(this.autenticateService.validarLogin(user.usuario, user.senha)){
+            this.factoryService.createUser(user)
+          .then(() => {
+            alert(`O usuário ${user.usuario} foi criado com sucesso!`)
+          })
+          .catch(e => console.log(e))
+          }else{
+            alert('Usuario ou senha não são válidos!')
+          }
+        }
+      })
   }
 
   adicionaHistoria(historia: any){
@@ -215,7 +242,7 @@ export class TelaInicioService {
         return this.consultarPorAgenciaEConta(valorDigitado)
       case 'Celular':
         return this.consultarPorCelular(valorDigitado)
-      case 'id':
+      case 'UserId':
         return this.consultarPorid(valorDigitado)
     }
   }

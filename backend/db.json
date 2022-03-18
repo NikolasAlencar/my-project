@@ -64,6 +64,36 @@
       "usuario": "zegalinha",
       "senha": "123456789",
       "id": 13
+    },
+    {
+      "usuario": "zedapinga",
+      "senha": "12345678",
+      "id": 14
+    },
+    {
+      "usuario": "mcchampion",
+      "senha": "12345678",
+      "id": 15
+    },
+    {
+      "usuario": "nikolau",
+      "senha": "123456789",
+      "id": 16
+    },
+    {
+      "usuario": "nikolas123",
+      "senha": "123456789",
+      "id": 17
+    },
+    {
+      "usuario": "nikolas456",
+      "senha": "123456789",
+      "id": 18
+    },
+    {
+      "usuario": "nikolau1234",
+      "senha": "123456789",
+      "id": 19
     }
   ],
   "clientes": [

@@ -16,11 +16,11 @@ export class BottomSheetComponent implements OnInit {
 
   public newUser: User = {
     usuario: '',
-    senha: ''
+    senha: '',
   };
-  public cod: string = '';
+  public cod: any;
   public spinnerLoad: boolean = false;
-  public exibeInputCod: boolean = true;
+  public exibeInputCod: boolean = false;
 
   openLink(event: MouseEvent): void {
     this._bottomSheetRef.dismiss();
@@ -33,11 +33,12 @@ export class BottomSheetComponent implements OnInit {
 
   registrar = () => {
     this.spinnerLoad = true;
+    let cod;
     try{
-      if(this.exibeInputCod === false){
-        this.exibeInputCod = true;
-        const cod = this.telaInicioService.randomNum(0, 9999)
-        console.log(cod)
+      if(this.exibeInputCod === true){
+        this.exibeInputCod = true; //
+        cod = this.telaInicioService.randomNum(0, 9999)
+        console.log(this.cod)
       }else{
         this.telaInicioService.newUser.usuario = this.newUser.usuario
         this.telaInicioService.newUser.senha = this.newUser.senha
@@ -48,6 +49,7 @@ export class BottomSheetComponent implements OnInit {
     }finally{
       setTimeout(() => {
         this.spinnerLoad = false;
+        this.telaInicioService.newUser.usuario === '' ? '' : this.closeBottomSheet()
         }, 3000);
     }
   }

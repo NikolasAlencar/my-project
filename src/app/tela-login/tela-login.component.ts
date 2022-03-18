@@ -3,6 +3,7 @@ import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { ActivatedRoute } from '@angular/router';
 import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 import { BottomSheetComponent } from '../components/bottom-sheet/bottom-sheet.component';
+import { EnviaMensagemService } from '../services/envia-mensagem.service';
 
 @Component({
   selector: 'app-tela-login',
@@ -11,7 +12,10 @@ import { BottomSheetComponent } from '../components/bottom-sheet/bottom-sheet.co
 })
 export class TelaLoginComponent implements OnInit {
 
-  constructor(private telaInicioService: TelaInicioService, private route: ActivatedRoute, private _bottomSheet: MatBottomSheet) { 
+  constructor(private telaInicioService: TelaInicioService, 
+              private route: ActivatedRoute, 
+              private _bottomSheet: MatBottomSheet) {
+
     this.telaInicioService.hasHeader$.subscribe(hasHeader => {
       const boo = new Boolean(hasHeader)
       this.hasHeader = boo.valueOf()
