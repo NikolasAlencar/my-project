@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { User } from 'src/assets/model/User';
 import { AutenticateService } from './autenticate.service';
 import { FactoryService } from './factory.service';
+import { NavigateService } from './navigate.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TelaInicioService {
-  //
   constructor(private router: Router, 
               private autenticateService: AutenticateService, 
+              private navigateService: NavigateService,
               private factoryService: FactoryService) { }
 
   public user: any = {
@@ -202,26 +203,28 @@ export class TelaInicioService {
       })
   }
 
-  adicionaHistoria(historia: any){
-    if (historia !== this.historia[this.historia.length - 1]){
-      this.historia.push(historia)
-    }
+  navegarParaLogin = () => {
+    this.navigateService.navegarParaLogin()
   }
 
-  navegarParaLogin(){
-    this.router.navigate([''])
+  navegarParaHome = () => {
+    this.navigateService.navegarParaHome()
   }
 
-  navegarPara(local: any){
-    this.router.navigate(['/' + local])
+  navegarParaConsulta = () => {
+    this.navigateService.navegarParaConsulta()
   }
 
-  voltar(){
-    if(this.historia[this.historia.length - 1] === 'consulta'){
-      this.autenticado = false;
-    }
-    this.navegarPara(this.historia[this.historia.length - 2])
-    this.historia.pop()
+  navegarPara = (local: any) => {
+    this.navigateService.navegarPara(local)
+  }
+
+  voltar = () => {
+    this.navigateService.voltar()
+  }
+
+  adicionaHistoria = (historia: any) => {
+    this.navigateService.adicionaHistoria(historia)
   }
 
   opcaoSelecionada(number: number){

@@ -1,4 +1,6 @@
 <div class="principal">
-    <app-options-dado-pessoal class="primary">
-    </app-options-dado-pessoal>
+    <div class="secondary">
+        <div class="item-lista" *ngFor="let opcao of opcoes" (click)="navegarOpcaoSelecionada(opcao.path)">{{opcao.nome}}</div>
+    </div>
+    <router-outlet></router-outlet>
 </div>

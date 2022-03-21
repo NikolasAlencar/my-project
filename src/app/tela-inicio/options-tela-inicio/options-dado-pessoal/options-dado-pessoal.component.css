@@ -1,15 +1,7 @@
-.principal{
-    display: flex;
-    justify-content: space-around;
-    color: rgba(0, 0, 0, .38);
-    font-size: 14px;
-    font-weight: 500;
-    border-bottom: 2px solid rgba(128, 128, 128, 0.24);
-}
-
-.secondary-segunda-parte{
+.primary{
     display: flex;
     flex-direction: row;
+    margin-top: 10px;
 }
 
 .secondary{
@@ -28,24 +20,5 @@
     flex-direction: column;
 }
 
-.item-lista{
-    margin-left: 30px;
-    padding-bottom: 10px;
-}
-
-.item-lista:hover{
-    border-bottom: 2px solid blue;
-    color: rgba(0, 0, 0, 0.87);
-    transition: 0.3s;
-}
-
-.dados-pessoais{
-    border-bottom: 2px solid blue;
-    color: rgba(0, 0, 0, 0.87);
-}
-
-.last-item{
-    margin-right: 30px;
-}
 
 

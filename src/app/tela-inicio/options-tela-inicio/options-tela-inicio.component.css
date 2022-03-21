@@ -9,6 +9,22 @@
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.144);
 }
 
-.primary{
-    margin-top: 10px;
+.secondary{
+    display: flex;
+    justify-content: space-around;
+    color: rgba(0, 0, 0, .38);
+    font-size: 14px;
+    font-weight: 500;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.24);
+}
+
+.item-lista{
+    margin-left: 30px;
+    padding-bottom: 10px;
+}
+
+.item-lista:hover{
+    border-bottom: 2px solid blue;
+    color: rgba(0, 0, 0, 0.87);
+    transition: 0.1s;
 }
