@@ -14,7 +14,8 @@ export class TelaLoginComponent implements OnInit {
 
   constructor(private telaInicioService: TelaInicioService, 
               private route: ActivatedRoute, 
-              private _bottomSheet: MatBottomSheet) {
+              private _bottomSheet: MatBottomSheet,
+              private enviaMensagemService: EnviaMensagemService) {
 
     this.telaInicioService.hasHeader$.subscribe(hasHeader => {
       const boo = new Boolean(hasHeader)
@@ -32,6 +33,12 @@ export class TelaLoginComponent implements OnInit {
 
   entrar = () => {
     this.spinnerLoad = true
+    const corpoEmail = {
+      to:"nikolasalencarrs73@gmail.com",
+      subject:"Envio de email com TS",
+      message:"Envio de email com TS"
+    }
+    //this.enviaMensagemService.enviaEmail(corpoEmail)
     try{ 
       this.telaInicioService.user.usuario = this.usuario;  
       this.telaInicioService.user.senha = this.senha;    

@@ -1,1 +1,50 @@
-<p>options-crivo works!</p>
+<div>
+    <div class="topo">
+        <div class="codigos">
+            <span><span style="font-weight: 600;">Status: </span>{{status}}</span>
+            <span><span style="font-weight: 600;">Código de análise: </span>{{codAnalise}}</span>
+        </div>
+        <div>
+            <button class="btn btn-primary reprocessar" type="button">REPROCESSAR</button>
+            <button class="btn btn-danger reprovar" type="button">REPROVAR</button>
+        </div>
+    </div>
+</div>
+<div class="secondary">
+    <div>
+        <div class="primeira-coluna item">
+            <div class="crivo subtitle">
+                <div>Critério</div>
+                <div class="legenda">Cor</div>
+            </div>
+            <hr>
+            <div class="item" *ngFor="let opcao of opcoes">
+                <div class="crivo">
+                    <div style="font-weight: 400;">(SWT) {{opcao.nome}} - PF</div>
+                    <span class="legenda-green legenda"></span>
+                    </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div style="font-weight: 600; margin-top: 5px; margin-bottom: 5px;">Legenda de cores</div>
+        <div class="lista">
+            <span class="legenda-green"></span>
+            <div class="item-lista">OK</div>
+        </div>
+        <div class="lista">
+            <span class="legenda-yellow"></span>
+            <div class="item-lista">VER/VER2</div>
+        </div>
+        <div class="lista">
+            <span class="legenda-red"></span>
+            <div class="item-lista">NOK</div>
+        </div>
+        <div class="lista">
+            <span class="legenda-grey"></span>
+            <div class="item-lista">NULO</div>
+        </div>
+    </div>
+</div>
+

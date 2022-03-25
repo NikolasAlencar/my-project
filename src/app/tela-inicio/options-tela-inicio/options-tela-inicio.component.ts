@@ -13,7 +13,7 @@ export class OptionsTelaInicioComponent implements OnInit {
   public opcoes: any = [{nome: 'Dados pessoais', id: 1, path: ''},
                         {nome: 'Crivo', id: 2, path: 'crivo'}, {nome: 'PLD', id: 3, path: ''},
                         {nome: 'Identificação biométrica', id: 4, path: ''},
-                        {nome: 'Notificações', id: 5, path: ''}, {nome: 'Notificações', id: 6, path: ''},
+                        {nome: 'Notificações', id: 6, path: ''},
                         {nome: 'Bloquear/Desbloquear dispositivo'}, {nome: 'Portabilidade', id: 7, path: ''},
                         {nome: 'Comprovantes', id: 8, path: ''}, {nome: 'Token', id: 9, path: ''},
                         {nome: 'Token - Log', id: 10, path: ''}, {nome: 'Cartões', id: 11, path: ''},
