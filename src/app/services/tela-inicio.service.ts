@@ -10,6 +10,7 @@ import { NavigateService } from './navigate.service';
   providedIn: 'root'
 })
 export class TelaInicioService {
+  
   constructor(private router: Router, 
               private autenticateService: AutenticateService, 
               private navigateService: NavigateService,
@@ -22,9 +23,12 @@ export class TelaInicioService {
 
   public newUser: User = {
     usuario: '',
-    senha: ''
-  };
+    senha: '',
+    email: ''    
+};
 
+  public success: boolean = false;
+  public cod: any;
   public clienteConsultado: any;
   public url = '';
   private opcoesConsulta = ['Cpf', 'Agencia', 'Celular', 'UserId']
@@ -181,23 +185,24 @@ export class TelaInicioService {
           .catch(erro => console.log(erro))  
   }
 
-  createUser = (user: any) => {
+  createUser = (user: any, cod: number) => {
     this.factoryService.obtemClienteByLogin(user.usuario)
       .then(cliente => {
         this.user = { ...cliente }
-        if(this.user[0] !== undefined){
+        if(this.user[0] !== undefined || !this.autenticateService.hasEmail()){
           this.newUser.usuario = ''
-          alert('Usuário já existe')
+          alert('Email ou Usuário já existe')
           return
         }else{
-          if(this.autenticateService.validarLogin(user.usuario, user.senha)){
+          if(this.autenticateService.validarLogin(user.usuario, user.senha) && Number(cod) === this.cod){
+            this.success = true;
             this.factoryService.createUser(user)
           .then(() => {
             alert(`O usuário ${user.usuario} foi criado com sucesso!`)
           })
           .catch(e => console.log(e))
           }else{
-            alert('Usuario ou senha não são válidos!')
+            alert('Dados inválidos!')
           }
         }
       })

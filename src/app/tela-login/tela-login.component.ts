@@ -33,12 +33,6 @@ export class TelaLoginComponent implements OnInit {
 
   entrar = () => {
     this.spinnerLoad = true
-    const corpoEmail = {
-      to:"nikolasalencarrs73@gmail.com",
-      subject:"Envio de email com TS",
-      message:"Envio de email com TS"
-    }
-    //this.enviaMensagemService.enviaEmail(corpoEmail)
     try{ 
       this.telaInicioService.user.usuario = this.usuario;  
       this.telaInicioService.user.senha = this.senha;    
@@ -60,5 +54,6 @@ export class TelaLoginComponent implements OnInit {
     this.telaInicioService.verificaHasHeader(this.hasHeader = false)
     this.telaInicioService.adicionaHistoria(this.urlAtual)
     this.telaInicioService.autenticado = false
+    this.telaInicioService.success = false
   }
 }

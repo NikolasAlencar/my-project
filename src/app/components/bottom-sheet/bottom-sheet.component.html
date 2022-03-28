@@ -8,9 +8,13 @@
                 <img src="../../assets/icons/adicionar-usuario.png" alt="">
                 <input class="form-control input-usuario" [(ngModel)]="newUser.usuario" type="text" placeholder="Usuário">
             </div>
-            <div class="img last">
+            <div class="img">
                 <img src="../../assets/img/cadeado.png" alt="">
                 <input class="form-control input-usuario" [(ngModel)]="newUser.senha" type="password" placeholder="Senha">
+            </div>
+            <div class="img">
+                <img src="../../assets/img/send-email.png" alt="">
+                <input class="form-control input-usuario" [(ngModel)]="newUser.email" type="text" placeholder="Email">
             </div>
             <div class="secondary">
                 <input class="form-control input-cod" *ngIf="exibeInputCod" [(ngModel)]="cod" placeholder="Insira o código">

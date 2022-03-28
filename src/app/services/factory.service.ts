@@ -17,6 +17,11 @@ export class FactoryService {
     return await lastValueFrom(retorno$)
   }
 
+  async obtemClienteByEmail(email: any){
+    const retorno$ = this.http.get(`${this.url_api}/users?email=${email}`)
+    return await lastValueFrom(retorno$)
+  }
+
   async obtemClienteByCpf(cpf: any){
     const retorno$ = this.http.get(`${this.url_api}/clientes?cpf=${cpf}`)
     return await lastValueFrom(retorno$)

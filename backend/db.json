@@ -2,103 +2,99 @@
   "users": [
     {
       "id": 1,
-      "usuario": "nikolas",
-      "senha": "12345678"
+      "usuario": "nikolau",
+      "senha": "12345678",
+      "email": "email@email.com.br"
     },
     {
       "id": 2,
       "usuario": "jubiscleudo",
-      "senha": "12345678"
+      "senha": "12345678",
+      "email": "email@email.com.br"
     },
     {
       "id": 3,
       "usuario": "rodolfo",
-      "senha": "12345678"
+      "senha": "12345678",
+      "email": "email@email.com.br"
     },
     {
       "id": 4,
       "usuario": "bilousthompson",
-      "senha": "12345678"
+      "senha": "12345678",
+      "email": "email@email.com.br"
     },
     {
       "id": 5,
       "usuario": "mariathompson",
-      "senha": "12345678"
+      "senha": "12345678",
+      "email": "email@email.com.br"
     },
     {
       "id": 6,
       "usuario": "janiothompson",
-      "senha": "12345678"
+      "senha": "12345678",
+      "email": "email@email.com.br"
     },
     {
       "id": 7,
       "usuario": "etevaldo",
-      "senha": "12345678"
+      "senha": "12345678",
+      "email": "email@email.com.br"
     },
     {
       "id": 8,
       "usuario": "joaquina",
-      "senha": "12345678"
+      "senha": "12345678",
+      "email": "email@email.com.br"
     },
     {
       "id": 9,
       "usuario": "seyathompson",
-      "senha": "12345678"
+      "senha": "12345678",
+      "email": "email@email.com.br"
     },
     {
       "id": 10,
       "usuario": "leoncio",
-      "senha": "12345678"
+      "senha": "12345678",
+      "email": "email@email.com.br"
     },
     {
       "id": 11,
       "usuario": "ricardo",
-      "senha": "12345678"
+      "senha": "12345678",
+      "email": "email@email.com.br"
     },
     {
       "usuario": "batatao",
       "senha": "123456789",
-      "id": 12
+      "id": 12,
+      "email": "email@email.com.br"
     },
     {
       "usuario": "zegalinha",
       "senha": "123456789",
-      "id": 13
+      "id": 13,
+      "email": "email@email.com.br"
     },
     {
       "usuario": "zedapinga",
       "senha": "12345678",
-      "id": 14
+      "id": 14,
+      "email": "email@email.com.br"
     },
     {
       "usuario": "mcchampion",
       "senha": "12345678",
-      "id": 15
+      "id": 15,
+      "email": "email@email.com.br"
     },
     {
       "usuario": "nikolau",
       "senha": "123456789",
-      "id": 16
-    },
-    {
-      "usuario": "nikolas123",
-      "senha": "123456789",
-      "id": 17
-    },
-    {
-      "usuario": "nikolas456",
-      "senha": "123456789",
-      "id": 18
-    },
-    {
-      "usuario": "nikolau1234",
-      "senha": "123456789",
-      "id": 19
-    },
-    {
-      "usuario": "carolzinha",
-      "senha": "123456789",
-      "id": 20
+      "id": 16,
+      "email": "email@email.com.br"
     }
   ],
   "clientes": [

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { EnviaMensagemService } from 'src/app/services/envia-mensagem.service';
 import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 import { User } from 'src/assets/model/User';
 
@@ -12,11 +13,13 @@ export class BottomSheetComponent implements OnInit {
 
   constructor(private _bottomSheetRef: MatBottomSheetRef<BottomSheetComponent>, 
               private _bottomSheet: MatBottomSheet, 
-              private telaInicioService: TelaInicioService) { }
+              private telaInicioService: TelaInicioService,
+              private enviaMensagemService: EnviaMensagemService) { }
 
   public newUser: User = {
     usuario: '',
     senha: '',
+    email: ''
   };
   public cod: any;
   public spinnerLoad: boolean = false;
@@ -33,24 +36,25 @@ export class BottomSheetComponent implements OnInit {
 
   registrar = () => {
     this.spinnerLoad = true;
-    let cod;
+    let cod: any
     try{
-      if(this.exibeInputCod === true){
-        this.exibeInputCod = true; //
-        cod = this.telaInicioService.randomNum(0, 9999)
-        console.log(this.cod)
+      if(this.exibeInputCod === false){
+        this.exibeInputCod = true;
+        cod = this.telaInicioService.randomNum(1000, 9999);
+        this.telaInicioService.cod = cod;
+        this.enviaMensagemService.enviaEmail(this.newUser.email, cod)
       }else{
-        this.telaInicioService.newUser.usuario = this.newUser.usuario
-        this.telaInicioService.newUser.senha = this.newUser.senha
-        this.telaInicioService.createUser(this.newUser)
+        this.telaInicioService.newUser = this.newUser
+        this.telaInicioService.createUser(this.newUser, this.cod)
       }
     }catch(erro){
       console.log(erro)
     }finally{
       setTimeout(() => {
         this.spinnerLoad = false;
-        this.telaInicioService.newUser.usuario === '' ? '' : this.closeBottomSheet()
-        }, 3000);
+        this.telaInicioService.success === true ? this.closeBottomSheet() : 'Algo deu errado!'
+        this.telaInicioService.success = false;
+        }, 1500);
     }
   }
 
