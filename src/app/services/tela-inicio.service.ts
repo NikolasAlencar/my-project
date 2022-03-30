@@ -21,11 +21,10 @@ export class TelaInicioService {
     senha: ''
   };
 
-  public newUser: User = {
+  public newUser: any = {
     usuario: '',
-    senha: '',
-    email: ''    
-};
+    senha: ''
+  };
 
   public success: boolean = false;
   public cod: any;
@@ -35,7 +34,7 @@ export class TelaInicioService {
   public historia = [''];
   
   //autenticação
-  autenticado = false;
+  autenticado = true;
 
   //Parte de abrir e fechar o header
   private opcoesAbertas = new Subject<string>();
@@ -185,15 +184,24 @@ export class TelaInicioService {
           .catch(erro => console.log(erro))  
   }
 
+  //Depois tem que melhorar essa coisa ridicula
   createUser = (user: any, cod: number) => {
     this.factoryService.obtemClienteByLogin(user.usuario)
       .then(cliente => {
         this.user = { ...cliente }
-        if(this.user[0] !== undefined || !this.autenticateService.hasEmail()){
-          this.newUser.usuario = ''
-          alert('Email ou Usuário já existe')
-          return
-        }else{
+      })
+      .then(() => {
+        this.factoryService.obtemClienteByEmail(user.email)
+        .then(cliente => {
+          this.newUser = { ...cliente }
+          if(this.user[0] !== undefined){
+            alert('Usuário já existe')
+            return
+          }
+          if(this.newUser[0] !== undefined){
+            alert('Email já existe')
+            return
+          }
           if(this.autenticateService.validarLogin(user.usuario, user.senha) && Number(cod) === this.cod){
             this.success = true;
             this.factoryService.createUser(user)
@@ -204,7 +212,7 @@ export class TelaInicioService {
           }else{
             alert('Dados inválidos!')
           }
-        }
+        })
       })
   }
 

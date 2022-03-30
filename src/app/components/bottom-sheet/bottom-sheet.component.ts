@@ -44,7 +44,6 @@ export class BottomSheetComponent implements OnInit {
         this.telaInicioService.cod = cod;
         this.enviaMensagemService.enviaEmail(this.newUser.email, cod)
       }else{
-        this.telaInicioService.newUser = this.newUser
         this.telaInicioService.createUser(this.newUser, this.cod)
       }
     }catch(erro){

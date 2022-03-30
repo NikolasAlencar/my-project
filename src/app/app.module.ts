@@ -24,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { BottomSheetComponent } from './components/bottom-sheet/bottom-sheet.component';
 import { OptionsCrivoComponent } from './tela-inicio/options-tela-inicio/options-crivo/options-crivo.component';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { OptionsCrivoComponent } from './tela-inicio/options-tela-inicio/options
     TelaLoginComponent,
     SpinnerLoadComponent,
     BottomSheetComponent,
-    OptionsCrivoComponent
+    OptionsCrivoComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,

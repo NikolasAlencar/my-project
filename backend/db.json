@@ -89,12 +89,6 @@
       "senha": "12345678",
       "id": 15,
       "email": "email@email.com.br"
-    },
-    {
-      "usuario": "nikolau",
-      "senha": "123456789",
-      "id": 16,
-      "email": "email@email.com.br"
     }
   ],
   "clientes": [

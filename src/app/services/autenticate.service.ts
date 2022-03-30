@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
-import { User } from 'src/assets/model/User';
-import { FactoryService } from './factory.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AutenticateService {
   
-  constructor(private factoryService: FactoryService) { }
+  constructor() { }
 
   autenticaLogin(user: any, usuario: any, senha: any){
     return user[0].usuario === usuario && user[0].senha === senha ? 
@@ -46,11 +44,6 @@ export class AutenticateService {
 
   validarid(id: any) {
     return id === '0' || id === 0 ? false : true
-  }
-
-  //Falta implementar
-  hasEmail(){
-    return true
   }
 
   //Precisa ser melhorado
