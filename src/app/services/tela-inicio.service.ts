@@ -29,22 +29,21 @@ export class TelaInicioService {
   };
 
   public success: boolean = false;
-  public cod: any;
+  public cod: number | undefined;
   public clienteConsultado: any;
-  public url = '';
-  private opcoesConsulta = ['Cpf', 'Agencia', 'Celular', 'UserId']
-  public historia = [''];
+  public url: string = '';
+  private opcoesConsulta: Array<string> = ['Cpf', 'Agencia', 'Celular', 'UserId']
+  public historia: Array<string> = [''];
   
   //autenticação
-  autenticado = false;
+  public autenticado: boolean = false;
 
-  /* As partes abaixos podem ser trocadas por Subject<boolean> para diminuir o código?*/
   //Parte de abrir e fechar o header
   private opcoesAbertas = new Subject<boolean>();
   // Observable string streams
   aberto$ = this.opcoesAbertas.asObservable();
   // Service message commands
-  abrirHeader(abrir: any) {
+  abrirHeader(abrir: boolean) {
     this.opcoesAbertas.next(abrir);
   }
   //Parte de abrir e fechar o header
@@ -54,11 +53,10 @@ export class TelaInicioService {
   // Observable string streams
   hasHeader$ = this.hasHeader.asObservable();
   // Service message commands
-  verificaHasHeader(hasHeader: any) {
+  verificaHasHeader(hasHeader: boolean) {
     this.hasHeader.next(hasHeader);
   }
   //Parte de ter ou não o header
-  /* As partes acima podem ser trocadas por Subject<boolean> para diminuir o código?*/
 
   entrar = (usuario: string, senha: string) => {
     // pega o cliente de acordo com o login
@@ -168,8 +166,8 @@ export class TelaInicioService {
               this.alertService.showAlertInfo(`ID ${id} incorreto ou não existe!`)
               return
             }
-            if (this.autenticateService.validarid(id) && 
-                this.autenticateService.autenticaid(this.clienteConsultado, id) === true){
+            if (this.autenticateService.validarId(id) && 
+                this.autenticateService.autenticaId(this.clienteConsultado, id) === true){
 
               // navega pra tela home
               setTimeout(() => {

@@ -8,8 +8,8 @@ export class NavigateService {
   
   constructor(private router: Router) { }
 
-  public historia = [''];
-  autenticado = false;
+  public historia: Array<string> = [''];
+  public autenticado: boolean = false;
 
   navegarParaLogin(){
     this.router.navigate([''])
@@ -23,11 +23,11 @@ export class NavigateService {
     this.router.navigate(['/consulta'])
   }
 
-  navegarOpcaoSelecionada(local: any) {
+  navegarOpcaoSelecionada(local: string) {
     this.router.navigate(['/home/' + local])
   }
 
-  navegarPara(local: any){
+  navegarPara(local: string){
     this.router.navigate(['/' + local])
   }
 

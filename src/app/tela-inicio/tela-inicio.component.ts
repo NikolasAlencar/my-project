@@ -19,8 +19,8 @@ export class TelaInicioComponent implements OnInit {
     });
   }
 
-  urlAtual = this.route.snapshot.url.join('');
-  opcoesHeaderAbertas: boolean = false;
+  private urlAtual = this.route.snapshot.url.join('');
+  public opcoesHeaderAbertas: boolean = false;
 
   ngOnInit(): void {
     if(this.telaInicioService.autenticado === false){

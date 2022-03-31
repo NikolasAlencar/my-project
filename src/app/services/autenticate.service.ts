@@ -7,47 +7,47 @@ export class AutenticateService {
   
   constructor() { }
 
-  autenticaLogin(user: any, usuario: any, senha: any){
+  autenticaLogin(user: any, usuario: string, senha: string){
     return user[0].usuario === usuario && user[0].senha === senha ? 
     true : 
     alert('O usuário ou senha estão incorretos!')
   }
 
-  autenticaCpf(user: any, cpf: any){
+  autenticaCpf(user: any, cpf: string){
     return user[0].cpf === cpf ? true : alert('O cpf está incorreto!')
   }
 
-  autenticaAgenciaEConta(user: any, agencia: any, conta: any){
+  autenticaAgenciaEConta(user: any, agencia: string, conta: string){
     return user[0].agencia === agencia && user[0].conta === conta ? true : false
   }
 
-  autenticaCelular(user: any, celular: any){
+  autenticaCelular(user: any, celular: string){
     return user[0].celular === celular ? true : false
   }
 
-  autenticaid(user: any, id: any){
+  autenticaId(user: any, id: string){
     return user[0].id.toString() === id ? true : false
   }
 
-  isAutenticado(autenticacao: any){
+  isAutenticado(autenticacao: boolean){
     return autenticacao
   }
 
-  validarLogin(usuario: any, senha: any){
+  validarLogin(usuario: string, senha: string){
     let regex = /^(?=.*[@!#$%^&*()/\\])[@!#$%^&*()/\\a-zA-Z0-9]{7,20}$/;
     return !regex.test(usuario) && senha.length >= 7 ? true : false
   }
 
-  validarAgenciaEConta(agenciaEConta: any) {
+  validarAgenciaEConta(agenciaEConta: string) {
     return agenciaEConta.length === 13 ? true : false
   }
 
-  validarid(id: any) {
+  validarId(id: any) {
     return id === '0' || id === 0 ? false : true
   }
 
   //Precisa ser melhorado
-  validarCPF(cpf: any) {	
+  validarCPF(cpf: string) {	
     cpf = cpf.replace(/[^\d]+/g,'');	
     if(cpf == '') return false;	
     // Elimina CPFs invalidos conhecidos	
@@ -85,7 +85,7 @@ export class AutenticateService {
   }
 
   //Precisa ser melhorado
-  validarCelular(telefone: any) {
+  validarCelular(telefone: string) {
     //retira todos os caracteres menos os numeros
     telefone = telefone.replace(/\D/g, '');
 

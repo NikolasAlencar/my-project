@@ -9,7 +9,7 @@ export class OptionsCrivoComponent implements OnInit {
 
   constructor() { }
 
-  public opcoes: any = [{nome: 'Verifica Idade do Cliente', id: 1},
+  public opcoes: Array<any> = [{nome: 'Verifica Idade do Cliente', id: 1},
                         {nome: 'Serasa B49C - Credit Bureau Base de Inconsistência', id: 2}, 
                         {nome: 'Resolv - Pesquisa de óbito Completa', id: 3},
                         {nome: 'Verifica CEP', id: 4},
@@ -24,7 +24,7 @@ export class OptionsCrivoComponent implements OnInit {
                         {nome: 'Risco de fraude', id: 13},
                         {nome: 'Verificação de sei lá oque', id:14}];
 
-  public legendas: any = ['green', 'red', 'yellow', 'grey']
+  public legendas: Array<string> = ['green', 'red', 'yellow', 'grey']
 
   public status: string = `Aprovado`;
   public codAnalise: string = `0038ep`;

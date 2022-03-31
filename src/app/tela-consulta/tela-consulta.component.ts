@@ -19,18 +19,18 @@ export class TelaConsultaComponent implements OnInit {
     });
   }
 
-  public opcaoSelecionada = 'UserId';
-  public valorDigitado: any;
+  public opcaoSelecionada: string = 'UserId';
+  public valorDigitado: number | undefined;
   public spinnerLoad: boolean = false;
   public hasHeader: boolean = false;
 
-  urlAtual = this.route.snapshot.url.join('');
+  private urlAtual = this.route.snapshot.url.join('');
 
-  click(opcaoSelecionada: any){
+  public click(opcaoSelecionada: number){
     this.opcaoSelecionada = this.telaInicioService.opcaoSelecionada(opcaoSelecionada)
   }
 
-  pesquisar = () => {
+  public pesquisar = () => {
     this.spinnerLoad = true;
     try{
       this.telaInicioService.consultar(this.opcaoSelecionada, this.valorDigitado)

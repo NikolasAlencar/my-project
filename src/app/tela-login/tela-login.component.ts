@@ -20,20 +20,21 @@ export class TelaLoginComponent implements OnInit {
     });
   }
 
-  urlAtual = this.route.snapshot.url.join('');
+  private urlAtual = this.route.snapshot.url.join('');
 
-  public usuario: string= '';
-  public senha: string = '';
+  public user: any = {
+    usuario: '',
+    senha: '',
+  }
+
   public spinnerLoad: boolean = false;
-  public autenticado: boolean = false;
   public hasHeader: boolean = false;
 
   entrar = () => {
     this.spinnerLoad = true
-    try{ 
-      this.telaInicioService.user.usuario = this.usuario;  
-      this.telaInicioService.user.senha = this.senha;    
-      this.telaInicioService.entrar(this.usuario, this.senha); 
+    try{
+      this.telaInicioService.user = this.user   
+      this.telaInicioService.entrar(this.user.usuario, this.user.senha); 
     }catch(erro){
       console.log('Erro: ' + erro);
     }finally{

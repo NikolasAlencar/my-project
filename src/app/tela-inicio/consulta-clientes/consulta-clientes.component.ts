@@ -10,15 +10,15 @@ export class ConsultaClientesComponent implements OnInit {
 
   constructor(private telaInicioService: TelaInicioService) { }
 
-  opcaoSelecionada = 'UserId';
-  valorDigitado: any;
+  public opcaoSelecionada: string = 'UserId';
+  public valorDigitado: string | undefined;
   public spinnerLoad: boolean = false;
 
-  click(opcaoSelecionada: any){
+  public click(opcaoSelecionada: number){
     this.opcaoSelecionada = this.telaInicioService.opcaoSelecionada(opcaoSelecionada)
   }
 
-  pesquisar = () => {
+  public pesquisar = () => {
     this.spinnerLoad = true;
     try{
       this.telaInicioService.consultar(this.opcaoSelecionada, this.valorDigitado)
@@ -32,6 +32,5 @@ export class ConsultaClientesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  
   }
 }

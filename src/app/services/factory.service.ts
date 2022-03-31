@@ -9,40 +9,40 @@ export class FactoryService {
 
   constructor(private http: HttpClient) { }
 
-  url_api = 'http://localhost:3000';
+  public url_api: string = 'http://localhost:3000';
 
   //Posso reduzir todas essas chamadas a uma só.
-  async obtemClienteByLogin(login: any){
+  async obtemClienteByLogin(login: string){
     const retorno$ = this.http.get(`${this.url_api}/users?usuario=${login}`)
     return await lastValueFrom(retorno$)
   }
 
-  async obtemClienteByEmail(email: any){
+  async obtemClienteByEmail(email: string){
     const retorno$ = this.http.get(`${this.url_api}/users?email=${email}`)
     return await lastValueFrom(retorno$)
   }
 
-  async obtemClienteByCpf(cpf: any){
+  async obtemClienteByCpf(cpf: string){
     const retorno$ = this.http.get(`${this.url_api}/clientes?cpf=${cpf}`)
     return await lastValueFrom(retorno$)
   }
 
-  async obtemClienteByAgenciaEConta(conta: any){
+  async obtemClienteByAgenciaEConta(conta: string){
     const retorno$ = this.http.get(`${this.url_api}/clientes?conta=${conta}`)
     return await lastValueFrom(retorno$)
   }
 
-  async obtemClienteByCelular(celular: any){
+  async obtemClienteByCelular(celular: string){
     const retorno$ = this.http.get(`${this.url_api}/clientes?celular=${celular}`)
     return await lastValueFrom(retorno$)
   }
 
-  async obtemClienteByid(id: any){
+  async obtemClienteByid(id: string){
     const retorno$ = this.http.get(`${this.url_api}/clientes?id=${id}`)
     return await lastValueFrom(retorno$)
   }
 
-  async createUser(user: any){
+  async createUser(user: string){
     const retorno$ = this.http.post(`${this.url_api}/users`, user)
     return await lastValueFrom(retorno$)
   }
