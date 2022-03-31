@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
-import { EnviaMensagemService } from 'src/app/services/envia-mensagem.service';
+import { AlertService } from 'src/app/services/alert.service';
 import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 import { User } from 'src/assets/model/User';
 
@@ -14,7 +14,7 @@ export class BottomSheetComponent implements OnInit {
   constructor(private _bottomSheetRef: MatBottomSheetRef<BottomSheetComponent>, 
               private _bottomSheet: MatBottomSheet, 
               private telaInicioService: TelaInicioService,
-              private enviaMensagemService: EnviaMensagemService) { }
+              private alertService: AlertService) {}
 
   public newUser: User = {
     usuario: '',
@@ -42,7 +42,7 @@ export class BottomSheetComponent implements OnInit {
         this.exibeInputCod = true;
         cod = this.telaInicioService.randomNum(1000, 9999);
         this.telaInicioService.cod = cod;
-        this.enviaMensagemService.enviaEmail(this.newUser.email, cod)
+        this.telaInicioService.enviaMensagem(this.newUser.email, cod)
       }else{
         this.telaInicioService.createUser(this.newUser, this.cod)
       }
@@ -51,7 +51,7 @@ export class BottomSheetComponent implements OnInit {
     }finally{
       setTimeout(() => {
         this.spinnerLoad = false;
-        this.telaInicioService.success === true ? this.closeBottomSheet() : 'Algo deu errado!'
+        this.telaInicioService.success === true ? this.closeBottomSheet() : ''
         this.telaInicioService.success = false;
         }, 1500);
     }

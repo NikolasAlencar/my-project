@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TelaInicioService } from 'src/app/services/tela-inicio.service';
+import { AlertService } from '../services/alert.service';
 
 @Component({
   selector: 'app-tela-inicio',
@@ -9,7 +10,10 @@ import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 })
 export class TelaInicioComponent implements OnInit {
 
-  constructor(private telaInicioService: TelaInicioService, private route: ActivatedRoute) { 
+  constructor(private telaInicioService: TelaInicioService, 
+              private route: ActivatedRoute,
+              private alertService: AlertService) { 
+                
     this.telaInicioService.aberto$.subscribe(abrir => {
       const boo = new Boolean(abrir)
       this.opcoesHeaderAbertas = boo.valueOf()
@@ -21,7 +25,7 @@ export class TelaInicioComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.telaInicioService.autenticado === false){
-      alert('Você não está logado!')
+      this.alertService.showAlertWarning('Você não está logado!')
       this.telaInicioService.navegarParaLogin()     
     }
     this.telaInicioService.adicionaHistoria(this.urlAtual)

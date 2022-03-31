@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { User } from 'src/assets/model/User';
+import { AlertService } from './alert.service';
 import { AutenticateService } from './autenticate.service';
+import { EnviaMensagemService } from './envia-mensagem.service';
 import { FactoryService } from './factory.service';
 import { NavigateService } from './navigate.service';
 
@@ -14,7 +16,9 @@ export class TelaInicioService {
   constructor(private router: Router, 
               private autenticateService: AutenticateService, 
               private navigateService: NavigateService,
-              private factoryService: FactoryService) { }
+              private factoryService: FactoryService,
+              private alertService: AlertService,
+              private enviaMensagemService: EnviaMensagemService) { }
 
   public user: any = {
     usuario: '',
@@ -26,6 +30,10 @@ export class TelaInicioService {
     senha: ''
   };
 
+  public exibeInput = new Subject<boolean>();
+  abrirInput(abrir: any){
+    this.exibeInput.next(abrir)
+  }
   public success: boolean = false;
   public cod: any;
   public clienteConsultado: any;
@@ -34,8 +42,9 @@ export class TelaInicioService {
   public historia = [''];
   
   //autenticação
-  autenticado = true;
+  autenticado = false;
 
+  /* As partes abaixos podem ser trocadas por Subject<boolean> para diminuir o código?*/
   //Parte de abrir e fechar o header
   private opcoesAbertas = new Subject<string>();
   // Observable string streams
@@ -55,12 +64,7 @@ export class TelaInicioService {
     this.hasHeader.next(hasHeader);
   }
   //Parte de ter ou não o header
-
-  /*
-  adicionaDados(dado: any){
-    this.user = { ...this.user, ...dado }
-  }
-  */
+  /* As partes acima podem ser trocadas por Subject<boolean> para diminuir o código?*/
 
   entrar = (usuario: string, senha: string) => {
     // pega o cliente de acordo com o login
@@ -68,7 +72,7 @@ export class TelaInicioService {
         .then(cliente => {
           this.user = { ...cliente }
           if(this.user[0] === undefined){
-            alert('Usuário incorreto ou não existe')
+            this.alertService.showAlertInfo(`O usuário ${usuario} está incorreto ou não existe!`)
             return
           }
         })
@@ -84,7 +88,7 @@ export class TelaInicioService {
             this.router.navigate(['/consulta'])
             }, 3000);
           }else{
-              alert('Deu errado!')
+              this.alertService.showAlertDanger('Algo deu errado!')
           }
         })
         .catch(erro => console.log(erro))
@@ -96,7 +100,7 @@ export class TelaInicioService {
           .then(cliente => {
             this.clienteConsultado = { ...cliente }
             if(this.clienteConsultado[0] === undefined){
-              alert('Cpf incorreto ou não existe')
+              this.alertService.showAlertInfo(`O cpf ${cpf} está incorreto ou não existe!`)
               return
             }
             if (this.autenticateService.validarCPF(cpf) && 
@@ -107,7 +111,7 @@ export class TelaInicioService {
               this.router.navigate(['/home'])
               }, 3000);
             }else{
-              alert('CPF Inválido!')
+              this.alertService.showAlertDanger('CPF inválido!')
             }
           })
           .catch(erro => console.log(erro))  
@@ -121,7 +125,7 @@ export class TelaInicioService {
           .then(cliente => {
             this.clienteConsultado = { ...cliente }
             if(this.clienteConsultado[0] === undefined){
-              alert('Agência ou Conta incorretas ou não existem')
+              this.alertService.showAlertInfo(`Agência ${agencia} ou Conta ${conta} incorretas ou não existem!`)
               return
             }
             if (this.autenticateService.validarAgenciaEConta(agenciaEConta) && 
@@ -132,7 +136,7 @@ export class TelaInicioService {
               this.router.navigate(['/home'])
               }, 3000);
             }else{
-              alert('Agencia ou Conta Inválida!')
+              this.alertService.showAlertDanger('Agencia ou Conta Inválida!')
             }
           })
           .catch(erro => console.log(erro))  
@@ -144,7 +148,7 @@ export class TelaInicioService {
           .then(cliente => {
             this.clienteConsultado = { ...cliente }
             if(this.clienteConsultado[0] === undefined){
-              alert('Número de Celular incorreto ou não existe')
+              this.alertService.showAlertInfo(`Número de celular ${celular} incorreto ou não existe!`)
               return
             }
             if (this.autenticateService.validarCelular(celular) && 
@@ -155,7 +159,7 @@ export class TelaInicioService {
               this.router.navigate(['/home'])
               }, 3000);
             }else{
-              alert('Celular Inválido!')
+              this.alertService.showAlertDanger('Celular Inválido!')
             }
           })
           .catch(erro => console.log(erro))  
@@ -167,6 +171,7 @@ export class TelaInicioService {
           .then(cliente => {
             this.clienteConsultado = { ...cliente }
             if(this.clienteConsultado[0] === undefined){
+              this.alertService.showAlertInfo(`ID ${id} incorreto ou não existe!`)
               alert('Id incorreto ou não existe')
               return
             }
@@ -178,7 +183,7 @@ export class TelaInicioService {
               this.router.navigate(['/home'])
               }, 3000);
             }else{
-              alert('UserId Inválido!')
+              this.alertService.showAlertDanger('UserId Inválido!')
             }
           })
           .catch(erro => console.log(erro))  
@@ -195,25 +200,34 @@ export class TelaInicioService {
         .then(cliente => {
           this.newUser = { ...cliente }
           if(this.user[0] !== undefined){
-            alert('Usuário já existe')
+            this.alertService.showAlertInfo(`O usuário ${user.usuario} já está cadastrado. Por favor, escolha outro.`)
             return
           }
           if(this.newUser[0] !== undefined){
-            alert('Email já existe')
+            this.alertService.showAlertInfo(`O usuário ${user.email} já está cadastrado. Por favor, escolha outro.`)
             return
           }
+          
+          //if(cod === undefined || null){
+          //  this.alertService.showAlertInfo('Você não digitou o código!')
+          //  return
+          //}
           if(this.autenticateService.validarLogin(user.usuario, user.senha) && Number(cod) === this.cod){
             this.success = true;
             this.factoryService.createUser(user)
           .then(() => {
-            alert(`O usuário ${user.usuario} foi criado com sucesso!`)
+            this.alertService.showAlertSuccess(`O usuário ${user.usuario} foi criado com sucesso!`)
           })
           .catch(e => console.log(e))
           }else{
-            alert('Dados inválidos!')
+            this.alertService.showAlertDanger('Dados inválidos!')
           }
         })
       })
+  }
+
+  enviaMensagem = (email: any, cod: any) => {
+    this.enviaMensagemService.enviaEmail(email, cod)
   }
 
   navegarParaLogin = () => {
