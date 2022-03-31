@@ -11,13 +11,11 @@ export class AppComponent {
 
   constructor(private telaInicioService: TelaInicioService) { 
     this.telaInicioService.aberto$.subscribe(abrir => {
-      const boo = new Boolean(abrir)
-      this.opcoesHeaderAbertas = boo.valueOf()
+      this.opcoesHeaderAbertas = abrir
     });
 
     this.telaInicioService.hasHeader$.subscribe(hasHeader => {
-      const boo = new Boolean(hasHeader)
-      this.hasHeader = boo.valueOf()
+      this.hasHeader = hasHeader
     });
   }
 

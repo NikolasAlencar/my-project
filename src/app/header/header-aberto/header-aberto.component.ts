@@ -10,8 +10,7 @@ export class HeaderAbertoComponent implements OnInit {
 
   constructor(private telaInicioService: TelaInicioService) { 
     this.telaInicioService.aberto$.subscribe(abrir => {
-      const boo = new Boolean(abrir)
-      this.opcoesHeaderAbertas = boo.valueOf()
+      this.opcoesHeaderAbertas = abrir
     });
   }
 

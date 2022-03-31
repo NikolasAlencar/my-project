@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { User } from 'src/assets/model/User';
 import { AlertService } from './alert.service';
@@ -13,8 +12,7 @@ import { NavigateService } from './navigate.service';
 })
 export class TelaInicioService {
   
-  constructor(private router: Router, 
-              private autenticateService: AutenticateService, 
+  constructor(private autenticateService: AutenticateService, 
               private navigateService: NavigateService,
               private factoryService: FactoryService,
               private alertService: AlertService,
@@ -30,10 +28,6 @@ export class TelaInicioService {
     senha: ''
   };
 
-  public exibeInput = new Subject<boolean>();
-  abrirInput(abrir: any){
-    this.exibeInput.next(abrir)
-  }
   public success: boolean = false;
   public cod: any;
   public clienteConsultado: any;
@@ -46,7 +40,7 @@ export class TelaInicioService {
 
   /* As partes abaixos podem ser trocadas por Subject<boolean> para diminuir o código?*/
   //Parte de abrir e fechar o header
-  private opcoesAbertas = new Subject<string>();
+  private opcoesAbertas = new Subject<boolean>();
   // Observable string streams
   aberto$ = this.opcoesAbertas.asObservable();
   // Service message commands
@@ -56,7 +50,7 @@ export class TelaInicioService {
   //Parte de abrir e fechar o header
 
   //Parte de ter ou não o header
-  private hasHeader = new Subject<string>();
+  private hasHeader = new Subject<boolean>();
   // Observable string streams
   hasHeader$ = this.hasHeader.asObservable();
   // Service message commands
@@ -77,16 +71,16 @@ export class TelaInicioService {
           }
         })
         .then(() => {
-          if  (this.autenticateService.validarLogin(usuario, senha) && 
-              this.autenticateService.autenticaLogin(this.user, usuario, senha) === true){
+          if(this.autenticateService.validarLogin(usuario, senha) && 
+             this.autenticateService.autenticaLogin(this.user, usuario, senha) === true){
 
               // autentica o login
               this.autenticado = true
 
-            // navega pra tela de consulta
-            setTimeout(() => {
-            this.router.navigate(['/consulta'])
-            }, 3000);
+              // navega pra tela de consulta
+              setTimeout(() => {
+                this.navegarParaConsulta()
+              }, 3000);
           }else{
               this.alertService.showAlertDanger('Algo deu errado!')
           }
@@ -108,7 +102,7 @@ export class TelaInicioService {
 
               // navega pra tela home
               setTimeout(() => {
-              this.router.navigate(['/home'])
+                this.navegarParaHome()
               }, 3000);
             }else{
               this.alertService.showAlertDanger('CPF inválido!')
@@ -133,7 +127,7 @@ export class TelaInicioService {
 
               // navega pra tela home
               setTimeout(() => {
-              this.router.navigate(['/home'])
+                this.navegarParaHome()
               }, 3000);
             }else{
               this.alertService.showAlertDanger('Agencia ou Conta Inválida!')
@@ -156,7 +150,7 @@ export class TelaInicioService {
 
               // navega pra tela home
               setTimeout(() => {
-              this.router.navigate(['/home'])
+                this.navegarParaHome()
               }, 3000);
             }else{
               this.alertService.showAlertDanger('Celular Inválido!')
@@ -172,7 +166,6 @@ export class TelaInicioService {
             this.clienteConsultado = { ...cliente }
             if(this.clienteConsultado[0] === undefined){
               this.alertService.showAlertInfo(`ID ${id} incorreto ou não existe!`)
-              alert('Id incorreto ou não existe')
               return
             }
             if (this.autenticateService.validarid(id) && 
@@ -180,7 +173,7 @@ export class TelaInicioService {
 
               // navega pra tela home
               setTimeout(() => {
-              this.router.navigate(['/home'])
+                this.navegarParaHome()
               }, 3000);
             }else{
               this.alertService.showAlertDanger('UserId Inválido!')
@@ -226,8 +219,9 @@ export class TelaInicioService {
       })
   }
 
-  enviaMensagem = (email: any, cod: any) => {
-    this.enviaMensagemService.enviaEmail(email, cod)
+  enviaMensagem = (email: any) => {
+    this.cod = this.randomNum(1000, 9999);
+    this.enviaMensagemService.enviaEmail(email, this.cod)
   }
 
   navegarParaLogin = () => {

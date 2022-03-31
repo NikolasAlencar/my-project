@@ -13,10 +13,9 @@ export class TelaConsultaComponent implements OnInit {
   constructor(private telaInicioService: TelaInicioService, 
               private route: ActivatedRoute,
               private alertService: AlertService) { 
-                
+
     this.telaInicioService.hasHeader$.subscribe(hasHeader => {
-      const boo = new Boolean(hasHeader)
-      this.hasHeader = boo.valueOf()
+      this.hasHeader = hasHeader
     });
   }
 

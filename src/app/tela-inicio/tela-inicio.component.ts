@@ -13,10 +13,9 @@ export class TelaInicioComponent implements OnInit {
   constructor(private telaInicioService: TelaInicioService, 
               private route: ActivatedRoute,
               private alertService: AlertService) { 
-                
+
     this.telaInicioService.aberto$.subscribe(abrir => {
-      const boo = new Boolean(abrir)
-      this.opcoesHeaderAbertas = boo.valueOf()
+      this.opcoesHeaderAbertas = abrir
     });
   }
 

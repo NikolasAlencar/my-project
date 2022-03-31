@@ -40,9 +40,7 @@ export class BottomSheetComponent implements OnInit {
     try{
       if(this.exibeInputCod === false){
         this.exibeInputCod = true;
-        cod = this.telaInicioService.randomNum(1000, 9999);
-        this.telaInicioService.cod = cod;
-        this.telaInicioService.enviaMensagem(this.newUser.email, cod)
+        this.telaInicioService.enviaMensagem(this.newUser.email)
       }else{
         this.telaInicioService.createUser(this.newUser, this.cod)
       }

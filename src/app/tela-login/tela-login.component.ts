@@ -16,8 +16,7 @@ export class TelaLoginComponent implements OnInit {
               private _bottomSheet: MatBottomSheet) {
 
     this.telaInicioService.hasHeader$.subscribe(hasHeader => {
-      const boo = new Boolean(hasHeader)
-      this.hasHeader = boo.valueOf()
+      this.hasHeader = hasHeader
     });
   }
 
