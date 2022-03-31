@@ -16,15 +16,12 @@ export class HeaderComponent implements OnInit {
 
   opcoesHeaderAbertas: boolean = false;
 
-  @Output() mudouOpcoesHeaderAbertas: EventEmitter<any> = new EventEmitter();
-
   abrirOpcoes(): void{
     if (this.opcoesHeaderAbertas === false){
       this.opcoesHeaderAbertas = true
     } else{
       this.opcoesHeaderAbertas = false
     }
-    this.mudouOpcoesHeaderAbertas.emit(this.opcoesHeaderAbertas)
     this.telaInicioService.abrirHeader(this.opcoesHeaderAbertas)
   }
 

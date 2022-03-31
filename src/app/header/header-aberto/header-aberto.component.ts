@@ -14,11 +14,7 @@ export class HeaderAbertoComponent implements OnInit {
     });
   }
 
-  @Output() fechouOpcoesHeaderAbertas: EventEmitter<any> = new EventEmitter();
-
   fecharOpcoes(): void{
-    this.opcoesHeaderAbertas = false
-    this.fechouOpcoesHeaderAbertas.emit(this.opcoesHeaderAbertas)
     this.telaInicioService.abrirHeader(this.opcoesHeaderAbertas)
   }
 

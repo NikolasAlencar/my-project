@@ -1,14 +1,6 @@
 <app-header-aberto *ngIf="opcoesHeaderAbertas"></app-header-aberto><!---->
 
-<app-header
-
-    *ngIf="hasHeader"
-
-    (mudouOpcoesHeaderAbertas)="onMudouValor($event)" 
-
-    (fechouOpcoesHeaderAbertas)="onMudouValor($event)">
-
-</app-header>
+<app-header *ngIf="hasHeader"></app-header>
 
 <router-outlet></router-outlet>
 

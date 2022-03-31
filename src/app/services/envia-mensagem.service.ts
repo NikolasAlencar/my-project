@@ -12,7 +12,7 @@ export class EnviaMensagemService {
   async enviaEmail(destinatario: string, cod: number){
     const corpoEmail = {
       to: destinatario,
-      subject: "Código de confirmação para criação de conta no Backoffice Wallet",
+      subject: "Código de Confirmação - Backoffice Wallet",
       message: `Olá, o seu código de verificação é o ${cod}`
     }
     const retorno$ = this.http.post('http://localhost:3030', corpoEmail)
