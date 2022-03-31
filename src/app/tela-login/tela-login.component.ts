@@ -13,12 +13,7 @@ export class TelaLoginComponent implements OnInit {
 
   constructor(private telaInicioService: TelaInicioService, 
               private route: ActivatedRoute, 
-              private _bottomSheet: MatBottomSheet) {
-
-    this.telaInicioService.hasHeader$.subscribe(hasHeader => {
-      this.hasHeader = hasHeader
-    });
-  }
+              private _bottomSheet: MatBottomSheet) { }
 
   private urlAtual = this.route.snapshot.url.join('');
 
@@ -28,7 +23,6 @@ export class TelaLoginComponent implements OnInit {
   }
 
   public spinnerLoad: boolean = false;
-  public hasHeader: boolean = false;
 
   entrar = () => {
     this.spinnerLoad = true
@@ -49,7 +43,7 @@ export class TelaLoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.telaInicioService.verificaHasHeader(this.hasHeader = false)
+    this.telaInicioService.verificaHasHeader(false)
     this.telaInicioService.adicionaHistoria(this.urlAtual)
     this.telaInicioService.autenticado = false
     this.telaInicioService.success = false
