@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
+import { AlertService } from './alert.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AutenticateService {
   
-  constructor() { }
+  constructor(private alertService: AlertService) { }
 
   autenticaLogin(user: any, usuario: string, senha: string){
     return user[0].usuario === usuario && user[0].senha === senha ? 
     true : 
-    alert('O usuário ou senha estão incorretos!')
+    this.alertService.showAlertInfo('O usuário ou senha estão incorretos!')
   }
 
   autenticaCpf(user: any, cpf: string){
-    return user[0].cpf === cpf ? true : alert('O cpf está incorreto!')
+    return user[0].cpf === cpf ? true : this.alertService.showAlertInfo('O cpf está incorreto!')
   }
 
   autenticaAgenciaEConta(user: any, agencia: string, conta: string){
@@ -44,6 +45,25 @@ export class AutenticateService {
 
   validarId(id: any) {
     return id === '0' || id === 0 ? false : true
+  }
+
+  validarEmail(email: string): boolean{
+    const usuario = email.substring(0, email.indexOf("@"));
+    const dominio = email.substring(email.indexOf("@")+ 1, email.length);
+    const temPonto = dominio.lastIndexOf(".", dominio.length - 1);
+    if ((usuario.length >=1) &&
+        (dominio.length >=3) &&
+        (usuario.search("@")==-1) &&
+        (dominio.search("@")==-1) &&
+        (usuario.search(" ")==-1) &&
+        (dominio.search(" ")==-1) &&
+        (dominio.search(".")!=-1) &&
+        (dominio.indexOf(".") >=1)&&
+        (temPonto > -1)){
+          return false
+    }else{
+      return true
+    }        
   }
 
   //Precisa ser melhorado

@@ -6,6 +6,7 @@ import { AutenticateService } from './autenticate.service';
 import { EnviaMensagemService } from './envia-mensagem.service';
 import { FactoryService } from './factory.service';
 import { NavigateService } from './navigate.service';
+import { randomNum } from 'src/assets/util/randomNum';
 
 @Injectable({
   providedIn: 'root'
@@ -29,11 +30,13 @@ export class TelaInicioService {
   };
 
   public success: boolean = false;
-  public cod: number | undefined;
+  public cod: number = randomNum(1000, 9999);;
   public clienteConsultado: any;
   public url: string = '';
   private opcoesConsulta: Array<string> = ['Cpf', 'Agencia', 'Celular', 'UserId']
+  private opcoesCod: Array<string> = ['Email enviado com sucesso!', 'Você não digitou o código']
   public historia: Array<string> = [''];
+  private count: number = 0;
   
   //autenticação
   public autenticado: boolean = false;
@@ -57,6 +60,16 @@ export class TelaInicioService {
     this.hasHeader.next(hasHeader);
   }
   //Parte de ter ou não o header
+
+  //Parte de exibir ou não o input de registro
+  private hasExibirInput = new Subject<boolean>();
+  // Observable string streams
+  exibirInput$ = this.hasExibirInput.asObservable();
+  // Service message commands
+  verificaHasExibirInput(hasExibirInput: boolean) {
+    this.hasExibirInput.next(hasExibirInput);
+  }
+  //Parte de exibir ou não o input de registro
 
   entrar = (usuario: string, senha: string) => {
     // pega o cliente de acordo com o login
@@ -190,20 +203,22 @@ export class TelaInicioService {
         this.factoryService.obtemClienteByEmail(user.email)
         .then(cliente => {
           this.newUser = { ...cliente }
-          if(this.user[0] !== undefined){
-            this.alertService.showAlertInfo(`O usuário ${user.usuario} já está cadastrado. Por favor, escolha outro.`)
+          if(this.autenticateService.validarLogin(user.usuario, user.senha) || this.user[0] !== undefined){
+            this.alertService.showAlertInfo(`O usuário ${user.usuario} já está cadastrado ou não é válido. Por favor, escolha outro usuário que possua entre 7 e 20 caracteres e não tenha caracteres especiais.`)
             return
           }
-          if(this.newUser[0] !== undefined){
-            this.alertService.showAlertInfo(`O usuário ${user.email} já está cadastrado. Por favor, escolha outro.`)
+          if(this.autenticateService.validarEmail(user.email) || this.newUser[0] !== undefined){
+            this.alertService.showAlertInfo(`O usuário ${user.email} já está cadastrado ou não é válido. Por favor, escolha outro.`)
             return
           }
-          
-          //if(cod === undefined || null){
-          //  this.alertService.showAlertInfo('Você não digitou o código!')
-          //  return
-          //}
-          if(this.autenticateService.validarLogin(user.usuario, user.senha) && Number(cod) === this.cod){
+          this.hasExibirInput.next(true)
+          if(cod === undefined || null){
+            this.alertService.showAlertInfo(this.opcoesCod[this.count])
+            this.count = 1;
+            return
+          }
+          this.enviaMensagem(user.email)
+          if(Number(cod) === this.cod){
             this.success = true;
             this.factoryService.createUser(user)
           .then(() => {
@@ -211,14 +226,13 @@ export class TelaInicioService {
           })
           .catch(e => console.log(e))
           }else{
-            this.alertService.showAlertDanger('Dados inválidos!')
+            this.alertService.showAlertDanger('Código inválido!')
           }
         })
       })
   }
 
   enviaMensagem = (email: any) => {
-    this.cod = this.randomNum(1000, 9999);
     this.enviaMensagemService.enviaEmail(email, this.cod)
   }
 
@@ -248,11 +262,6 @@ export class TelaInicioService {
 
   opcaoSelecionada(number: number){
     return this.opcoesConsulta[number-1]
-  }
-
-  randomNum = (min: number, max: number) => {
-    const number = Math.random() * (max - min) + min;
-    return Math.trunc(number)
   }
 
   //Posso melhorar essa parte?

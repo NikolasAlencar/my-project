@@ -13,22 +13,22 @@ export class BottomSheetComponent implements OnInit {
 
   constructor(private _bottomSheetRef: MatBottomSheetRef<BottomSheetComponent>, 
               private _bottomSheet: MatBottomSheet, 
-              private telaInicioService: TelaInicioService,
-              private alertService: AlertService) {}
+              private telaInicioService: TelaInicioService) {
+
+                this.telaInicioService.exibirInput$.subscribe(exibeInput => {
+                  this.exibeInputCod = exibeInput
+                });
+              }
 
   public newUser: User = {
     usuario: '',
     senha: '',
     email: ''
   };
+  
   public cod: any;
   public spinnerLoad: boolean = false;
   public exibeInputCod: boolean = false;
-
-  openLink(event: MouseEvent): void {
-    this._bottomSheetRef.dismiss();
-    event.preventDefault();
-  }
 
   closeBottomSheet(): void {
     this._bottomSheet.dismiss(BottomSheetComponent);
@@ -36,14 +36,8 @@ export class BottomSheetComponent implements OnInit {
 
   registrar = () => {
     this.spinnerLoad = true;
-    let cod: any
     try{
-      if(this.exibeInputCod === false){
-        this.exibeInputCod = true;
-        this.telaInicioService.enviaMensagem(this.newUser.email)
-      }else{
-        this.telaInicioService.createUser(this.newUser, this.cod)
-      }
+      this.telaInicioService.createUser(this.newUser, this.cod)
     }catch(erro){
       console.log(erro)
     }finally{
