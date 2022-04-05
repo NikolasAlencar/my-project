@@ -55,8 +55,8 @@ export class FactoryService {
   }
 
   async enviaEmail(corpoEmail: any){
-    //const retorno$ = this.http.post('http://localhost:3030', corpoEmail)
-    //return await lastValueFrom(retorno$)
-    //.catch(error => console.log(error))
+    const retorno$ = this.http.post('http://localhost:3030', corpoEmail)
+    return await lastValueFrom(retorno$)
+    .catch(error => console.log(error))
   }
 }

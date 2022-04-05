@@ -13,7 +13,6 @@ export class AppComponent {
     this.telaInicioService.aberto$.subscribe(abrir => {
       this.opcoesHeaderAbertas = abrir
     });
-
     this.telaInicioService.hasHeader$.subscribe(hasHeader => {
       this.hasHeader = hasHeader
     });

@@ -203,21 +203,20 @@ export class TelaInicioService {
         this.factoryService.obtemClienteByEmail(user.email)
         .then(cliente => {
           this.newUser = { ...cliente }
-          if(this.autenticateService.validarLogin(user.usuario, user.senha) || this.user[0] !== undefined){
+          if(!this.autenticateService.validarLogin(user.usuario, user.senha) || this.user[0] !== undefined){
             this.alertService.showAlertInfo(`O usuário ${user.usuario} já está cadastrado ou não é válido. Por favor, escolha outro usuário que possua entre 7 e 20 caracteres e não tenha caracteres especiais.`)
             return
           }
-          if(this.autenticateService.validarEmail(user.email) || this.newUser[0] !== undefined){
+          if(!this.autenticateService.validarEmail(user.email) || this.newUser[0] !== undefined){
             this.alertService.showAlertInfo(`O usuário ${user.email} já está cadastrado ou não é válido. Por favor, escolha outro.`)
             return
           }
           this.hasExibirInput.next(true)
           if(cod === undefined || null){
             this.alertService.showAlertInfo(this.opcoesCod[this.count])
-            this.count = 1;
+            this.count === 0 ? this.enviaMensagem(user.email) : this.count = 1;
             return
           }
-          this.enviaMensagem(user.email)
           if(Number(cod) === this.cod){
             this.success = true;
             this.factoryService.createUser(user)

@@ -60,9 +60,9 @@ export class AutenticateService {
         (dominio.search(".")!=-1) &&
         (dominio.indexOf(".") >=1)&&
         (temPonto > -1)){
-          return false
+          return true
     }else{
-      return true
+      return false
     }        
   }
 
