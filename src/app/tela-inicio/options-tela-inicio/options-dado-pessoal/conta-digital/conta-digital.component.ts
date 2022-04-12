@@ -10,7 +10,10 @@ export class ContaDigitalComponent implements OnInit {
 
   constructor(public telaInicioService: TelaInicioService) { }
 
+  clienteConsultado: any;
+
   ngOnInit(): void {
+    this.clienteConsultado = this.telaInicioService.clienteConsultado[0]
   }
 
 }

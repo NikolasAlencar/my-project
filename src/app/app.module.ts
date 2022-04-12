@@ -26,6 +26,7 @@ import { BottomSheetComponent } from './components/bottom-sheet/bottom-sheet.com
 import { OptionsCrivoComponent } from './tela-inicio/options-tela-inicio/options-crivo/options-crivo.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     HttpClientModule,
     BrowserAnimationsModule,
     MatBottomSheetModule,
+    ReactiveFormsModule,
     ModalModule.forRoot()
   ],
   bootstrap: [AppComponent]

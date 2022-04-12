@@ -1,66 +1,80 @@
 <div class="subtitle">Dados pessoais</div>
-<div class="primary">
-    <div>
-        <div class="title-item">ID</div>
-        <div class="result-item">{{ telaInicioService.clienteConsultado[0].id }}</div>
+<form [formGroup]="formulario" novalidate (ngSubmit)="confirmar()">
+    <div class="primary">
+        <div>
+            <label class="title-item">ID</label>
+            <label class="form-control result-item">{{ clienteConsultado.id }}</label>
+        </div>
+        <div class="nome-completo result-item-black">
+            <label class="title-item" for="floatingInput">Nome completo</label>
+            <input formControlName="nomeCompleto" class="form-control result-item" aria-describedby="emailHelp" placeholder="Digite o seu nome completo">
+            <small class="form-text text-muted " *ngIf="isFalse">We'll never share your email with anyone else.</small>
+        </div>
     </div>
-    <div class="nome-completo result-item-black">
-        <div class="title-item">Nome completo</div>
-        <div class="result-item">{{ telaInicioService.clienteConsultado[0].nome + ' ' + telaInicioService.clienteConsultado[0].sobrenome}}</div>
+    <div class="primary result-item-black">
+        <div>
+            <label class="title-item">CPF</label>
+            <input formControlName="cpf" class="form-control result-item" aria-describedby="emailHelp" placeholder="Digite o seu CPF">
+            <small class="form-text text-muted" *ngIf="isFalse">We'll never share your email with anyone else.</small>
+        </div>
+        <div>
+            <label class="title-item">Data de nascimento</label>
+            <label class="form-control result-item">{{clienteConsultado.dataDeNascimento }}</label>
+        </div>
+        <div>
+            <label class="title-item">Nome da mãe</label>
+            <input formControlName="nomeDaMae" class="form-control result-item" aria-describedby="emailHelp" placeholder="Digite o nome da sua mãe">
+            <small class="form-text text-muted" *ngIf="isFalse">We'll never share your email with anyone else.</small>
+        </div>
     </div>
-</div>
-<div class="primary result-item-black">
-    <div>
-        <div class="title-item">CPF</div>
-        <div class="result-item">{{ telaInicioService.clienteConsultado[0].cpf }}</div>
+    <div class="primary">
+        <div class="email result-item-black">
+            <label class="title-item">Email</label>
+            <input formControlName="email" class="form-control result-item" aria-describedby="emailHelp" placeholder="Digite o seu email">
+            <small class="form-text text-muted" *ngIf="isFalse">We'll never share your email with anyone else.</small>
+        </div>
     </div>
-    <div>
-        <div class="title-item">Data de nascimento</div>
-        <div class="result-item">{{ telaInicioService.clienteConsultado[0].dataDeNascimento }}</div>
+    <div class="subtitle">Endereço</div>
+    <div class="primary">
+        <div class="email result-item-black">
+            <label class="title-item">CEP</label>
+            <input formControlName="cep" class="form-control result-item" aria-describedby="emailHelp" placeholder="Digite o seu CEP">
+            <small class="form-text text-muted" *ngIf="isFalse">We'll never share your email with anyone else.</small>
+        </div>
     </div>
-    <div>
-        <div class="title-item">Nome da mãe</div>
-        <div class="result-item">{{ telaInicioService.clienteConsultado[0].nomeDaMae }}</div>
+    <div class="primary result-item-black">
+        <div>
+            <label class="title-item">Logradouro</label>
+            <input formControlName="logradouro" class="form-control result-item" aria-describedby="emailHelp" placeholder="Digite o seu Logradouro">
+            <small class="form-text text-muted" *ngIf="isFalse">We'll never share your email with anyone else.</small>
+        </div>
+        <div>
+            <label class="title-item">Número</label>
+            <input formControlName="numero" class="form-control result-item" aria-describedby="emailHelp" placeholder="Digite o seu Número">
+            <small class="form-text text-muted" *ngIf="isFalse">We'll never share your email with anyone else.</small>
+        </div>
+        <div>
+            <label class="title-item">Complemento</label>
+            <input formControlName="complemento" class="form-control result-item" aria-describedby="emailHelp" placeholder="Digite o seu Complemento">
+            <small class="form-text text-muted" *ngIf="isFalse">We'll never share your email with anyone else.</small>
+        </div>
     </div>
-</div>
-<div class="primary">
-    <div class="email result-item-black">
-        <div class="title-item">Email</div>
-        <div class="result-item">{{ telaInicioService.clienteConsultado[0].email }}</div>
+    <div class="primary result-item-black">
+        <div>
+            <label class="title-item">Bairro</label>
+            <input formControlName="bairro" class="form-control result-item" aria-describedby="emailHelp" placeholder="Digite o nome do seu Bairro">
+            <small class="form-text text-muted" *ngIf="isFalse">We'll never share your email with anyone else.</small>
+        </div>
+        <div>
+            <label class="title-item">Cidade</label>
+            <input formControlName="cidade" class="form-control result-item" aria-describedby="emailHelp" placeholder="Digite o nome da sua Cidade">
+            <small class="form-text text-muted" *ngIf="isFalse">We'll never share your email with anyone else.</small>
+        </div>
+        <div>
+            <label class="title-item">Estado</label>
+            <input formControlName="estado" class="form-control result-item" aria-describedby="emailHelp" placeholder="Digite o seu Estado">
+            <small class="form-text text-muted" *ngIf="isFalse">We'll never share your email with anyone else.</small>
+        </div>
     </div>
-</div>
-<div class="subtitle">Endereço</div>
-<div class="primary">
-    <div class="email result-item-black">
-        <div class="title-item">CEP</div>
-        <div class="result-item">{{ telaInicioService.clienteConsultado[0].endereco.cep }}</div>
-    </div>
-</div>
-<div class="primary result-item-black">
-    <div>
-        <div class="title-item">Logradouro</div>
-        <div class="result-item">{{ telaInicioService.clienteConsultado[0].endereco.logradouro }}</div>
-    </div>
-    <div>
-        <div class="title-item">Número</div>
-        <div class="result-item">{{ telaInicioService.clienteConsultado[0].endereco.numero }}</div>
-    </div>
-    <div>
-        <div class="title-item">Complemento</div>
-        <div class="result-item">{{ telaInicioService.clienteConsultado[0].endereco.complemento }}</div>
-    </div>
-</div>
-<div class="primary result-item-black">
-    <div>
-        <div class="title-item">Bairro</div>
-        <div class="result-item">{{ telaInicioService.clienteConsultado[0].endereco.bairro }}</div>
-    </div>
-    <div>
-        <div class="title-item">Cidade</div>
-        <div class="result-item">{{ telaInicioService.clienteConsultado[0].endereco.cidade }}</div>
-    </div>
-    <div>
-        <div class="title-item">Estado</div>
-        <div class="result-item">{{ telaInicioService.clienteConsultado[0].endereco.estado }}</div>
-    </div>
-</div>
+    <button type="submit"></button>
+</form>
