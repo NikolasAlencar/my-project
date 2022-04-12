@@ -27,7 +27,7 @@ Olá, esse projeto foi feito usando Angular 13.2.3.
  - Nodemailer
  - Body-parser
 
-## Sinta-se a vontade para abrir uma Issue de melhoria ou algo do tipo.
+## Sinta-se a vontade para abrir uma Issue de melhoria ou algo do tipo, afinal, esse foi o meu maior projeto e feito usando 99% do código de minha própria autoria.
 
 
 
