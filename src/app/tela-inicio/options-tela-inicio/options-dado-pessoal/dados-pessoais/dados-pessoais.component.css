@@ -44,3 +44,26 @@
     border-radius: 4px;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.144);
 }
+
+.botao{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 40px;
+}
+
+.atualizar{
+    background: linear-gradient(90deg, #000537 60%, #2d2e62 100%);
+    font-weight: 500;
+    font-size: 14px;
+    margin-right: 10px;  
+}
+
+input.ng-invalid.ng-touched{
+    border-color: red !important;
+}
+
+input.ng-valid.ng-touched{
+    border-color: green !important;
+}
+

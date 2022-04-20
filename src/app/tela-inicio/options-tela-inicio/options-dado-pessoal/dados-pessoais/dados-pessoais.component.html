@@ -6,75 +6,89 @@
             <label class="form-control result-item">{{ clienteConsultado.id }}</label>
         </div>
         <div class="nome-completo result-item-black">
-            <label class="title-item" for="floatingInput">Nome completo</label>
-            <input formControlName="nomeCompleto" class="form-control result-item" aria-describedby="emailHelp" placeholder="Digite o seu nome completo">
-            <small class="form-text text-muted " *ngIf="isFalse">We'll never share your email with anyone else.</small>
+            <label class="title-item">Nome completo</label>
+            <input formControlName="nomeCompleto" class="form-control result-item" placeholder="Digite o seu nome completo">
+            <small *ngIf="!formulario.get('nomeCompleto')?.valid && formulario.get('nomeCompleto')?.touched" class="form-text text-danger">Por favor, digite corretamente o seu nome completo.</small>
+            <small *ngIf="formulario.get('nomeCompleto')?.valid && formulario.get('nomeCompleto')?.touched" class="form-text text-success">Ok.</small>
         </div>
     </div>
     <div class="primary result-item-black">
         <div>
             <label class="title-item">CPF</label>
-            <input formControlName="cpf" class="form-control result-item" aria-describedby="emailHelp" placeholder="Digite o seu CPF">
-            <small class="form-text text-muted" *ngIf="isFalse">We'll never share your email with anyone else.</small>
+            <input formControlName="cpf" class="form-control result-item" placeholder="Digite o seu CPF">
+            <small *ngIf="!formulario.get('cpf')?.valid && formulario.get('cpf')?.touched" class="form-text text-danger">Por favor, digite corretamente o seu CPF.</small>
+            <small *ngIf="formulario.get('cpf')?.valid && formulario.get('cpf')?.touched" class="form-text text-success">Ok.</small>
         </div>
         <div>
             <label class="title-item">Data de nascimento</label>
-            <label class="form-control result-item">{{clienteConsultado.dataDeNascimento }}</label>
+            <label class="form-control result-item">{{ clienteConsultado.dataDeNascimento }}</label>
         </div>
         <div>
             <label class="title-item">Nome da mãe</label>
-            <input formControlName="nomeDaMae" class="form-control result-item" aria-describedby="emailHelp" placeholder="Digite o nome da sua mãe">
-            <small class="form-text text-muted" *ngIf="isFalse">We'll never share your email with anyone else.</small>
+            <input formControlName="nomeDaMae" class="form-control result-item" placeholder="Digite o nome da sua mãe">
+            <small *ngIf="!formulario.get('nomeDaMae')?.valid && formulario.get('nomeDaMae')?.touched" class="form-text text-danger">Por favor, digite corretamente o nome da sua mãe.</small>
+            <small *ngIf="formulario.get('nomeDaMae')?.valid && formulario.get('nomeDaMae')?.touched" class="form-text text-success">Ok.</small>
         </div>
     </div>
     <div class="primary">
         <div class="email result-item-black">
             <label class="title-item">Email</label>
-            <input formControlName="email" class="form-control result-item" aria-describedby="emailHelp" placeholder="Digite o seu email">
-            <small class="form-text text-muted" *ngIf="isFalse">We'll never share your email with anyone else.</small>
+            <input formControlName="email" class="form-control result-item" placeholder="Digite o seu email">
+            <small *ngIf="formulario.get('email')?.valid && formulario.get('email')?.touched" class="form-text text-success">Ok.</small>
+            <small *ngIf="!formulario.get('email')?.valid && formulario.get('email')?.touched" class="form-text text-danger">Por favor, digite corretamente o seu email.</small>
         </div>
     </div>
-    <div class="subtitle">Endereço</div>
-    <div class="primary">
-        <div class="email result-item-black">
-            <label class="title-item">CEP</label>
-            <input formControlName="cep" class="form-control result-item" aria-describedby="emailHelp" placeholder="Digite o seu CEP">
-            <small class="form-text text-muted" *ngIf="isFalse">We'll never share your email with anyone else.</small>
+    <div class="subtitle" formGroupName="endereco">Endereço
+        <div class="primary">
+            <div class="email result-item-black">
+                <label class="title-item">CEP</label>
+                <input formControlName="cep" class="form-control result-item" placeholder="Digite o seu CEP">
+                <small *ngIf="formulario.get('endereco.cep')?.valid && formulario.get('endereco.cep')?.touched" class="form-text text-success">Ok.</small>
+                <small *ngIf="!formulario.get('endereco.cep')?.valid && formulario.get('endereco.cep')?.touched" class="form-text text-danger">Por favor, digite corretamente o seu CEP.</small>
+            </div>
+        </div>
+        <div class="primary result-item-black">
+            <div>
+                <label class="title-item">Logradouro</label>
+                <input formControlName="logradouro" class="form-control result-item" placeholder="Digite o seu Logradouro">
+                <small *ngIf="formulario.get('endereco.logradouro')?.valid && formulario.get('endereco.logradouro')?.touched" class="form-text text-success">Ok.</small>
+                <small *ngIf="!formulario.get('endereco.logradouro')?.valid && formulario.get('endereco.logradouro')?.touched" class="form-text text-danger">Por favor, digite corretamente o seu logradouro.</small>
+            </div>
+            <div>
+                <label class="title-item">Número</label>
+                <input formControlName="numero" class="form-control result-item" placeholder="Digite o seu Número">
+                <small *ngIf="formulario.get('endereco.numero')?.valid && formulario.get('endereco.numero')?.touched" class="form-text text-success">Ok.</small>
+                <small *ngIf="!formulario.get('endereco.numero')?.valid && formulario.get('endereco.numero')?.touched" class="form-text text-danger">Por favor, digite corretamente o seu número.</small>
+            </div>
+            <div>
+                <label class="title-item">Complemento</label>
+                <input formControlName="complemento" class="form-control result-item" placeholder="Digite o seu Complemento">
+                <small *ngIf="formulario.get('endereco.complemento')?.valid && formulario.get('endereco.complemento')?.touched" class="form-text text-success">Ok.</small>
+                <small *ngIf="!formulario.get('endereco.complemento')?.valid && formulario.get('endereco.complemento')?.touched" class="form-text text-danger">Por favor, digite corretamente o seu complemento.</small>
+            </div>
+        </div>
+        <div class="primary result-item-black">
+            <div>
+                <label class="title-item">Bairro</label>
+                <input formControlName="bairro" class="form-control result-item" placeholder="Digite o nome do seu Bairro">
+                <small *ngIf="formulario.get('endereco.bairro')?.valid && formulario.get('endereco.bairro')?.touched" class="form-text text-success">Ok.</small>
+                <small *ngIf="!formulario.get('endereco.bairro')?.valid && formulario.get('endereco.bairro')?.touched" class="form-text text-danger">Por favor, digite corretamente o seu bairro.</small>
+            </div>
+            <div>
+                <label class="title-item">Cidade</label>
+                <input formControlName="cidade" class="form-control result-item" placeholder="Digite o nome da sua Cidade">
+                <small *ngIf="formulario.get('endereco.cidade')?.valid && formulario.get('endereco.cidade')?.touched" class="form-text text-success">Ok.</small>
+                <small *ngIf="!formulario.get('endereco.cidade')?.valid && formulario.get('endereco.cidade')?.touched" class="form-text text-danger">Por favor, digite corretamente a sua cidade.</small>
+            </div>
+            <div>
+                <label class="title-item">Estado</label>
+                <input formControlName="estado" class="form-control result-item" placeholder="Digite o seu Estado">
+                <small *ngIf="formulario.get('endereco.estado')?.valid && formulario.get('endereco.estado')?.touched" class="form-text text-success">Ok.</small>
+                <small *ngIf="!formulario.get('endereco.estado')?.valid && formulario.get('endereco.estado')?.touched" class="form-text text-danger">Por favor, digite corretamente o seu estado.</small>
+            </div>
         </div>
     </div>
-    <div class="primary result-item-black">
-        <div>
-            <label class="title-item">Logradouro</label>
-            <input formControlName="logradouro" class="form-control result-item" aria-describedby="emailHelp" placeholder="Digite o seu Logradouro">
-            <small class="form-text text-muted" *ngIf="isFalse">We'll never share your email with anyone else.</small>
-        </div>
-        <div>
-            <label class="title-item">Número</label>
-            <input formControlName="numero" class="form-control result-item" aria-describedby="emailHelp" placeholder="Digite o seu Número">
-            <small class="form-text text-muted" *ngIf="isFalse">We'll never share your email with anyone else.</small>
-        </div>
-        <div>
-            <label class="title-item">Complemento</label>
-            <input formControlName="complemento" class="form-control result-item" aria-describedby="emailHelp" placeholder="Digite o seu Complemento">
-            <small class="form-text text-muted" *ngIf="isFalse">We'll never share your email with anyone else.</small>
-        </div>
+    <div class="botao">
+        <button class="btn btn-primary atualizar" type="submit">Atualizar dados</button>
     </div>
-    <div class="primary result-item-black">
-        <div>
-            <label class="title-item">Bairro</label>
-            <input formControlName="bairro" class="form-control result-item" aria-describedby="emailHelp" placeholder="Digite o nome do seu Bairro">
-            <small class="form-text text-muted" *ngIf="isFalse">We'll never share your email with anyone else.</small>
-        </div>
-        <div>
-            <label class="title-item">Cidade</label>
-            <input formControlName="cidade" class="form-control result-item" aria-describedby="emailHelp" placeholder="Digite o nome da sua Cidade">
-            <small class="form-text text-muted" *ngIf="isFalse">We'll never share your email with anyone else.</small>
-        </div>
-        <div>
-            <label class="title-item">Estado</label>
-            <input formControlName="estado" class="form-control result-item" aria-describedby="emailHelp" placeholder="Digite o seu Estado">
-            <small class="form-text text-muted" *ngIf="isFalse">We'll never share your email with anyone else.</small>
-        </div>
-    </div>
-    <button type="submit"></button>
 </form>

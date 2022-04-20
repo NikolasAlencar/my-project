@@ -11,7 +11,6 @@ export class FactoryService {
 
   public url_api: string = 'http://localhost:3000';
 
-  //Posso reduzir todas essas chamadas a uma só.
   async obtemClienteByLogin(login: string){
     const retorno$ = this.http.get(`${this.url_api}/users?usuario=${login}`)
     return await lastValueFrom(retorno$)
@@ -50,6 +49,12 @@ export class FactoryService {
 
   async createUser(user: string){
     const retorno$ = this.http.post(`${this.url_api}/users`, user)
+    return await lastValueFrom(retorno$)
+    .catch(error => console.log(error))
+  }
+
+  async updateClient(user: any){
+    const retorno$ = this.http.put(`${this.url_api}/clientes/${user.id}`, user)
     return await lastValueFrom(retorno$)
     .catch(error => console.log(error))
   }

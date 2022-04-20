@@ -209,9 +209,9 @@
       "endereco": {
         "cep": "04.910-331",
         "logradouro": "AC Marcelino Barski",
-        "bairro": "JD Sabara",
-        "cidade": "Porto Alegre",
         "numero": "226",
+        "cidade": "Porto Alegre",
+        "bairro": "JD Sabara",
         "complemento": "",
         "estado": "RS"
       },

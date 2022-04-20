@@ -7,6 +7,7 @@ import { EnviaMensagemService } from './envia-mensagem.service';
 import { FactoryService } from './factory.service';
 import { NavigateService } from './navigate.service';
 import { randomNum } from 'src/assets/util/randomNum';
+import { separaNome } from 'src/assets/util/separaNome';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +40,7 @@ export class TelaInicioService {
   private count: number = 0;
   
   //autenticação
-  public autenticado: boolean = false;
+  public autenticado: boolean = true;
 
   //Parte de abrir e fechar o header
   private opcoesAbertas = new Subject<boolean>();
@@ -103,7 +104,7 @@ export class TelaInicioService {
       // pega o cliente de acordo com o cpf
       this.factoryService.obtemClienteByCpf(cpf)
           .then(cliente => {
-            this.clienteConsultado = { ...cliente }
+            this.clienteConsultado = { ...cliente }           
             if(this.clienteConsultado[0] === undefined){
               this.alertService.showAlertInfo(`O cpf ${cpf} está incorreto ou não existe!`)
               return
@@ -128,7 +129,7 @@ export class TelaInicioService {
       // pega o cliente de acordo com o cpf
       this.factoryService.obtemClienteByAgenciaEConta(conta)
           .then(cliente => {
-            this.clienteConsultado = { ...cliente }
+            this.clienteConsultado = { ...cliente }           
             if(this.clienteConsultado[0] === undefined){
               this.alertService.showAlertInfo(`Agência ${agencia} ou Conta ${conta} incorretas ou não existem!`)
               return
@@ -151,7 +152,7 @@ export class TelaInicioService {
       // pega o cliente de acordo com o cpf
       this.factoryService.obtemClienteByCelular(celular)
           .then(cliente => {
-            this.clienteConsultado = { ...cliente }
+            this.clienteConsultado = { ...cliente }     
             if(this.clienteConsultado[0] === undefined){
               this.alertService.showAlertInfo(`Número de celular ${celular} incorreto ou não existe!`)
               return
@@ -193,7 +194,14 @@ export class TelaInicioService {
           .catch(erro => console.log(erro))  
   }
 
-  //Depois tem que melhorar essa coisa ridicula
+  updateClient = (user: any) => {
+    const { nome, sobrenome } = separaNome(user.nomeCompleto)
+    delete user.nomeCompleto
+    user.nome = nome
+    user.sobrenome = sobrenome
+    this.factoryService.updateClient(user)
+  }
+
   createUser = (user: any, cod: number) => {
     this.factoryService.obtemClienteByLogin(user.usuario)
       .then(cliente => {
@@ -264,7 +272,7 @@ export class TelaInicioService {
   }
 
   //Posso melhorar essa parte?
-  consultar(opcaoSelecionada: any, valorDigitado: any){
+  consultar(opcaoSelecionada: string, valorDigitado: any){
     switch(opcaoSelecionada){
       case 'Cpf':
         return this.consultarPorCpf(valorDigitado)

@@ -69,6 +69,11 @@ hr{
     flex-direction: column;
 }
 
+.botoes{
+    display: flex;
+    align-items: center;
+}
+
 .reprocessar{
     background: linear-gradient(90deg, #000537 60%, #2d2e62 100%);
     font-weight: 500;
