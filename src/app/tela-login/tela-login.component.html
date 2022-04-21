@@ -8,9 +8,16 @@
             Plataforma para consultas de clientes
         </div>
         <hr>
-        <div class="primary">
-            <input class="form-control input-usuario" [(ngModel)]="user.usuario" type="text" placeholder="Digite seu usuário" aria-label="default input example">
-            <input class="form-control input-usuario last" [(ngModel)]="user.senha" type="password" placeholder="Digite a sua senha" aria-label="default input example">
+        <div class="primary" [formGroup]="formulario" novalidate (ngSubmit)="entrar()">
+            
+            <input formControlName="usuario" class="form-control input-usuario" type="text" placeholder="Digite seu usuário">
+            <small *ngIf="!formulario.get('usuario')?.valid && formulario.get('usuario')?.touched" class="form-text text-danger">Por favor, digite corretamente o seu usuário.</small>
+            <small *ngIf="formulario.get('usuario')?.valid && formulario.get('usuario')?.touched" class="form-text text-success">Ok.</small>
+            
+            <input formControlName="senha" class="form-control input-usuario last" type="password" placeholder="Digite a sua senha">
+            <small *ngIf="!formulario.get('senha')?.valid && formulario.get('senha')?.touched" class="form-text text-danger">Por favor, digite corretamente a sua senha.</small>
+            <small *ngIf="formulario.get('senha')?.valid && formulario.get('senha')?.touched" class="form-text text-success">Ok.</small>
+            
             <spinner-load *ngIf="spinnerLoad"></spinner-load>
             <div class="button" (click)="entrar()">
                 <div class="img">
@@ -25,7 +32,7 @@
                     <img src="../../assets/icons/adicionar-usuario.png" alt="">
                 </div>
                 <div>
-                    <button class="registrar" type="button">Registrar-se</button>
+                    <button class="registrar" type="submit">Registrar-se</button>
                 </div>
             </div>
         </div>

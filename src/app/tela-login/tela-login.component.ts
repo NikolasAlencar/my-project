@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { ActivatedRoute } from '@angular/router';
 import { TelaInicioService } from 'src/app/services/tela-inicio.service';
@@ -15,20 +16,24 @@ export class TelaLoginComponent implements OnInit {
               private route: ActivatedRoute, 
               private _bottomSheet: MatBottomSheet) { }
 
-  private urlAtual = this.route.snapshot.url.join('');
+  public formulario: FormGroup = new FormGroup({
+    'usuario': new FormControl(null ,[Validators.required, Validators.minLength(7), Validators.maxLength(20)]),
+    'senha': new FormControl(null ,[Validators.required, Validators.minLength(7), Validators.maxLength(20)])
+  })
 
-  public user: any = {
-    usuario: '',
-    senha: '',
-  }
+  private urlAtual = this.route.snapshot.url.join('');
 
   public spinnerLoad: boolean = false;
 
   entrar = () => {
-    this.spinnerLoad = true
     try{
-      this.telaInicioService.user = this.user   
-      this.telaInicioService.entrar(this.user.usuario, this.user.senha); 
+      if(this.formulario.valid === false){
+        this.formulario.markAllAsTouched()
+      }else{
+        this.spinnerLoad = true
+        this.telaInicioService.user = this.formulario.value.usuario  
+        this.telaInicioService.entrar(this.formulario.value.usuario, this.formulario.value.senha); 
+      }
     }catch(erro){
       console.log('Erro: ' + erro);
     }finally{
@@ -43,6 +48,7 @@ export class TelaLoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.formulario.value)
     this.telaInicioService.verificaHasHeader(false)
     this.telaInicioService.adicionaHistoria(this.urlAtual)
     this.telaInicioService.autenticado = false

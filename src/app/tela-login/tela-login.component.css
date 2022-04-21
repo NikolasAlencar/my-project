@@ -75,6 +75,14 @@ hr{
     margin-bottom: 15px;
 }
 
+input.ng-invalid.ng-touched{
+    border-color: red !important;
+}
+
+input.ng-valid.ng-touched{
+    border-color: green !important;
+}
+
 .button{
     display: flex;
     flex-direction: row;
