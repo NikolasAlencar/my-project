@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { TelaInicioService } from 'src/app/services/tela-inicio.service';
+import { juntaNome } from 'src/assets/util/juntaNome'
 
 @Component({
   selector: 'app-dados-pessoais',
@@ -41,10 +43,17 @@ export class DadosPessoaisComponent implements OnInit {
       this.telaInicioService.updateClient(this.clienteConsultado)
     }
   }
-  
 
   constructor(public telaInicioService: TelaInicioService) { }
 
-  ngOnInit(): void { console.log(this.formulario) }
+  /* função de att a home
+    this.clienteConsultado = this.telaInicioService.clienteConsultado[0]
+    const nomeCompleto = juntaNome(this.clienteConsultado.nome, this.clienteConsultado.sobrenome)
+    Object.assign(this.clienteConsultado, {nomeCompleto})
+    this.formulario.patchValue(this.clienteConsultado)
+    this.formulario.updateValueAndValidity();
+  */
+
+  ngOnInit(): void { }
 
 }
