@@ -21,6 +21,17 @@
     font-size: 20px;
 }
 
+.button{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+img{
+    height: 20px;
+    width: 20px;
+}
+
 .option-sair{
     display: flex;
     align-items: center;
@@ -75,16 +86,16 @@ img{
     display: flex;
     align-items: center;
     margin-bottom: 15px;
-    margin-right: 5px;
 }
 
 .registrar{
     width: 100%;
-    background: linear-gradient(90deg, #000537 60%, #2d2e62 100%);
-    margin-top: 25px;
-    font-weight: 500;
+    background: white;
+    color:  rgba(0, 0, 0, 0.38);
+    border: none;
     font-size: 14px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    margin-top: 20px;
 }
 
 .secondary{

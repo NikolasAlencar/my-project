@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { FormBuilder, Validators } from '@angular/forms';
 import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 import { juntaNome } from 'src/assets/util/juntaNome'
 
@@ -11,22 +10,30 @@ import { juntaNome } from 'src/assets/util/juntaNome'
 })
 export class DadosPessoaisComponent implements OnInit {
 
+  constructor(public telaInicioService: TelaInicioService,
+              public fb: FormBuilder) { 
+
+              this.telaInicioService.updateDataHome$.subscribe(data => {
+                this.atualizaDados(data)
+              })
+            }
+
   public clienteConsultado: any = this.telaInicioService.clienteConsultado[0];
 
   
-  public formulario: FormGroup = new FormGroup({
-    'nomeCompleto': new FormControl(this.clienteConsultado.nome + ' ' + this.clienteConsultado.sobrenome, [Validators.required, Validators.minLength(20), Validators.maxLength(70)]),
-    'cpf': new FormControl(this.clienteConsultado.cpf, [Validators.required, Validators.minLength(11), Validators.maxLength(14)]),
-    'email': new FormControl(this.clienteConsultado.email, [Validators.required, Validators.minLength(20), Validators.maxLength(50)]),
-    'nomeDaMae': new FormControl(this.clienteConsultado.nomeDaMae, [Validators.required, Validators.minLength(15), Validators.maxLength(100)]),
-    'endereco': new FormGroup({
-      'cep': new FormControl(this.clienteConsultado.endereco.cep, [Validators.required, Validators.minLength(7), Validators.maxLength(15)]),
-      'logradouro': new FormControl(this.clienteConsultado.endereco.logradouro, [Validators.required, Validators.minLength(2), Validators.maxLength(20)]),
-      'numero': new FormControl(this.clienteConsultado.endereco.numero, [Validators.required, Validators.minLength(1), Validators.maxLength(7)]),
-      'cidade': new FormControl(this.clienteConsultado.endereco.cidade, [Validators.required, Validators.minLength(2), Validators.maxLength(15)]),
-      'bairro': new FormControl(this.clienteConsultado.endereco.bairro, [Validators.required, Validators.minLength(5), Validators.maxLength(30)]),
-      'complemento': new FormControl(this.clienteConsultado.endereco.complemento, [Validators.maxLength(30)]),
-      'estado': new FormControl(this.clienteConsultado.endereco.estado, [Validators.required, Validators.minLength(2), Validators.maxLength(2)])
+  public formulario = this.fb.group({
+    'nomeCompleto': [this.clienteConsultado.nome + ' ' + this.clienteConsultado.sobrenome, [Validators.required, Validators.minLength(20), Validators.maxLength(70)]],
+    'cpf': [this.clienteConsultado.cpf, [Validators.required, Validators.minLength(11), Validators.maxLength(14)]],
+    'email': [this.clienteConsultado.email, [Validators.required, Validators.minLength(20), Validators.maxLength(50)]],
+    'nomeDaMae': [this.clienteConsultado.nomeDaMae, [Validators.required, Validators.minLength(15), Validators.maxLength(100)]],
+    'endereco': this.fb.group({
+      'cep': [this.clienteConsultado.endereco.cep, [Validators.required, Validators.minLength(7), Validators.maxLength(15)]],
+      'logradouro': [this.clienteConsultado.endereco.logradouro, [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
+      'numero': [this.clienteConsultado.endereco.numero, [Validators.required, Validators.minLength(1), Validators.maxLength(7)]],
+      'cidade': [this.clienteConsultado.endereco.cidade, [Validators.required, Validators.minLength(2), Validators.maxLength(15)]],
+      'bairro': [this.clienteConsultado.endereco.bairro, [Validators.required, Validators.minLength(5), Validators.maxLength(30)]],
+      'complemento': [this.clienteConsultado.endereco.complemento, [Validators.maxLength(30)]],
+      'estado': [this.clienteConsultado.endereco.estado, [Validators.required, Validators.minLength(2), Validators.maxLength(2)]]
     }),
   })
   
@@ -44,15 +51,13 @@ export class DadosPessoaisComponent implements OnInit {
     }
   }
 
-  constructor(public telaInicioService: TelaInicioService) { }
-
-  /* função de att a home
-    this.clienteConsultado = this.telaInicioService.clienteConsultado[0]
+  public atualizaDados(dados: any){
+    this.clienteConsultado = dados
     const nomeCompleto = juntaNome(this.clienteConsultado.nome, this.clienteConsultado.sobrenome)
     Object.assign(this.clienteConsultado, {nomeCompleto})
     this.formulario.patchValue(this.clienteConsultado)
     this.formulario.updateValueAndValidity();
-  */
+  } 
 
   ngOnInit(): void { }
 

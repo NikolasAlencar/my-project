@@ -2,39 +2,40 @@
     <div class="principal">
         <div class="title">
             Backoffice Wallet
-            <img src="../../assets/img/angular.png" alt="">
+            <img src="../../assets/img/angular.png">
         </div>
         <div class="subtitle">
             Plataforma para consultas de clientes
         </div>
         <hr>
-        <div class="primary" [formGroup]="formulario" novalidate (ngSubmit)="entrar()">
-            
-            <input formControlName="usuario" class="form-control input-usuario" type="text" placeholder="Digite seu usuário">
-            <small *ngIf="!formulario.get('usuario')?.valid && formulario.get('usuario')?.touched" class="form-text text-danger">Por favor, digite corretamente o seu usuário.</small>
-            <small *ngIf="formulario.get('usuario')?.valid && formulario.get('usuario')?.touched" class="form-text text-success">Ok.</small>
-            
-            <input formControlName="senha" class="form-control input-usuario last" type="password" placeholder="Digite a sua senha">
-            <small *ngIf="!formulario.get('senha')?.valid && formulario.get('senha')?.touched" class="form-text text-danger">Por favor, digite corretamente a sua senha.</small>
-            <small *ngIf="formulario.get('senha')?.valid && formulario.get('senha')?.touched" class="form-text text-success">Ok.</small>
-            
-            <spinner-load *ngIf="spinnerLoad"></spinner-load>
-            <div class="button" (click)="entrar()">
-                <div class="img">
-                    <img src="../../assets/img/cadeado.png" alt="">
+        <form [formGroup]="login" novalidate (ngSubmit)="entrar()">
+            <div class="primary">
+                <input formControlName="usuario" class="form-control input-usuario" placeholder="Digite seu usuário">
+                <small *ngIf="!login.get('usuario')?.valid && login.get('usuario')?.touched" class="form-text text-danger">Por favor, digite o seu usuário.</small>
+                <small *ngIf="login.get('usuario')?.valid && login.get('usuario')?.touched" class="form-text text-success">Ok.</small>
+                
+                <input formControlName="senha" class="form-control input-usuario last" type="password" placeholder="Digite a sua senha">
+                <small *ngIf="!login.get('senha')?.valid && login.get('senha')?.touched" class="form-text text-danger">Por favor, digite a sua senha.</small>
+                <small *ngIf="login.get('senha')?.valid && login.get('senha')?.touched" class="form-text text-success">Ok.</small>
+
+                <spinner-load *ngIf="spinnerLoad"></spinner-load>
+                <div class="button">
+                    <div class="img">
+                        <img src="../../assets/img/cadeado.png">
+                    </div>
+                    <div (click)="entrar()">
+                        <button class="entrar" type="submit">Entrar</button>
+                    </div>
                 </div>
-                <div>
-                    <button class="pesquisar" type="button">Entrar</button>
+                <div class="button" (click)="openBottomSheet()">
+                    <div class="img">
+                        <img src="../../assets/icons/adicionar-usuario.png">
+                    </div>
+                    <div>
+                        <button class="registrar" type="button">Registrar-se</button>
+                    </div>
                 </div>
             </div>
-            <div class="button" (click)="openBottomSheet()">
-                <div class="img">
-                    <img src="../../assets/icons/adicionar-usuario.png" alt="">
-                </div>
-                <div>
-                    <button class="registrar" type="submit">Registrar-se</button>
-                </div>
-            </div>
-        </div>
+        </form>
     </div>
 </div>

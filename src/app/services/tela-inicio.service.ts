@@ -72,6 +72,14 @@ export class TelaInicioService {
   }
   //Parte de exibir ou não o input de registro
 
+  //Parte de atualizar os dados da home
+  private updateDataHome = new Subject();
+  updateDataHome$ = this.updateDataHome.asObservable()
+  updateData(data: any){
+    this.updateDataHome.next(data)
+  }
+  //Parte de atualizar os dados da home
+
   entrar = (usuario: string, senha: string) => {
     // pega o cliente de acordo com o login
     this.factoryService.obtemClienteByLogin(usuario)
@@ -182,6 +190,9 @@ export class TelaInicioService {
             }
             if (this.autenticateService.validarId(id) && 
                 this.autenticateService.autenticaId(this.clienteConsultado, id) === true){
+                
+                // dispara um evento enviando os dados do cliente consultado
+                this.updateData(this.clienteConsultado[0])
 
               // navega pra tela home
               setTimeout(() => {
