@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ConsultarService } from 'src/app/services/consultar.service';
+import { SubscriberService } from 'src/app/services/subscriber.service';
 import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 import { juntaNome } from 'src/assets/util/juntaNome'
 
@@ -10,15 +12,17 @@ import { juntaNome } from 'src/assets/util/juntaNome'
 })
 export class DadosPessoaisComponent implements OnInit {
 
-  constructor(public telaInicioService: TelaInicioService,
-              public fb: FormBuilder) { 
+  constructor(private telaInicioService: TelaInicioService,
+              private fb: FormBuilder,
+              private consultarService: ConsultarService,
+              private subscriberService: SubscriberService) {
 
-              this.telaInicioService.updateDataHome$.subscribe(data => {
-                this.atualizaDados(data)
-              })
-            }
+                this.subscriberService.updateDataHome$.subscribe(data => {
+                  this.atualizaDados(data)
+                })
+              }
 
-  public clienteConsultado: any = this.telaInicioService.clienteConsultado[0];
+  public clienteConsultado: any = this.consultarService.clienteConsultado[0];
 
   
   public formulario = this.fb.group({
@@ -60,5 +64,4 @@ export class DadosPessoaisComponent implements OnInit {
   } 
 
   ngOnInit(): void { }
-
 }

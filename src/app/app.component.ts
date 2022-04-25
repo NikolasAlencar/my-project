@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
-import { TelaInicioService } from 'src/app/services/tela-inicio.service';
+import { SubscriberService } from './services/subscriber.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [TelaInicioService]
+  providers: []
 })
 export class AppComponent {
 
-  constructor(private telaInicioService: TelaInicioService) { 
-    this.telaInicioService.aberto$.subscribe(abrir => {
+  constructor(private subscriberService: SubscriberService) { 
+    this.subscriberService.aberto$.subscribe(abrir => {
       this.opcoesHeaderAbertas = abrir
     });
-    this.telaInicioService.hasHeader$.subscribe(hasHeader => {
+    this.subscriberService.hasHeader$.subscribe(hasHeader => {
       this.hasHeader = hasHeader
     });
   }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 import { AlertService } from '../services/alert.service';
+import { LoginService } from '../services/login.service';
+import { SubscriberService } from '../services/subscriber.service';
 
 @Component({
   selector: 'app-tela-consulta',
@@ -10,11 +12,13 @@ import { AlertService } from '../services/alert.service';
 })
 export class TelaConsultaComponent implements OnInit {
   
-  constructor(private telaInicioService: TelaInicioService, 
+  constructor(private telaInicioService: TelaInicioService,
+              private loginService: LoginService,
+              private subscriberService: SubscriberService, 
               private route: ActivatedRoute,
               private alertService: AlertService) { 
 
-    this.telaInicioService.hasHeader$.subscribe(hasHeader => {
+    this.subscriberService.hasHeader$.subscribe(hasHeader => {
       this.hasHeader = hasHeader
     });
   }
@@ -44,11 +48,11 @@ export class TelaConsultaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(this.telaInicioService.autenticado === false){
+    if(this.loginService.autenticado === false){
       this.alertService.showAlertWarning('Você não está logado!')
       this.telaInicioService.navegarParaLogin()     
     }
-    this.telaInicioService.verificaHasHeader(this.hasHeader = true)
+    this.subscriberService.verificaHasHeader(this.hasHeader = true)
     this.telaInicioService.adicionaHistoria(this.urlAtual)
   }
 }

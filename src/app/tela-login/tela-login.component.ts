@@ -4,6 +4,9 @@ import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { ActivatedRoute } from '@angular/router';
 import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 import { BottomSheetComponent } from '../components/bottom-sheet/bottom-sheet.component';
+import { LoginService } from '../services/login.service';
+import { RegisterService } from '../services/register.service';
+import { SubscriberService } from '../services/subscriber.service';
 
 @Component({
   selector: 'app-tela-login',
@@ -12,10 +15,13 @@ import { BottomSheetComponent } from '../components/bottom-sheet/bottom-sheet.co
 })
 export class TelaLoginComponent implements OnInit {
 
-  constructor(private telaInicioService: TelaInicioService, 
+  constructor(private telaInicioService: TelaInicioService,
+              private registerService: RegisterService, 
+              private loginService: LoginService,
               private route: ActivatedRoute, 
               private _bottomSheet: MatBottomSheet,
-              private fb: FormBuilder) { }
+              private fb: FormBuilder,
+              private subscriberService: SubscriberService) { }
               
     
   public login = this.fb.group({
@@ -34,8 +40,8 @@ export class TelaLoginComponent implements OnInit {
         console.log(this.login)
         this.login.markAsUntouched()
         this.spinnerLoad = true
-        this.telaInicioService.user = this.login.value.usuario  
-        this.telaInicioService.entrar(this.login.value.usuario, this.login.value.senha); 
+        this.loginService.user = this.login.value.usuario  
+        this.loginService.entrar(this.login.value.usuario, this.login.value.senha); 
       }
     }catch(erro){
       console.log('Erro: ' + erro);
@@ -51,9 +57,9 @@ export class TelaLoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.telaInicioService.verificaHasHeader(false)
+    this.subscriberService.verificaHasHeader(false)
     this.telaInicioService.adicionaHistoria(this.urlAtual)
-    this.telaInicioService.autenticado = false
-    this.telaInicioService.success = false
+    this.loginService.autenticado = false
+    this.registerService.success = false
   }
 }

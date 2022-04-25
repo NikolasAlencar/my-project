@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
-import { AlertService } from 'src/app/services/alert.service';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { RegisterService } from 'src/app/services/register.service';
+import { SubscriberService } from 'src/app/services/subscriber.service';
 import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 import { User } from 'src/assets/model/User';
 
@@ -11,11 +12,12 @@ import { User } from 'src/assets/model/User';
 })
 export class BottomSheetComponent implements OnInit {
 
-  constructor(private _bottomSheetRef: MatBottomSheetRef<BottomSheetComponent>, 
+  constructor(private registerService: RegisterService,
+              private subscriberService: SubscriberService,
               private _bottomSheet: MatBottomSheet, 
               private telaInicioService: TelaInicioService) {
 
-                this.telaInicioService.exibirInput$.subscribe(exibeInput => {
+                this.subscriberService.exibirInput$.subscribe(exibeInput => {
                   this.exibeInputCod = exibeInput
                 });
               }
@@ -43,8 +45,8 @@ export class BottomSheetComponent implements OnInit {
     }finally{
       setTimeout(() => {
         this.spinnerLoad = false;
-        this.telaInicioService.success === true ? this.closeBottomSheet() : ''
-        this.telaInicioService.success = false;
+        this.registerService.success === true ? this.closeBottomSheet() : ''
+        this.registerService.success = false;
         }, 1500);
     }
   }

@@ -8,7 +8,7 @@ export class EnviaMensagemService {
 
   constructor(private factoryService: FactoryService) {}
 
-  public enviaEmail(destinatario: string, cod: number){
+  public enviaEmailRegister(destinatario: string, cod: number){
     const corpoEmail = {
       to: destinatario,
       subject: "Código de Confirmação - Backoffice Wallet",

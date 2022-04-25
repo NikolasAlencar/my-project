@@ -1,5 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { TelaInicioService } from 'src/app/services/tela-inicio.service';
+import { Component, OnInit } from '@angular/core';
+import { SubscriberService } from 'src/app/services/subscriber.service';
 
 @Component({
   selector: 'app-header-aberto',
@@ -8,14 +8,14 @@ import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 })
 export class HeaderAbertoComponent implements OnInit {
 
-  constructor(private telaInicioService: TelaInicioService) { 
-    this.telaInicioService.aberto$.subscribe(abrir => {
+  constructor(private subscriberService: SubscriberService) { 
+    this.subscriberService.aberto$.subscribe(abrir => {
       this.opcoesHeaderAbertas = abrir
     });
   }
 
   fecharOpcoes(): void{
-    this.telaInicioService.abrirHeader(this.opcoesHeaderAbertas)
+    this.subscriberService.abrirHeader(this.opcoesHeaderAbertas)
   }
 
   opcoesHeaderAbertas: boolean = false;
