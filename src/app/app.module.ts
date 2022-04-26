@@ -27,6 +27,7 @@ import { OptionsCrivoComponent } from './tela-inicio/options-tela-inicio/options
 import { AlertComponent } from './components/alert/alert.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatDialogModule,
     MatBottomSheetModule,
     ReactiveFormsModule,
     ModalModule.forRoot()

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-resumo-cadastral',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResumoCadastralComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
+
+  @ViewChild('verLegenda', { static: true })
+  verLegenda!: TemplateRef<any>
+
+  abrirVerLegenda() {
+    this.dialog.open(this.verLegenda)
+  }
 
   ngOnInit(): void {
   }

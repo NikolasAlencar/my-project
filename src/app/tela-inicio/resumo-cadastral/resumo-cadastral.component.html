@@ -3,39 +3,61 @@
         Resumo cadastral
     </div>
     <div class="secondary">
-    <div class="primeira-coluna">
-        <div class="subtitle">Resumo</div>
-        <div class="lista">
-            <span class="legenda-green"></span>
-            <div class="item-lista">CONTA CRIADA</div>
+        <div class="primeira-coluna">
+            <div class="subtitle">Resumo</div>
+            <div class="lista">
+                <span class="legenda-green"></span>
+                <div class="item-lista">CONTA CRIADA</div>
+            </div>
+            <div class="lista">
+                <span class="legenda-green"></span>
+                <div class="item-lista">CRIVO</div>
+            </div>
+            <div class="lista">
+                <span class="legenda-green"></span>
+                <div class="item-lista">DOCUMENTAÇÃO DISPOSITIVO ANTERIOR (IDWALL)</div>
+            </div>
+            <div class="lista">
+                <span class="legenda-yellow"></span>
+                <div class="item-lista">DOCUMENTAÇÃO DISPOSITIVO ATUAL (IDWALL)</div>
+            </div>
         </div>
-        <div class="lista">
-            <span class="legenda-green"></span>
-            <div class="item-lista">CRIVO</div>
+        <div class="segunda-coluna">
+            <div class="subtitle">Marcas de fraude</div>
+            <div class="lista">
+                <span class="legenda-green"></span>
+                <div class="item-lista">CONTA CRIADA</div>
+            </div>
+            <div class="subtitle">PLD</div>
+            <div class="lista">
+                <span class="legenda-grey"></span>
+                <div class="item-lista">DOCUMENTAÇÃO DISPOSITIVO ATUAL (IDWALL)</div>
+            </div>
         </div>
+        <div class="terceira-coluna">
+            <button class="btn btn-primary ver-legenda" type="button" (click)="abrirVerLegenda()">VER LEGENDA</button>
+        </div>
+    </div>
+</div>
+
+<ng-template #verLegenda>
+    <div class="bottom">
+        <div style="font-weight: 600; margin-top: 5px; margin-bottom: 5px;">Legenda de cores</div>
         <div class="lista">
             <span class="legenda-green"></span>
-            <div class="item-lista">DOCUMENTAÇÃO DISPOSITIVO ANTERIOR (IDWALL)</div>
+            <div class="item-lista">OK</div>
         </div>
         <div class="lista">
             <span class="legenda-yellow"></span>
-            <div class="item-lista">DOCUMENTAÇÃO DISPOSITIVO ATUAL (IDWALL)</div>
+            <div class="item-lista">VER/VER2</div>
         </div>
-    </div>
-    <div class="segunda-coluna">
-        <div class="subtitle">Marcas de fraude</div>
         <div class="lista">
-            <span class="legenda-green"></span>
-            <div class="item-lista">CONTA CRIADA</div>
+            <span class="legenda-red"></span>
+            <div class="item-lista">NOK</div>
         </div>
-        <div class="subtitle">PLD</div>
         <div class="lista">
-            <span class="legenda-gray"></span>
-            <div class="item-lista">DOCUMENTAÇÃO DISPOSITIVO ATUAL (IDWALL)</div>
+            <span class="legenda-grey"></span>
+            <div class="item-lista">NULO</div>
         </div>
     </div>
-    <div class="terceira-coluna">
-        <button class="btn btn-primary ver-legenda" type="button">VER LEGENDA</button>
-    </div>
-</div>
-</div>
+</ng-template>
