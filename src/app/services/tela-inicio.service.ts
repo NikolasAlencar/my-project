@@ -3,6 +3,8 @@ import { NavigateService } from './navigate.service';
 import { ConsultarService } from './consultar.service';
 import { UpdateService } from './update.service';
 import { RegisterService } from './register.service';
+import { retiraEspeciais } from 'src/assets/util/retiraEspeciais';
+import { formalizaCpf } from 'src/assets/util/formalizaCpf';
 
 @Injectable({
   providedIn: 'root'
@@ -74,10 +76,12 @@ export class TelaInicioService {
   consultar(opcaoSelecionada: string, valorDigitado: any){
     switch(opcaoSelecionada){
       case 'Cpf':
+        valorDigitado = formalizaCpf(valorDigitado)
         return this.consultarPorCpf(valorDigitado)
       case 'Agencia':
         return this.consultarPorAgenciaEConta(valorDigitado)
       case 'Celular':
+        valorDigitado = retiraEspeciais(valorDigitado)
         return this.consultarPorCelular(valorDigitado)
       case 'UserId':
         return this.consultarPorid(valorDigitado)
