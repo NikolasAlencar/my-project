@@ -29,6 +29,14 @@ export class OptionsCrivoComponent implements OnInit {
   public status: string = `Aprovado`;
   public codAnalise: string = `0038ep`;
 
+  public reprocessar(): void{
+    console.log('REPROCESSAR')
+  }
+
+  public reprovar(): void{
+    console.log('REPROVAR')
+  }
+
   ngOnInit(): void {
   }
 

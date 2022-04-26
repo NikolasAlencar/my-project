@@ -9,6 +9,10 @@ export class EnviarParaComponent implements OnInit {
 
   constructor() { }
 
+  public enviar(){
+    console.log('ENVIAR')
+  }
+
   ngOnInit(): void {
   }
 

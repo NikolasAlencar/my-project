@@ -11,7 +11,12 @@ import { SubscriberService } from '../services/subscriber.service';
 export class HeaderComponent implements OnInit {
 
   constructor(private telaInicioService: TelaInicioService,
-              private subscriberService: SubscriberService) { }
+              private subscriberService: SubscriberService) { 
+
+                this.subscriberService.aberto$.subscribe(abrirOuFechar => {
+                  this.opcoesHeaderAbertas = abrirOuFechar
+                })
+              }
 
   iconeSair: string = "..//src/assets/img/delete-sign.png";
   iconeLista: string = "..//src/assets/img/list--v1.png";
@@ -28,6 +33,7 @@ export class HeaderComponent implements OnInit {
   }
 
   voltar = () => {
+    this.subscriberService.abrirHeader(false)
     this.telaInicioService.voltar()
   }
 

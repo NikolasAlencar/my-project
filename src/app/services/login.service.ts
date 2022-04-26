@@ -20,7 +20,7 @@ export class LoginService {
   };
 
   //autenticação
-  public autenticado: boolean = true;
+  public autenticado: boolean = false;
 
   entrar = (usuario: string, senha: string) => {
     // pega o cliente de acordo com o login
@@ -44,7 +44,7 @@ export class LoginService {
                 this.navigateService.navegarParaConsulta()
               }, 3000);
           }else{
-              this.alertService.showAlertDanger('Algo deu errado!')
+              this.alertService.showAlertDanger('Algo deu errado!', { class: 'modal-sm'})
           }
         })
         .catch(erro => console.log(erro))

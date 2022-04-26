@@ -20,10 +20,6 @@ export class AppComponent {
 
   public opcoesHeaderAbertas: boolean = false;
   public hasHeader: boolean = false;
-
-  onMudouValor(evento: any){
-    this.opcoesHeaderAbertas = evento;
-  }
   
   ngOnInit(): void {
   }

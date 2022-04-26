@@ -9,6 +9,10 @@ export class ResetSenhaComponent implements OnInit {
 
   constructor() { }
 
+  public resetar(){
+    console.log('RESETAR')
+  }
+
   ngOnInit(): void {
   }
 

@@ -16,17 +16,11 @@ export class TelaConsultaComponent implements OnInit {
               private loginService: LoginService,
               private subscriberService: SubscriberService, 
               private route: ActivatedRoute,
-              private alertService: AlertService) { 
-
-    this.subscriberService.hasHeader$.subscribe(hasHeader => {
-      this.hasHeader = hasHeader
-    });
-  }
+              private alertService: AlertService) {}
 
   public opcaoSelecionada: string = 'UserId';
   public valorDigitado: number | undefined;
   public spinnerLoad: boolean = false;
-  public hasHeader: boolean = false;
 
   private urlAtual = this.route.snapshot.url.join('');
 
@@ -50,9 +44,10 @@ export class TelaConsultaComponent implements OnInit {
   ngOnInit(): void {
     if(this.loginService.autenticado === false){
       this.alertService.showAlertWarning('Você não está logado!')
-      this.telaInicioService.navegarParaLogin()     
+      this.telaInicioService.navegarParaLogin() 
+      return    
     }
-    this.subscriberService.verificaHasHeader(this.hasHeader = true)
+    this.subscriberService.verificaHasHeader(true)
     this.telaInicioService.adicionaHistoria(this.urlAtual)
   }
 }

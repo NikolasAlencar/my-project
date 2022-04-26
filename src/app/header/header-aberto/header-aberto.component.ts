@@ -8,17 +8,11 @@ import { SubscriberService } from 'src/app/services/subscriber.service';
 })
 export class HeaderAbertoComponent implements OnInit {
 
-  constructor(private subscriberService: SubscriberService) { 
-    this.subscriberService.aberto$.subscribe(abrir => {
-      this.opcoesHeaderAbertas = abrir
-    });
-  }
+  constructor(private subscriberService: SubscriberService) { }
 
   fecharOpcoes(): void{
-    this.subscriberService.abrirHeader(this.opcoesHeaderAbertas)
+    this.subscriberService.abrirHeader(false)
   }
-
-  opcoesHeaderAbertas: boolean = false;
 
   ngOnInit(): void {
   }

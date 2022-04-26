@@ -42,11 +42,11 @@ export class RegisterService {
         .then(cliente => {
           this.newUser = { ...cliente }
           if(!this.autenticateService.validarLogin(user.usuario, user.senha) || this.user[0] !== undefined){
-            this.alertService.showAlertInfo(`O usuário ${user.usuario} já está cadastrado ou não é válido. Por favor, escolha outro usuário que possua entre 7 e 20 caracteres e não tenha caracteres especiais.`)
+            this.alertService.showAlertInfo(`O usuário ${user.usuario} já está cadastrado ou não é válido. Por favor, escolha outro usuário que possua entre 7 e 20 caracteres e não tenha caracteres especiais.`, { class: 'modal-xl'})
             return
           }
           if(!this.autenticateService.validarEmail(user.email) || this.newUser[0] !== undefined){
-            this.alertService.showAlertInfo(`O usuário ${user.email} já está cadastrado ou não é válido. Por favor, escolha outro.`)
+            this.alertService.showAlertInfo(`O usuário ${user.email} já está cadastrado ou não é válido. Por favor, escolha outro.`, { class: 'modal-xl'})
             return
           }
           this.subscriberService.hasExibirInput.next(true)
@@ -63,7 +63,7 @@ export class RegisterService {
           })
           .catch(e => console.log(e))
           }else{
-            this.alertService.showAlertDanger('Código inválido!')
+            this.alertService.showAlertDanger('Código inválido!', { class: 'modal-sm'})
           }
         })
       })
