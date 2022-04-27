@@ -9,9 +9,7 @@ export class AutenticateService {
   constructor(private alertService: AlertService) { }
 
   autenticaLogin(user: any, usuario: string, senha: string){
-    return user[0].usuario === usuario && user[0].senha === senha ? 
-    true : 
-    this.alertService.showAlertInfo('O usuário ou senha estão incorretos!')
+    return user[0].usuario === usuario && user[0].senha === senha ? true : false
   }
 
   autenticaCpf(user: any, cpf: string){

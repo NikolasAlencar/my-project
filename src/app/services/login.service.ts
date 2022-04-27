@@ -28,7 +28,7 @@ export class LoginService {
         .then(cliente => {
           this.user = { ...cliente }
           if(this.user[0] === undefined){
-            this.alertService.showAlertInfo(`O usuário ${usuario} está incorreto ou não existe!`)
+            this.alertService.showAlertInfo(`O usuário ${usuario} não existe!`, { class: 'modal-sm'})
             return
           }
         })
@@ -44,9 +44,16 @@ export class LoginService {
                 this.navigateService.navegarParaConsulta()
               }, 3000);
           }else{
-              this.alertService.showAlertDanger('Algo deu errado!', { class: 'modal-sm'})
+            this.alertService.showAlertDanger(`A senha está incorreta!`, { class: 'modal-sm'})
           }
         })
         .catch(erro => console.log(erro))
   }
+
+  isLogged = () => {
+    if(this.autenticado === false){
+      this.alertService.showAlertWarning('Você não está logado!')
+      this.navigateService.navegarParaLogin()    
+    }
+  }  
 }

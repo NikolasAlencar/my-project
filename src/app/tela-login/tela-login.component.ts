@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { ActivatedRoute } from '@angular/router';
-import { ModalOptions } from 'ngx-bootstrap/modal';
 import { TelaInicioService } from 'src/app/services/tela-inicio.service';
 import { BottomSheetComponent } from '../components/bottom-sheet/bottom-sheet.component';
-import { AlertService } from '../services/alert.service';
 import { LoginService } from '../services/login.service';
 import { RegisterService } from '../services/register.service';
 import { SubscriberService } from '../services/subscriber.service';
@@ -23,8 +21,7 @@ export class TelaLoginComponent implements OnInit {
               private route: ActivatedRoute, 
               private _bottomSheet: MatBottomSheet,
               private fb: FormBuilder,
-              private subscriberService: SubscriberService,
-              private alertService: AlertService) { }
+              private subscriberService: SubscriberService) { }
               
     
   public login = this.fb.group({
@@ -42,8 +39,7 @@ export class TelaLoginComponent implements OnInit {
       }else{
         this.login.markAsUntouched()
         this.spinnerLoad = true
-        this.loginService.user = this.login.value.usuario  
-        this.loginService.entrar(this.login.value.usuario, this.login.value.senha); 
+        this.telaInicioService.entrar(this.login.value.usuario, this.login.value.senha); 
       }
     }catch(erro){
       console.log('Erro: ' + erro);
