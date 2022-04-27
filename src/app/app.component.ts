@@ -10,10 +10,10 @@ import { SubscriberService } from './services/subscriber.service';
 export class AppComponent {
 
   constructor(private subscriberService: SubscriberService) { 
-    this.subscriberService.aberto$.subscribe(abrir => {
+    this.subscriberService.opcoesAbertas.subscribe(abrir => {
       this.opcoesHeaderAbertas = abrir
     });
-    this.subscriberService.hasHeader$.subscribe(hasHeader => {
+    this.subscriberService.hasHeader.subscribe(hasHeader => {
       this.hasHeader = hasHeader
     });
   }

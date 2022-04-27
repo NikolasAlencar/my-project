@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   constructor(private telaInicioService: TelaInicioService,
               private subscriberService: SubscriberService) { 
 
-                this.subscriberService.aberto$.subscribe(abrirOuFechar => {
+                this.subscriberService.opcoesAbertas.subscribe(abrirOuFechar => {
                   this.opcoesHeaderAbertas = abrirOuFechar
                 })
               }

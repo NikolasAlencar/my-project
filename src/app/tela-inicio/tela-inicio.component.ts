@@ -16,7 +16,7 @@ export class TelaInicioComponent implements OnInit {
               private subscriberService: SubscriberService, 
               private route: ActivatedRoute,) { 
 
-    this.subscriberService.aberto$.subscribe(abrir => {
+    this.subscriberService.opcoesAbertas.subscribe(abrir => {
       this.opcoesHeaderAbertas = abrir
     });
   }

@@ -10,9 +10,6 @@ export class SubscriberService {
 
   //Parte de abrir e fechar o header
   public opcoesAbertas = new Subject<boolean>();
-  // Observable string streams
-  aberto$ = this.opcoesAbertas.asObservable();
-  // Service message commands
   abrirHeader(abrir: boolean) {
     this.opcoesAbertas.next(abrir);
   }
@@ -20,7 +17,6 @@ export class SubscriberService {
 
   //Parte de ter ou não o header
   public hasHeader = new Subject<boolean>();
-  hasHeader$ = this.hasHeader.asObservable();
   verificaHasHeader(hasHeader: boolean) {
     this.hasHeader.next(hasHeader);
   }
@@ -28,15 +24,13 @@ export class SubscriberService {
 
   //Parte de exibir ou não o input de registro
   public hasExibirInput = new Subject<boolean>();
-  exibirInput$ = this.hasExibirInput.asObservable();
   verificaHasExibirInput(hasExibirInput: boolean) {
     this.hasExibirInput.next(hasExibirInput);
   }
   //Parte de exibir ou não o input de registro
 
   //Parte de atualizar os dados da home
-  private updateDataHome = new Subject();
-  updateDataHome$ = this.updateDataHome.asObservable()
+  public updateDataHome = new Subject();
   updateData(data: any){
     this.updateDataHome.next(data)
   }

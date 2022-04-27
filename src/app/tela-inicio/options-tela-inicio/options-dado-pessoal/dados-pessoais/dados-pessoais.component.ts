@@ -17,7 +17,7 @@ export class DadosPessoaisComponent implements OnInit {
               private consultarService: ConsultarService,
               private subscriberService: SubscriberService) {
 
-                this.subscriberService.updateDataHome$.subscribe(data => {
+                this.subscriberService.updateDataHome.subscribe(data => {
                   this.atualizaDados(data)
                 })
               }

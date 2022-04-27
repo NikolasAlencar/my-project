@@ -13,7 +13,7 @@ export class ContaDigitalComponent implements OnInit {
   constructor(public telaInicioService: TelaInicioService, 
               private consultarService: ConsultarService,
               private subscriberService: SubscriberService) { 
-    this.subscriberService.updateDataHome$.subscribe(data => {
+    this.subscriberService.updateDataHome.subscribe(data => {
       this.clienteConsultado = data
     })
   }

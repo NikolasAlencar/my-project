@@ -17,7 +17,7 @@ export class BottomSheetComponent implements OnInit {
               private _bottomSheet: MatBottomSheet, 
               private telaInicioService: TelaInicioService) {
 
-                this.subscriberService.exibirInput$.subscribe(exibeInput => {
+                this.subscriberService.hasExibirInput.subscribe(exibeInput => {
                   this.exibeInputCod = exibeInput
                 });
               }
