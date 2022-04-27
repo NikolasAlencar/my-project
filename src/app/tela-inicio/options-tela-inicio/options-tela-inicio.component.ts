@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
 import { NavigateService } from 'src/app/services/navigate.service';
 
 @Component({
@@ -8,7 +10,9 @@ import { NavigateService } from 'src/app/services/navigate.service';
 })
 export class OptionsTelaInicioComponent implements OnInit {
 
-  constructor(private navigateService: NavigateService) { }
+  constructor(private navigateService: NavigateService, 
+              private loginService: LoginService, 
+              private outlet: RouterOutlet) { }
 
   public opcoes: Array<any> = [{nome: 'Dados pessoais', id: 1, path: ''},
                         {nome: 'Crivo', id: 2, path: 'crivo'}, 
@@ -28,6 +32,5 @@ export class OptionsTelaInicioComponent implements OnInit {
     this.navigateService.navegarOpcaoSelecionada(path)
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { this.loginService.autenticado === false ? this.outlet.deactivate() : '' }
 }
